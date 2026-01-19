@@ -44,7 +44,7 @@ ZFAdvLead.prototype.zfautm_ini = function (){
           zf_pV = this.zfautm_gC(zf_pN);
       }
     }
-    if ( typeof zf_pV !== "undefined" && zf_pV !== null & zf_pV != "" ) {
+    if ( typeof zf_pV !== "undefined" && zf_pV !== null && zf_pV != "" ) {
       ZFAdvLead.utmPValObj[ zf_pN ] = zf_pV;
     }
   }
