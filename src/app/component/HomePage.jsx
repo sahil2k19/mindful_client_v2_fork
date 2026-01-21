@@ -107,7 +107,7 @@ const HomePage = ({ allSection }) => {
                                 <div className='flex justify-center'>
 
                                     <div className=''>
-                                        <RequestAppointment name={"SCHEDULE CONSULTATION"} />
+                                        <RequestAppointment name={"Book an Appointment"} />
 
                                     </div>
                                 </div>
@@ -382,7 +382,7 @@ const HomePage = ({ allSection }) => {
                             </div>
                             <div className='flex justify-end px-8'>
                                 <div className=''>
-                                    <RequestAppointment name={"SCHEDULE CONSULTATION"} />
+                                    <RequestAppointment name={"Book an Appointment"} />
 
                                 </div>
                             </div>

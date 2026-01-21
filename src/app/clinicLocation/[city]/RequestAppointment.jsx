@@ -289,11 +289,11 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                             ) : (
                                 <div className="flex flex-col">
                                     <h2 className="text-base font-semibold text-gray-900">  
-                                        Request a Callback
+                                        Book an Appointment
                                     </h2>
-                                    <span className="text-sm text-gray-800 italic">
+                                    {/* <span className="text-sm text-gray-800 italic">
                                          Request a callback and speak with us soon
-                                    </span>
+                                    </span> */}
                                 </div>
                             )}
                             <button
@@ -357,7 +357,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                     </div>
                                     
                                     {/* Fallback section */}
-                                    <div className="border-t border-gray-200 bg-gray-50 p-6">
+                                    {/* <div className="border-t border-gray-200 bg-gray-50 p-6">
                                         <p className="text-center text-gray-700 mb-3 text-sm">
                                             {`Couldn't find a time slot that works for you?`}
                                         </p>
@@ -367,7 +367,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                         >
                                             Request a Callback
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </>
                             )}
 
