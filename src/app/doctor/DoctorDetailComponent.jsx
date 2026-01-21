@@ -6,7 +6,7 @@ import RequestAppointment from '../clinicLocation/[city]/RequestAppointment';
 import AboutComponent from './AboutComponent';
 import BackButton from '@/app/component/BackButton';
 import { Container } from '@mui/material';
-
+import TestimonialComponentSlideV2 from '../component/TestimonialComponentSlideV2';
 const TestimonialComponentSlide = dynamic(
   () => import('@/app/component/TestimonialComponentSlide'),
   { ssr: false }
@@ -151,11 +151,13 @@ const DoctorDetailComponent = async ({ doctorId }) => {
 
          {/* Testimonials - Conditionally rendered */}
 {shouldShowAppointmentButton && (
-  <div className="py-8 px-8">
+  <div className="py-8">
     <h1 className="text-3xl text-primary-orange text-center mb-4 font-bold">
       Testimonials
     </h1>
-    <TestimonialComponentSlide doctor={doctorStatic} />
+        <TestimonialComponentSlideV2 doctor={doctorStatic}  smallDevice={true}  />
+
+    {/* <TestimonialComponentSlide doctor={doctorStatic} /> */}
   </div>
 )}
 
