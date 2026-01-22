@@ -41,7 +41,7 @@ const EXCLUDED_PATH_PREFIXES = [
     '/pages/rtms',
     '/ads/rtms',
     '/pages/neurofeedback',
-    '/ads/psychiatrist/general'
+    '/ads/psychiatrist/general/wf'
 ];
 
 const EXCLUDED_FULL_PATHS = [];
