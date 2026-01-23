@@ -354,7 +354,11 @@ useEffect(() => {
 
   const bannerImage = {
     "general": {
-      "psychiatrist": "/ads/ads2/LP/General - Psychiatrist.png",
+      "psychiatrist": {
+        "gk":"/ads/ads2/LP/Psychaitric Consultation.jpeg",
+        "wf":"/ads/ads2/LP/General - Psychiatrist.png",
+        "hb":"/ads/ads2/LP/General - Psychiatrist.png"
+      },
       "psychologist": "/ads/ads2/LP/General - Therapist and Psychologist.png",
       "therapist": "/ads/ads2/LP/General - Therapist and Psychologist.png",
     },
@@ -523,7 +527,7 @@ const [isSticky, setIsSticky] = useState(false);
             <div className="w-full md:w-[40%] flex justify-center md:justify-end order-1 md:order-2">
               <div className="relative w-full   overflow-hidden rounded-xl md:rounded-xl ">
                 <img
-                  src={`${bannerImage[current_condition][expertService] || bannerImage["anxiety"][expertService]}`}
+                  src={`${bannerImage[current_condition][expertService][city]  || bannerImage[current_condition][expertService] || bannerImage["anxiety"][expertService]}`}
                   alt="Illustration of a woman looking upwards, symbolizing hope and guidance"
                   className='w-full h-full object-contain '
                 />
@@ -638,7 +642,7 @@ const [isSticky, setIsSticky] = useState(false);
         </div>
 
 
-        <TestimonialComponentSlideV2 doctor={singleDoctor} setSingleDoctor={setSingleDoctor} smallDevice={true} location={location} doctorArray={doctors.length > 0 ? doctors : []} />
+        <TestimonialComponentSlideV2 loadingDoctor={loadingDoctor} doctor={singleDoctor} setSingleDoctor={setSingleDoctor} smallDevice={true} location={location} doctorArray={doctors.length > 0 ? doctors : []} />
         {/* <TestimonialComponentSlideV2  location={location}/> */}
       </section>
 

@@ -170,6 +170,7 @@ export default function TestimonialComponentSlideV2({
     smallDevice,
     doctor,
     doctorArray,
+    loadingDoctor
     // experts
 }) {
     const pathname = usePathname();
@@ -224,7 +225,7 @@ export default function TestimonialComponentSlideV2({
         setLoading(true);
         let apiUrl = '';
         let requestData = {};
-
+        console.log("doctor array", doctorArray);
         if (doctor) {
             apiUrl = `${process.env.NEXT_PUBLIC_API_URL}testimonials/doctor/${doctor?._id}`;
         } else if (doctorArray && doctorArray.length > 0) {
@@ -256,10 +257,11 @@ export default function TestimonialComponentSlideV2({
         if (["/", "/testingpage/temppage"].includes(pathname)) {
             setTestimonials(staticTestimonials);
         } else {
+            if(loadingDoctor) return
             fetchTestimonials();
         }
         setCurrentSlide(0);
-    }, [pathname, condition, location, doctor, doctorArray]);
+    }, [pathname, condition, location, doctor, doctorArray, loadingDoctor]);
 
     useEffect(() => {
         if (pathname === "/") {
