@@ -356,7 +356,7 @@ useEffect(() => {
     "general": {
       "psychiatrist": {
         "gk":"/ads/ads2/LP/Psychaitric Consultation.jpeg",
-        "wf":"/ads/ads2/LP/General - Psychiatrist.png",
+        "wf":"/ads/ads2/LP/herosectionwf2.jpeg",
         "hb":"/ads/ads2/LP/General - Psychiatrist.png"
       },
       "psychologist": "/ads/ads2/LP/General - Therapist and Psychologist.png",
