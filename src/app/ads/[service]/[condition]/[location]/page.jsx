@@ -33,7 +33,7 @@ ZFAdvLead.prototype.zfautm_sC = function( paramName,path,domain,secure ){
   if ( typeof value !== "undefined" && value !== null ){
     var cookieStr = paramName + "=" + encodeURIComponent( value );
     var exdate=new Date();
-    exdate.setDate(exdate.getDate()+7);
+    exdate.setDate(exdate.getDate()+90);
     cookieStr += "; expires=" + exdate.toGMTString();
     cookieStr += "; path=/";
     if ( domain ) {
@@ -59,7 +59,7 @@ ZFAdvLead.prototype.zfautm_ini = function (){
           zf_pV = this.zfautm_gC(zf_pN);
       }
     }
-    if ( typeof zf_pV !== "undefined" && zf_pV !== null & zf_pV != "" ) {
+    if ( typeof zf_pV !== "undefined" && zf_pV !== null && zf_pV != "" ) {
       ZFAdvLead.utmPValObj[ zf_pN ] = zf_pV;
     }
   }

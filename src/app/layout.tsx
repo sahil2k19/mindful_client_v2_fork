@@ -41,7 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* <title>Mindful TMS</title> */}
         <link rel="icon" href={`/icons/mindLogo.png`} />
 
         {/* Preload important font for better performance */}
@@ -52,51 +51,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
 
-        {/* Load necessary scripts in async or defer mode */}
+        {/* Load Google Ads library */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11458426933"></script>
-        {/* <script defer
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-11458426933');
-            `,
-          }}
-        /> */}
 
-        <script
-          defer
-          dangerouslySetInnerHTML={{
-            __html: `
-      gtag('event', 'conversion', {
-        'send_to': 'AW-11458426933/r31gCM-D0boaELXw5tcq',
-        'value': 1.0,
-        'currency': 'INR'
-      });
-    `,
-          }}
+        {/* Initialize gtag for BOTH Google Ads AND Google Analytics 4 */}
+        <script 
+          dangerouslySetInnerHTML={{ 
+            __html: ` 
+              window.dataLayer = window.dataLayer || []; 
+              function gtag(){dataLayer.push(arguments);} 
+              gtag('js', new Date()); 
+              
+              // Initialize Google Ads 
+              gtag('config', 'AW-11458426933'); 
+              
+              // Initialize Google Analytics 4 
+              gtag('config', 'G-0QBSV5K5FL'); 
+            `, 
+          }} 
         />
 
+        {/* Google Tag Manager */}
         <script async src={`https://www.googletagmanager.com/gtm.js?id=GTM-5HDDPXG`}></script>
+        
+        {/* PageSense (Zoho) */}
         <script defer src="https://cdn-in.pagesense.io/js/rangsonshealthcaresolutionspvtltd/67af7e7b39754527a4a1201d246c8524.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QBSV5K5FL"></script>
-        <script defer
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0QBSV5K5FL');
-            `,
-          }}
-        />
-
 
       </head>
       <body>
         <noscript>
-          <iframe
+           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5HDDPXG"
             height="0"
             width="0"
