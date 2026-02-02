@@ -10,6 +10,7 @@ import CustomRequestForm from '@/components/CustomRequestForm'
 
 
 
+
 const locations = [
     {
         name: "Aster CMI",
@@ -50,6 +51,7 @@ const locations = [
 
 
 
+
 // Pages that should be excluded from showing the booking interface
 const EXCLUDED_PATH_PREFIXES = [
     '/pages/rtms',
@@ -62,7 +64,9 @@ const EXCLUDED_PATH_PREFIXES = [
 
 
 
+
 const EXCLUDED_FULL_PATHS = [];
+
 
 
 
@@ -82,6 +86,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const url = window.location.href;
@@ -90,6 +95,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             setcurrentUrl(url);
         }
     }, []);
+
 
 
 
@@ -112,7 +118,9 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     const showBooking = shouldShowBookingInterface();
+
 
 
 
@@ -133,6 +141,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     const callbackIframeSrc = currentUrl
         ? `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
         : `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&from=website`;
+
 
 
 
@@ -160,6 +169,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     useEffect(() => {
         console.log("externalTrigger", externalTrigger)
         if (externalTrigger !== undefined) {
@@ -170,6 +180,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             }
         }
     }, [externalTrigger]);
+
 
 
 
@@ -190,6 +201,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
         if (requestModal) {
             window.history.pushState(null, '');
             window.addEventListener('popstate', handlePopState);
@@ -199,10 +211,12 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
         return () => {
             window.removeEventListener('popstate', handlePopState);
         };
     }, [requestModal]);
+
 
 
 
@@ -225,8 +239,10 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     const handleChange = (e) => {
         const { name, value } = e.target;
+
 
 
 
@@ -245,6 +261,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -255,10 +272,12 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         toggleRequestModal();
     };
+
 
 
 
@@ -303,9 +322,11 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     const isFormValid = () => {
         return formData.name && formData.phone && formData.location;
     };
+
 
 
 
@@ -325,6 +346,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     useEffect(() => {
         const newWhatsappNumber = locations?.find((location) => {
             return location.location === formData?.location
@@ -334,6 +356,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             whatsapp: newWhatsappNumber,
         }))
     }, [formData?.location]);
+
 
 
 
@@ -358,6 +381,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
     // ✅ Handle location selection
     const handleLocationSelect = (location) => {
         setSelectedLocation(location);
@@ -371,6 +395,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             alert(`Booking for ${location.displayName} will be available soon. Please try another location or request a callback.`);
         }
     };
+
 
 
 
@@ -390,6 +415,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                     Request an Appointment
                 </button>
             }
+
 
 
 
@@ -465,6 +491,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
                         {/* Scrollable Content Area */}
                         <div className="flex-1 overflow-y-auto">
                             {/* ✅ Show location selection screen */}
@@ -509,6 +536,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
+
                             {/* ✅ Show booking form in modal with Zoho Bookings embed URL */}
                             {showBookingForm && selectedLocation && (
                                 <ZohoForm 
@@ -516,6 +544,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                     iframeSrc={getBookingEmbedUrl()}
                                 />
                             )}
+
 
 
 
@@ -532,26 +561,27 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
-                        {/* ✅ Footer with callback button - Only show when booking interface is available */}
+
+                        {/* ✅ Footer with callback link - Only show when booking interface is available */}
                         {showBooking && !showCallbackForm && (
-                            <div className="flex-shrink-0 border-t border-gray-200 bg-gray-50 p-4">
-                                <p className="text-center text-gray-600 text-xs mb-3">
-                                    {showBookingForm ? "Can't find a suitable time?" : showLocationSelection ? "Can't find your location?" : "Prefer to be contacted?"}
+                            <div className="flex-shrink-0 border-t border-gray-200 bg-gray-50 p-4 text-center">
+                                <p className="text-sm text-gray-700">
+                                    {showBookingForm ? "Can't find a suitable time? " : showLocationSelection ? "Can't find your location? " : "Prefer to be contacted? "}
+                                    <button
+                                        onClick={() => {
+                                            setShowBookingForm(false);
+                                            setShowLocationSelection(false);
+                                            setSelectedLocation(null);
+                                            setShowCallbackForm(true);
+                                        }}
+                                        className="text-[#EF6623] hover:text-[#d95a1e] font-semibold underline underline-offset-2 transition-colors inline-flex items-center gap-1"
+                                    >
+                                        Request a callback
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
                                 </p>
-                                <button
-                                    onClick={() => {
-                                        setShowBookingForm(false);
-                                        setShowLocationSelection(false);
-                                        setSelectedLocation(null);
-                                        setShowCallbackForm(true);
-                                    }}
-                                    className="w-full bg-[#EF6623] text-white hover:bg-[#ee8754] hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                    <span>Request a Callback</span>
-                                </button>
                             </div>
                         )}
                     </div>
@@ -560,7 +590,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         </>
     )
 }
-
 
 
 
