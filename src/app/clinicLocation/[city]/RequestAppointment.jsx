@@ -21,7 +21,7 @@ const locations = [
         call: +919663095632,
         params: "Bengaluru-Hebbal",
         displayName: "Hebbal, Bangalore",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/mindfultmsneurocare"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/mindfultmsneurocare"
     },
     {
         name: "Whitefield",
@@ -32,7 +32,7 @@ const locations = [
         call: +919663095632,
         params: "Bengaluru-Whitefield",
         displayName: "Whitefield, Bangalore",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/237416000000594004"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/237416000000594004"
     },
     {
         name: "Greater Kailash 1",
@@ -43,7 +43,7 @@ const locations = [
         call: +919663095632,
         params: "New-Delhi",
         displayName: "Greater Kailash 1, Delhi",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/237416000000594024"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/237416000000594024"
     }
 ];
 
