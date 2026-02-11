@@ -12,23 +12,23 @@ function Footer() {
   const pathname = usePathname();
   const noFooterPaths = ["/ads", '/tests'];
   const shouldHideFooter = noFooterPaths.some((path) => pathname.startsWith(path));
-     const [queryString, setQueryString] = useState("");
-      const [currentUrl, setcurrentUrl] = useState("");
-  
-      useEffect(() => {
-          if (typeof window !== 'undefined') {
-              const url = typeof window !== "undefined" ? window.location.href : "";
-              setQueryString(window.location.search);
-              setcurrentUrl(url);
-          }
-      }, []);
+  const [queryString, setQueryString] = useState("");
+  const [currentUrl, setcurrentUrl] = useState("");
 
-// console.log(`https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=hebbal&from=website`)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = typeof window !== "undefined" ? window.location.href : "";
+      setQueryString(window.location.search);
+      setcurrentUrl(url);
+    }
+  }, []);
+
+  // console.log(`https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=hebbal&from=website`)
   const locations = [
     {
       name: "Aster CMI",
       // iframeSrc: "https://forms.zohopublic.in/nikhilmindf1/form/ScheduleaConsultationHebbalBangalore/formperma/RqE9YNKl1bYNAryFgvxELvCqhXm8xkK0jJYOcjk0Htc",
-      iframeSrc:`https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=hebbal&from=website`,
+      iframeSrc: `https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=hebbal&from=website`,
       area: "Bangalore North",
       bgColor: "bg-orange-500",
       location: "Banglore Aster CMI",
@@ -41,7 +41,7 @@ function Footer() {
     {
       name: "Whitefield",
       // iframeSrc: "https://forms.zohopublic.in/nikhilmindf1/form/ScheduleaConsultationWhitefieldBangalore/formperma/n7UqoYroFADQJ-HqsYjiuY41_3pJKGRkwARxLp1vVDQ",
-      iframeSrc:`https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=whitefield&from=website`,
+      iframeSrc: `https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=whitefield&from=website`,
       area: "Bangalore East ",
       bgColor: "bg-[#F8A51C]",
       location: "Banglore Whitefield",
@@ -54,7 +54,7 @@ function Footer() {
     {
       name: "Greater Kailash 1",
       // iframeSrc: "https://forms.zohopublic.in/nikhilmindf1/form/ScheduleaConsultationLPGK/formperma/ZSzbxKx_hXcJlDGEB0w3ryiWi8oK-NfameMJkXw7mi4",
-      iframeSrc:`https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=greaterkailash&from=website`,
+      iframeSrc: `https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=greaterkailash&from=website`,
       area: "Delhi",
       bgColor: "bg-orange-500",
       redirect: "New-Delhi",
@@ -101,78 +101,140 @@ function Footer() {
   );
 
   return (
-    <footer className="py-6 footer-gradient">
+    <footer className="py-10 footer-gradient">
+      {/* Logo */}
+      <div className="flex justify-center mb-8">
+        <img
+          className="h-[129px] w-[185px]"
+          alt="Footer Logo"
+          src="/home/footerLogo.svg"
+          loading="lazy"
+        />
+      </div>
 
+      {/* Multi-column Links Section */}
+      {!shouldHideFooter && (
+        <div className="max-w-7xl mx-auto px-6 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+            {/* Locations Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Locations</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/clinicLocation/New-Delhi" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Greater Kailash, New Delhi
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/clinicLocation/Bengaluru-Whitefield" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Whitefield, Bengaluru
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/clinicLocation/Bengaluru-Hebbal" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Hebbal, Bengaluru
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-      <div className="hidden md:block">
-        <div className="flex justify-center">
-          <img
-            className="h-[129px] w-[185px]"
-            alt="Footer Logo"
-            src="/home/footerLogo.svg"
-            loading="lazy"
-          />
-        </div>
+            {/* Services Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/services/therapy" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Therapy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/psychiatry" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Psychiatry
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/clinicalAssessment" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Clinical Assessments
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pages/tms" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    rTMS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pages/neurofeedback" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Neurofeedback
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-        {!shouldHideFooter && (
-          <div className="mb-8 p-4 flex items-center overflow-x-scroll gap-4 md:justify-center">
-            {locations.map((location, index) => (
-              <LocationCard key={index} location={location} />
-            ))}
+            {/* Our Experts Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Our Experts</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/pages/ourExpert" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Meet Our Experts
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Careers Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Careers</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/careers" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Careers
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Self Assessment Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Self Assessment</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/assesment" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Take Assessment
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-        )}
-      </div>
-
-      <div className="md:hidden">
-        <div className="flex justify-center">
-          <img
-            className="h-[129px] w-[185px]"
-            alt="Footer Logo"
-            src="/home/footerLogo.svg"
-            loading="lazy"
-          />
         </div>
+      )}
 
-        {!shouldHideFooter && (
-          <div className="mb-8 p-4 flex items-center overflow-x-scroll gap-4 md:justify-center">
-            {locations.map((location, index) => (
-              <LocationCard key={index} location={location} />
-            ))}
-          </div>
-        )}
-      </div>
-     {
-      !shouldHideFooter && (
-        <div className="flex justify-center mb-3 text-start">
-        <p className="text-primary-orange text-sm  px-2">
-          For queries related to careers <Link href="/careers">
-            < span className="underline"> Click here </span> to  Explore Career Opportunities
-          </Link>
+      {/* Career Link */}
+      {!shouldHideFooter && (
+        <div className="flex justify-center mb-3 text-center px-4">
+          <p className="text-primary-orange text-sm">
+            For queries related to careers{' '}
+            <Link href="/careers" className="underline hover:text-orange-600 transition-colors">
+              Click here
+            </Link>{' '}
+            to Explore Career Opportunities
+          </p>
+        </div>
+      )}
 
+      {/* Copyright */}
+      <div className="flex justify-center mb-3 text-center px-4">
+        <p className="text-primary-orange text-sm">
+          Copyright © 2026 MindfulTMS | All rights reserved. Developed and Maintained by{' '}
+          {!shouldHideFooter ? (
+            <Link className="underline hover:text-orange-600 transition-colors" href="https://insideoutconsult.com/">
+              InsideOut
+            </Link>
+          ) : (
+            'InsideOut'
+          )}
         </p>
       </div>
-      )
-     }
-
-     {
-      !shouldHideFooter && (
-        <div className="flex justify-center mb-3 text-start">
-        <p className="text-primary-orange text-sm  px-2">
-          Copyright © 2024 MindfulTMS | All rights reserved. Developed and Maintained by <Link className="underline" href="https://insideoutconsult.com/">InsideOut</Link>
-        </p>
-      </div>
-      )
-     }
-
-     {
-      shouldHideFooter && (
-        <div className="flex justify-center mb-3 text-start">
-        <p className="text-primary-orange text-sm  px-2">
-          Copyright © 2024 MindfulTMS | All rights reserved. Developed and Maintained by InsideOut
-        </p>
-      </div>
-      )
-     }
     </footer>
   );
 }

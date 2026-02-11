@@ -30,7 +30,7 @@ const links = [
 function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  
+
   const [open, setOpen] = useState(false);
   const [activeParent, setActiveParent] = useState(null);
   const [drawerAnchor, setDrawerAnchor] = useState("left");
@@ -107,7 +107,7 @@ function Navbar() {
               SELF ASSESSMENT
             </button>
             <RequestAppointment name={'SCHEDULE CONSULTATION'} customStyle="bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg w-full py-3 mb-4 text-white text-sm font-semibold" />
-            <RequestAppointment name={'CONTACT US'} customStyle="bg-[#F8A51C] hover:bg-yellow-500 active:bg-yellow-600 rounded-lg w-full py-3 text-white text-sm font-semibold" />
+            <RequestAppointment name={'BOOK NOW'} customStyle="bg-[#F8A51C] hover:bg-yellow-500 active:bg-yellow-600 rounded-lg w-full py-3 text-white text-sm font-semibold" />
           </div>
         </div>
       </Drawer>
@@ -183,7 +183,7 @@ function Navbar() {
               ))}
             </div>
             <div>
-              <RequestAppointment name={"CONTACT US"} customStyle="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 font-semibold hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" />
+              <RequestAppointment name={"BOOK NOW"} customStyle="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 font-semibold hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" />
             </div>
           </div>
         </div>

@@ -174,12 +174,25 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         console.log("externalTrigger", externalTrigger)
         if (externalTrigger !== undefined) {
             setRequestModal(externalTrigger);
-            // ✅ ADDED: Show location selection immediately when modal opens
+            // ✅ UPDATED: Auto-select location based on city param if available
             if (externalTrigger === true) {
-                setShowLocationSelection(true);
+                if (city && currentLocation) {
+                    // If city is provided and location is found, auto-select it
+                    setSelectedLocation(currentLocation);
+                    if (currentLocation.bookingUrl && currentLocation.bookingUrl !== "") {
+                        setShowBookingForm(true);
+                        setShowLocationSelection(false);
+                    } else {
+                        // If no booking URL, show location selection
+                        setShowLocationSelection(true);
+                    }
+                } else {
+                    // If no city provided, show location selection
+                    setShowLocationSelection(true);
+                }
             }
         }
-    }, [externalTrigger]);
+    }, [externalTrigger, city, currentLocation]);
 
 
 
@@ -259,9 +272,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
 
-
-
-
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -284,17 +294,33 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
 
     const [phoneError, setPhoneError] = useState("");
-    
-    // ✅ UPDATED: Open location selection by default
+
+    // ✅ UPDATED: Auto-select location based on city param
     const toggleRequestModal = () => {
         const newState = !requestModal;
         setRequestModal(prev => !prev);
         
         if (newState) {
-            // ✅ ADDED: When opening modal, show location selection
-            setShowLocationSelection(true);
-            setShowCallbackForm(false);
-            setShowBookingForm(false);
+            // ✅ UPDATED: Auto-select location based on city param if available
+            if (city && currentLocation) {
+                // If city is provided and location is found, auto-select it
+                setSelectedLocation(currentLocation);
+                if (currentLocation.bookingUrl && currentLocation.bookingUrl !== "") {
+                    setShowBookingForm(true);
+                    setShowLocationSelection(false);
+                    setShowCallbackForm(false);
+                } else {
+                    // If no booking URL, show location selection
+                    setShowLocationSelection(true);
+                    setShowCallbackForm(false);
+                    setShowBookingForm(false);
+                }
+            } else {
+                // If no city provided, show location selection
+                setShowLocationSelection(true);
+                setShowCallbackForm(false);
+                setShowBookingForm(false);
+            }
         } else {
             // When closing, reset everything
             setShowCallbackForm(false);
@@ -404,16 +430,16 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     return (
         <>
             {
-                name ? 
-                <button onClick={toggleRequestModal} className={`${customStyle ? customStyle : "bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 text-white text-sm font-semibold"} `}>
-                    {icon ? <img src={icon} alt="icon" className={`${iconSize}`} /> : ""}
-                    {name}
-                </button>
-                : 
-                <button onClick={toggleRequestModal} className='text-xl w-full active:bg-orange-400 active:shadow-lg bg-primary-orange text-white px-6 py-2 rounded-lg font-semibold text-center'>
-                    {icon ? <img src={icon} alt="icon" className={`w-${iconSize}`} /> : ""}
-                    Request an Appointment
-                </button>
+                name ?
+                    <button onClick={toggleRequestModal} className={`${customStyle ? customStyle : "bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 text-white text-sm font-semibold"} `}>
+                        {icon ? <img src={icon} alt="icon" className={`${iconSize}`} /> : ""}
+                        {name}
+                    </button>
+                    :
+                    <button onClick={toggleRequestModal} className='text-xl w-full active:bg-orange-400 active:shadow-lg bg-primary-orange text-white px-6 py-2 rounded-lg font-semibold text-center'>
+                        {icon ? <img src={icon} alt="icon" className={`w-${iconSize}`} /> : ""}
+                        Book an Appointment
+                    </button>
             }
 
 
