@@ -21,7 +21,7 @@ const locations = [
         call: +919663095632,
         params: "Bengaluru-Hebbal",
         displayName: "Hebbal, Bangalore",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/mindfultmsneurocare"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/mindfultmsneurocare"
     },
     {
         name: "Whitefield",
@@ -32,7 +32,7 @@ const locations = [
         call: +919663095632,
         params: "Bengaluru-Whitefield",
         displayName: "Whitefield, Bangalore",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/237416000000594004"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/237416000000594004"
     },
     {
         name: "Greater Kailash 1",
@@ -43,7 +43,7 @@ const locations = [
         call: +919663095632,
         params: "New-Delhi",
         displayName: "Greater Kailash 1, Delhi",
-        bookingUrl: "https://mindfultmsneurocare.zohobookings.in/portal-embed#/237416000000594024"
+        bookingUrl: "https://book.mindfultms.in/portal-embed#/237416000000594024"
     }
 ];
 
@@ -106,11 +106,11 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         if (EXCLUDED_FULL_PATHS.includes(pathname)) {
             return false;
         }
-        
-        const matchesPrefix = EXCLUDED_PATH_PREFIXES.some(prefix => 
+
+        const matchesPrefix = EXCLUDED_PATH_PREFIXES.some(prefix =>
             pathname.startsWith(prefix)
         );
-        
+
         return !matchesPrefix;
     };
 
@@ -129,15 +129,15 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     // ✅ UPDATED: Dynamic booking URL based on selected location
     const getBookingEmbedUrl = () => {
         if (!selectedLocation) return "";
-        
+
         const baseUrl = selectedLocation.bookingUrl;
         if (!baseUrl) return "";
-        
-        return currentUrl 
+
+        return currentUrl
             ? `${baseUrl}?url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
             : baseUrl;
     };
-    
+
     const callbackIframeSrc = currentUrl
         ? `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
         : `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&from=website`;
@@ -158,7 +158,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     });
     const [isValid, setIsValid] = useState(false);
     const [isBusinessHours, setIsBusinessHours] = useState(false);
-    
+
     const currentLocation = locations.find((location) => {
         if (city === location.params) {
             return location
@@ -299,7 +299,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     const toggleRequestModal = () => {
         const newState = !requestModal;
         setRequestModal(prev => !prev);
-        
+
         if (newState) {
             // ✅ UPDATED: Auto-select location based on city param if available
             if (city && currentLocation) {
@@ -328,7 +328,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             setShowLocationSelection(false);
             setSelectedLocation(null);
         }
-        
+
         setFormData({
             name: '',
             email: '',
@@ -338,7 +338,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             message: '',
             preferredTime: ''
         });
-        
+
         if (onClose && !newState) {
             onClose();
         }
@@ -365,7 +365,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             console.log('storedata', formData);
             console.log('isFormValid', isFormValidBool);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formData]);
 
 
@@ -392,11 +392,11 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         if (typeof window !== 'undefined') {
             const baseUrl = iframeSrc || callbackIframeSrc;
             const currentQueryString = window.location.search;
-            
+
             if (currentQueryString) {
                 const separator = baseUrl.includes('?') ? '&' : '?';
-                const cleanQueryString = currentQueryString.startsWith('?') 
-                    ? currentQueryString.substring(1) 
+                const cleanQueryString = currentQueryString.startsWith('?')
+                    ? currentQueryString.substring(1)
                     : currentQueryString;
                 setFinalIframeSrc(baseUrl + separator + cleanQueryString);
             } else {
@@ -411,7 +411,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     // ✅ Handle location selection
     const handleLocationSelect = (location) => {
         setSelectedLocation(location);
-        
+
         // Check if booking URL is configured
         if (location.bookingUrl && location.bookingUrl !== "") {
             setShowLocationSelection(false);
@@ -450,18 +450,18 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             {requestModal && (
                 <div className="fixed inset-0 z-[99999] flex items-center justify-center">
                     {/* Backdrop */}
-                    <div 
+                    <div
                         className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300"
                         onClick={toggleRequestModal}
                     ></div>
-                    
+
                     {/* Modal */}
-                    <div style={{maxWidth: "1000px", maxHeight: "90vh"}} className="relative bg-white rounded-lg shadow-xl w-full max-w-[500px] mx-4 md:mx-0 max-h-[90vh] overflow-hidden z-50 flex flex-col">
+                    <div style={{ maxHeight: "90vh" }} className="relative bg-white rounded-lg shadow-xl w-full max-w-[500px] md:w-[80vw] md:max-w-[80vw] mx-4 md:mx-0 max-h-[90vh] overflow-hidden z-50 flex flex-col">
                         {/* Header - Fixed at top */}
                         <div className={`flex-shrink-0 flex items-start border-b border-gray-200 ${header || nfb ? "justify-between p-4" : "justify-between p-4"}`}>
-                             {nfb ? (
+                            {nfb ? (
                                 <div className="flex flex-col">
-                                    <h2 className="text-base font-semibold text-gray-900">  
+                                    <h2 className="text-base font-semibold text-gray-900">
                                         Neurofeedback Consultation
                                     </h2>
                                     <span className="text-sm text-gray-800 italic">
@@ -470,7 +470,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                 </div>
                             ) : header ? (
                                 <div className="flex flex-col">
-                                    <h2 className="text-base font-semibold text-gray-900">  
+                                    <h2 className="text-base font-semibold text-gray-900">
                                         rTMS Consultation
                                     </h2>
                                     <span className="text-sm text-gray-800 italic">
@@ -479,11 +479,11 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                 </div>
                             ) : (
                                 <div className="flex flex-col">
-                                    <h2 className="text-base font-semibold text-gray-900">  
+                                    <h2 className="text-base font-semibold text-gray-900">
                                         {showBookingForm ? "Book an Appointment" : showCallbackForm ? "Request a Callback" : showLocationSelection ? "Select Location" : "Book an Appointment"}
                                     </h2>
                                     {(showBookingForm || showCallbackForm) && (
-                                        <button 
+                                        <button
                                             onClick={() => {
                                                 setShowBookingForm(false);
                                                 setShowCallbackForm(false);
@@ -527,17 +527,16 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                         <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose Your Location</h3>
                                         <p className="text-sm text-gray-600">Select the clinic location nearest to you</p>
                                     </div>
-                                    
+
                                     <div className="space-y-3">
                                         {locations.map((location, index) => (
                                             <button
                                                 key={index}
                                                 onClick={() => handleLocationSelect(location)}
-                                                className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
-                                                    location.bookingUrl 
-                                                        ? 'border-gray-200 hover:border-teal-500 hover:bg-teal-50 cursor-pointer' 
-                                                        : 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
-                                                }`}
+                                                className={`w-full text-left p-4 rounded-lg border-2 transition-all ${location.bookingUrl
+                                                    ? 'border-gray-200 hover:border-teal-500 hover:bg-teal-50 cursor-pointer'
+                                                    : 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
+                                                    }`}
                                                 disabled={!location.bookingUrl}
                                             >
                                                 <div className="flex items-center justify-between">
@@ -565,7 +564,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
                             {/* ✅ Show booking form in modal with Zoho Bookings embed URL */}
                             {showBookingForm && selectedLocation && (
-                                <ZohoForm 
+                                <ZohoForm
                                     containerId="zf_div_booking_form"
                                     iframeSrc={getBookingEmbedUrl()}
                                 />
@@ -578,7 +577,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
 
                             {/* Show callback form when button clicked OR when page is excluded */}
                             {(!showBooking || showCallbackForm) && !showBookingForm && (
-                                <ZohoForm 
+                                <ZohoForm
                                     containerId="zf_div_callback_form"
                                     iframeSrc={finalIframeSrc || callbackIframeSrc}
                                 />
