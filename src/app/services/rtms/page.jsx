@@ -6,17 +6,17 @@ export async function generateMetadata() {
 
 
   return {
-   title: 'rTMS Treatment in Bengaluru & Delhi | Mindful TMS Clinics',
-   description:`Mindful TMS offers safe, medication-free rTMS treatment for depression, anxiety, OCD, chronic pain, trauma, and nicotine de-addiction in Bengaluru & Delhi.`,
- };
+    title: 'rTMS Treatment in Bengaluru & Delhi | Mindful TMS Clinics',
+    description: `Mindful TMS offers safe, medication-free rTMS treatment for depression, anxiety, OCD, chronic pain, trauma, and nicotine de-addiction in Bengaluru & Delhi.`,
+  };
 
 }
 
 const Page = () => {
   return (
     <>
-   <Script id="zf-adv-lead" strategy="beforeInteractive">
-{`
+      <Script id="zf-adv-lead" strategy="beforeInteractive">
+        {`
 function ZFAdvLead(){
 }
 ZFAdvLead.utmPValObj = ZFAdvLead.utmPValObj || {};
@@ -292,8 +292,8 @@ if( document.readyState == "complete" ){
 }
 
 `}
-        </Script>
-        <TmsMainPage/>
+      </Script>
+      <TmsMainPage />
     </>
   )
 }

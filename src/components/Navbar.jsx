@@ -8,13 +8,15 @@ import RequestAppointment from "@/app/clinicLocation/[city]/RequestAppointment";
 
 const links = [
   { id: 1, title: 'Home', path: '/', active: '/' },
-  { id: 12, title: 'rTMS', path: '/pages/tms', active: '/pages/rtms' },
-  { id: 22, title: 'Neurofeedback', path: '/pages/neurofeedback', active: '/pages/neurofeedback' },
+  // { id: 12, title: 'rTMS', path: '/pages/tms', active: '/pages/rtms' },
+  // { id: 22, title: 'Neurofeedback', path: '/pages/neurofeedback', active: '/pages/neurofeedback' },
   {
     id: 3, title: 'Services', path: '/service', active: '/service', child: [
       { id: 1, title: 'Therapy', path: '/services/therapy', active: '/services/therapy' },
       { id: 3, title: 'Psychiatry', path: '/services/psychiatry', active: '/services/psychiatry' },
-      { id: 13, title: 'Clinical Assessments', path: '/clinicalAssessment', active: '/clinicalAssessment' }
+      { id: 13, title: 'Clinical Assessments', path: '/clinicalAssessment', active: '/clinicalAssessment' },
+      { id: 12, title: 'rTMS', path: '/services/rtms', active: '/services/rtms' },
+      { id: 22, title: 'Neurofeedback', path: '/services/neurofeedback', active: '/services/neurofeedback' },
     ]
   },
   {
@@ -106,7 +108,7 @@ function Navbar() {
             <button onClick={() => handleNavigateButton('/assesment')} className="bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg w-full py-3 mb-4 text-white text-sm font-semibold">
               SELF ASSESSMENT
             </button>
-            <RequestAppointment name={'SCHEDULE CONSULTATION'} customStyle="bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg w-full py-3 mb-4 text-white text-sm font-semibold" />
+            {/* <RequestAppointment name={'SCHEDULE CONSULTATION'} customStyle="bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg w-full py-3 mb-4 text-white text-sm font-semibold" /> */}
             <RequestAppointment name={'BOOK NOW'} customStyle="bg-[#F8A51C] hover:bg-yellow-500 active:bg-yellow-600 rounded-lg w-full py-3 text-white text-sm font-semibold" />
           </div>
         </div>
