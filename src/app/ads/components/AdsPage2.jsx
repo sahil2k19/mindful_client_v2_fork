@@ -90,36 +90,36 @@ const AdsPage2 = ({ params }) => {
   const location = city === 'gk' ? 'New Delhi - Greater Kailash 1' : city === 'wf' ? 'Bengaluru - Whitefield' : city === 'hb' ? 'Bengaluru - Hebbal' : '';
   const expertText = expertService === 'psychologist' ? 'Psychologist' : expertService === 'psychiatrist' ? 'Psychiatrist' : expertService === 'therapist' ? "therapist" : 'Psychologist';
   // console.log("expertService", expertService)
-const excludedDoctors = ["Ms Yamini K.V"];
+  const excludedDoctors = ["Ms Yamini K.V"];
 
-useEffect(() => {
-  let designation = "";
-  setLoadingDoctor(true)
-  if (expertService === "psychologist" || expertService === "therapist") {
-    designation = "Psychologist";
-  } else if (expertService === "psychiatrist") {
-    designation = "Psychiatrist";
-  } else {
-    designation = "";
-  }
-  axios
-    .get(
-      `${process.env.NEXT_PUBLIC_API_URL}doctors/search/doctors?location=${location}&designation=${designation}`
-    )
-    .then((res) => {
-      // Filter out excluded doctors before setting state
-      const filteredDoctors = res.data.filter(
-        doctor => !excludedDoctors.includes(doctor.name)
-      );
-      setDoctors(filteredDoctors);
-      console.log("doctors", filteredDoctors);
-      setLoadingDoctor(false);
-    })
-    .catch((err) => {
-      console.error("Error fetching doctors:", err);
-      setLoadingDoctor(false);
-    });
-}, [expertService])
+  useEffect(() => {
+    let designation = "";
+    setLoadingDoctor(true)
+    if (expertService === "psychologist" || expertService === "therapist") {
+      designation = "Psychologist";
+    } else if (expertService === "psychiatrist") {
+      designation = "Psychiatrist";
+    } else {
+      designation = "";
+    }
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}doctors/search/doctors?location=${location}&designation=${designation}`
+      )
+      .then((res) => {
+        // Filter out excluded doctors before setting state
+        const filteredDoctors = res.data.filter(
+          doctor => !excludedDoctors.includes(doctor.name)
+        );
+        setDoctors(filteredDoctors);
+        console.log("doctors", filteredDoctors);
+        setLoadingDoctor(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching doctors:", err);
+        setLoadingDoctor(false);
+      });
+  }, [expertService])
 
   const urlLocation = {
     "wf": "whitefield",
@@ -355,9 +355,9 @@ useEffect(() => {
   const bannerImage = {
     "general": {
       "psychiatrist": {
-        "gk":"/ads/ads2/LP/Psychaitric Consultation.jpeg",
-        "wf":"/ads/ads2/LP/herosectionwf2.jpeg",
-        "hb":"/ads/ads2/LP/General - Psychiatrist.png"
+        "gk": "/ads/ads2/LP/Psychaitric Consultation.jpeg",
+        "wf": "/ads/ads2/LP/herosectionwf2.jpeg",
+        "hb": "/ads/ads2/LP/General - Psychiatrist.png"
       },
       "psychologist": "/ads/ads2/LP/General - Therapist and Psychologist.png",
       "therapist": "/ads/ads2/LP/General - Therapist and Psychologist.png",
@@ -436,12 +436,12 @@ useEffect(() => {
     );
   };
   const requestAppointmentRef = useRef(null);
-const [isSticky, setIsSticky] = useState(false);
- const [triggerAppointment, setTriggerAppointment] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [triggerAppointment, setTriggerAppointment] = useState(false);
   const [showModal, setShowModal] = useState(false);
-   const [showStickyModal, setShowStickyModal] = useState(false);
+  const [showStickyModal, setShowStickyModal] = useState(false);
   // Add scroll listener
- useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.querySelector('[data-hero-section]');
       if (heroSection) {
@@ -479,10 +479,9 @@ const [isSticky, setIsSticky] = useState(false);
   return (
     <>
 
- <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isSticky ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        } bg-white shadow-md`}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+          } bg-white shadow-md`}
       >
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center">
@@ -502,7 +501,7 @@ const [isSticky, setIsSticky] = useState(false);
         </div>
       </nav>
 
-      
+
       {/* Modal controlled externally - rendered OUTSIDE navbar */}
       <RequestAppointment
         iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
@@ -511,7 +510,7 @@ const [isSticky, setIsSticky] = useState(false);
         externalTrigger={showStickyModal}
         onClose={() => setShowStickyModal(false)}
       />
-       <div className="hidden">
+      <div className="hidden">
         <RequestAppointment
           iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
           customStyle="hidden"
@@ -521,13 +520,13 @@ const [isSticky, setIsSticky] = useState(false);
         />
       </div>
       <Container maxWidth="lg">
-        <section data-hero-section className={`bg-white pb-4 md:min-h-[500px] md:flex flex-col items-center justify-center ${["general", "depression-anxiety"].includes(current_condition) ? "" : ""}`}>
+        <section data-hero-section className={`bg-white md:min-h-[500px] md:flex flex-col items-center justify-center ${["general", "depression-anxiety"].includes(current_condition) ? "" : ""}`}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
             {/* Image Section */}
             <div className="w-full md:w-[40%] flex justify-center md:justify-end order-1 md:order-2">
               <div className="relative w-full   overflow-hidden rounded-xl md:rounded-xl ">
                 <img
-                  src={`${bannerImage[current_condition][expertService][city]  || bannerImage[current_condition][expertService] || bannerImage["anxiety"][expertService]}`}
+                  src={`${bannerImage[current_condition][expertService][city] || bannerImage[current_condition][expertService] || bannerImage["anxiety"][expertService]}`}
                   alt="Illustration of a woman looking upwards, symbolizing hope and guidance"
                   className='w-full h-full object-contain '
                 />
@@ -542,20 +541,20 @@ const [isSticky, setIsSticky] = useState(false);
 
               <div className="text-gray-700 text-lg md:text-lg mb-4 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: currentPageContent?.lp_hero_subtitle }} />
               <div className="text-gray-700 text-base md:text-lg mb-4" dangerouslySetInnerHTML={{ __html: currentPageContent?.hero_description_what_we_offer }} />
-             
+
               {currentPageContent?.headline_2_pinned && (
                 <div className="text-base md:text-lg text-orange-500  font-semibold mt-1 text-center md:text-start  whitespace-nowrap">
                   {currentPageContent.headline_2_pinned}
                 </div>
               )}
-              <div className="mt-3 flex items-center justify-center md:justify-start">
-                  <RequestAppointment
-                    iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
-                    customStyle={`${RequestAppointmentButton[expertService].style}`}
-                    name={RequestAppointmentButton[expertService].text}
-                  />
+              <div className="mt-3 flex items-center md:pb-0 pb-8 justify-center md:justify-start">
+                <RequestAppointment
+                  iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
+                  customStyle={`${RequestAppointmentButton[expertService].style}`}
+                  name={RequestAppointmentButton[expertService].text}
+                />
               </div>
-          
+
 
 
             </div>
@@ -563,18 +562,18 @@ const [isSticky, setIsSticky] = useState(false);
         </section>
       </Container>
 
-            <Container maxWidth="lg" className='pb-6'>
+      {/* <Container maxWidth="lg" className='pb-6'>
                <TestimonialCarouselCompact 
     location={location}
     doctor={singleDoctor}
     doctorArray={doctors.length > 0 ? doctors : []} 
 />
 
-      </Container>
-      
+      </Container> */}
+
       {/* expert */}
       <section className="py-8 px-4 bg-[#FDE4BB]">
-        <DoctorsSection expertService={expertService} location={location} expertText={expertText} excludedDoctors={excludedDoctors}/>
+        <DoctorsSection expertService={expertService} location={location} expertText={expertText} excludedDoctors={excludedDoctors} />
         <div className="mt-6 flex items-center justify-center ">
           <RequestAppointment
             iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}

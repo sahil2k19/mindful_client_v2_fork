@@ -135,7 +135,7 @@ const adsPageContent = {
         "service": "Psychiatrist",
         "condition": "General",
         "headline_1_(pinned)": "Experienced Psychiatrists",
-        "headline_2_pinned": "GK1, Delhi | Rs.1800/Session ie 30 minutes",
+        // "headline_2_pinned": "GK1, Delhi | Rs.1800/Session ie 30 minutes",
         "headline_3": "Expertise for Every Condition",
         "description_1__(pinned)": "Book your 30‑min session now.    | In‑Clinic Only |    Safe and confidential space   |    ",
         "description_2__(pinned)": "Whatever your needs, our team supports you at our Greater Kailash Clinic in Delhi NCR",
@@ -250,7 +250,7 @@ Our psychiatrists are located in Greater Kailash 1, South Delhi, conveniently ac
         "service": "Psychologist",
         "condition": "General",
         "headline_1_(pinned)": "Expert Psychologists for You",
-        "headline_2_pinned": "GK1, Delhi | Rs.1800-2500 / hr",
+        // "headline_2_pinned": "GK1, Delhi | Rs.1800-2500 / hr",
         "headline_3": "Caring for Every Condition",
         "description_1__(pinned)": "Book your 1 hour session now.    | In‑Clinic Only |    Safe and confidential space  |     ",
         "description_2__(pinned)": "Whatever your needs, our team supports you at our Greater Kailash Clinic in Delhi NCR",
@@ -366,7 +366,7 @@ Support for anxiety, depression, stress, relationships, trauma and life transiti
         "service": "Therapist",
         "condition": "General",
         "headline_1_(pinned)": "Experienced Therapists for You",
-        "headline_2_pinned": "GK1, Delhi | Rs.1800-2500 / hr",
+        // "headline_2_pinned": "GK1, Delhi | Rs.1800-2500 / hr",
         "headline_3": "Caring for Every Condition",
         "description_1__(pinned)": "Book your 1 hour session now.    | In‑Clinic Only |    Safe and confidential space  |     ",
         "description_2__(pinned)": "Whatever your needs, our team supports you at our Greater Kailash Clinic in Delhi NCR",
@@ -897,7 +897,7 @@ Support for anxiety, depression, stress, relationships, trauma and life transiti
         "description_1__(pinned)": "Book your 30‑min session now.    | In‑Clinic Only |    Safe and confidential space   |    ",
         "description_2__(pinned)": "Whatever your needs, our team is there for you at our Whitefield Clinic on Old Airport Rd.",
         "new_landing_page_url": "https://mindfultms.in/ads/psychiatrist/general/wf",
-        "lp_hero_title":`Psychiatrists
+        "lp_hero_title": `Psychiatrists
  in Whitefield, Bangalore`,
         "lp_hero_subtitle": `Struggling with depression, anxiety, or other concerns? Get professional psychiatric assistance close to your location.
 Our experienced psychiatrists are located in Whitefield, easily accessible from Marathahalli, Brookefield, and Varthur.
@@ -1019,7 +1019,7 @@ Our experienced therapists are located in Whitefield, conveniently located for r
 With MindfulTMS you recieve professional therapy in a safe, non-judgmental space right in Whitefield.
 Support for anxiety, depression, stress, relationships, trauma and life transitions.
 
-<b>Get started by booking a consultation today</b>`,"hero_description_2": "Our Clinic is located on Old Airport Road in Whitefield, conveniently accessible from nearby areas of Marthahalli, Brookefield and Varthur.",
+<b>Get started by booking a consultation today</b>`, "hero_description_2": "Our Clinic is located on Old Airport Road in Whitefield, conveniently accessible from nearby areas of Marthahalli, Brookefield and Varthur.",
         // "hero_description_what_we_offer": "Our clinical psychologists provide:\nPersonalized condition diagnosis\nClinical Assessments\nCBT, DBT, ACT and a range of therapies\nSafe and compassionate care\nConfidentiality",
         "block_to_show": "What We Treat",
         "hero_image": ""

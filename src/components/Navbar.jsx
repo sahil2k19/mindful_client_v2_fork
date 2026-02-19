@@ -8,8 +8,8 @@ import RequestAppointment from "@/app/clinicLocation/[city]/RequestAppointment";
 
 const links = [
   { id: 1, title: 'Home', path: '/', active: '/' },
-  // { id: 12, title: 'rTMS', path: '/pages/tms', active: '/pages/rtms' },
-  // { id: 22, title: 'Neurofeedback', path: '/pages/neurofeedback', active: '/pages/neurofeedback' },
+  { id: 12, title: 'rTMS', path: '/services/rtms', active: '/services/rtms' },
+  { id: 22, title: 'Neurofeedback', path: '/services/neurofeedback', active: '/services/neurofeedback' },
   {
     id: 3, title: 'Services', path: '/service', active: '/service', child: [
       { id: 1, title: 'Therapy', path: '/services/therapy', active: '/services/therapy' },
