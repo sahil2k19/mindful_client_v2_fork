@@ -15,7 +15,9 @@ const EXPERT_BOOKING_URLS = {
   "Ms. Shilpi Sharma": "https://book.mindfultms.in/#/237416000000602018",
   "Ms. Navya Shree": "https://book.mindfultms.in/#/237416000000654376",
   "Ms Swati Agarwal": "https://book.mindfultms.in/#/237416000000651116",
-  "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182"
+  "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182",
+  "Ms. Kavya K": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1",
+  "Dr. Abhishek": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1"
 };
 
 const OurDoctorSection = ({ designation }) => {
@@ -52,8 +54,11 @@ const OurDoctorSection = ({ designation }) => {
       });
 
       // Group doctors by location
+      // Group doctors by location
       const groupedExperts = res.data.reduce((acc, expert) => {
-        if (expert.location === "Bengaluru - Whitefield") {
+        if (expert.name === "Ms. Yamini K.V") {
+          acc["Bengaluru - Mahadevapura"] = [...(acc["Bengaluru - Mahadevapura"] || []), expert];
+        } else if (expert.location === "Bengaluru - Whitefield") {
           acc["Bengaluru - Whitefield"] = [...(acc["Bengaluru - Whitefield"] || []), expert];
         } else if (expert.location === "Bengaluru - Hebbal") {
           acc["Bengaluru - Hebbal"] = [...(acc["Bengaluru - Hebbal"] || []), expert];
@@ -126,8 +131,10 @@ const OurDoctorSection = ({ designation }) => {
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
     const queryString = typeof window !== 'undefined' ? window.location.search : '';
 
+    const separator = baseUrl.includes('?') ? '&' : '?';
+
     return currentUrl
-      ? `${baseUrl}?url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
+      ? `${baseUrl}${separator}url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
       : baseUrl;
   };
 
