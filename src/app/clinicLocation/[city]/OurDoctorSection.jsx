@@ -56,7 +56,7 @@ const OurDoctorSection = ({ designation }) => {
       // Group doctors by location
       // Group doctors by location
       const groupedExperts = res.data.reduce((acc, expert) => {
-        if (expert.name === "Ms. Yamini K.V") {
+        if (expert.name && expert.name.includes("Yamini K.V")) {
           acc["Bengaluru - Mahadevapura"] = [...(acc["Bengaluru - Mahadevapura"] || []), expert];
         } else if (expert.location === "Bengaluru - Whitefield") {
           acc["Bengaluru - Whitefield"] = [...(acc["Bengaluru - Whitefield"] || []), expert];

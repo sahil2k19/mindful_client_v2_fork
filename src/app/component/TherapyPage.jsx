@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import RequestAppointment from '../clinicLocation/[city]/RequestAppointment'
 import { Container } from '@mui/material'
 import TakeTest from './TakeTest'
@@ -6,6 +8,7 @@ import AllTherapyWithSearch from './AllTherapyWithSearch'
 import Link from 'next/link'
 import Image from 'next/image'
 import OurDoctorSectionTherapyPage from './OurDoctorTherapyPage'
+import TestimonialComponentSlideV2 from './TestimonialComponentSlideV2'
 const conditions = [
     {
         id: 1,
@@ -89,10 +92,10 @@ const conditionBubble = [
     },
 ]
 const currentUrl = "https://mindfultms.in/services/therapy"
-const  iframeSrc= `https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=${`website`}&solution=${`psychologist`}&from=website`;
+const iframeSrc = `https://forms.zohopublic.in/nikhilmindf1/form/OTPVerifiticationtest/formperma/uqvupaDUHDlIs1hLYWsCUIgydIk4e9EzI3T6ubRgt7Y?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&location=${`website`}&solution=${`psychologist`}&from=website`;
 
 
-const MobileView = () => {
+const MobileView = ({ expertDoctors, loadingDoctor }) => {
     return (
         <>
             <div maxWidth="lg" className="mt-8 px-2">
@@ -145,10 +148,26 @@ const MobileView = () => {
                     </div>
                 </div>
                 <div className="flex justify-center md:justify-center mt-6">
-                            <RequestAppointment  name="Book a Therapy Session" customStyle="px-4 py-2 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
-                        </div>
+                    <RequestAppointment name="Book a Therapy Session" customStyle="px-4 py-2 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
+                </div>
 
 
+            </div>
+
+            <div className='bg-primary-div py-4'>
+                <Container maxWidth="lg">
+                    <h2 className="text-2xl font-bold text-center mb-6">Testimonials</h2>
+                    <TestimonialComponentSlideV2
+                        condition=""
+                        location=""
+                        disableSlide={false}
+                        setDisableSlide={() => { }}
+                        mobileView={false}
+                        smallDevice={true}
+                        doctorArray={expertDoctors}
+                        loadingDoctor={loadingDoctor}
+                    />
+                </Container>
             </div>
 
             {/* Take Test */}
@@ -162,15 +181,15 @@ const MobileView = () => {
 
 
             <div className='flex justify-center pt-9'>
-                <RequestAppointment  name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
             </div>
 
- 
+
         </>
     )
 }
 
-const DesktopView = () => {
+const DesktopView = ({ expertDoctors, loadingDoctor }) => {
     return (
         <>
             <div className='bg-primary-div p-6'>
@@ -188,7 +207,7 @@ const DesktopView = () => {
                             </p>
 
                             <div className="flex justify-center md:justify-start">
-                                <RequestAppointment  name="Book a Therapy Session" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 hover:shadow-lg hover:scale-105 active:bg-orange-600" />
+                                <RequestAppointment name="Book a Therapy Session" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 hover:shadow-lg hover:scale-105 active:bg-orange-600" />
                             </div>
                         </div>
 
@@ -230,9 +249,21 @@ const DesktopView = () => {
                             </div>
                         </div>
                         <div className="flex justify-center md:justify-center mt-6">
-                            <RequestAppointment  name="Book a Therapy Session" customStyle="px-4 py-2 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
+                            <RequestAppointment name="Book a Therapy Session" customStyle="px-4 py-2 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
                         </div>
                     </div>
+                </Container>
+            </div>
+
+            <div className='bg-gray-100 py-8'>
+                <Container maxWidth="lg">
+                    <h2 className="text-4xl font-bold text-center mb-6">Testimonials</h2>
+                    <TestimonialComponentSlideV2
+                        smallDevice={true}
+                        mobileView={false}
+                        doctorArray={expertDoctors}
+                        loadingDoctor={loadingDoctor}
+                    />
                 </Container>
             </div>
 
@@ -274,6 +305,8 @@ const DesktopView = () => {
                 </Container>
             </section>
 
+
+
             <div className=' py-10 bg-gray-100'>
                 <Container maxWidth="md">
                     <AllTherapyWithSearch />
@@ -282,20 +315,45 @@ const DesktopView = () => {
 
 
             <div className='flex justify-center pt-10'>
-                <RequestAppointment  name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
             </div>
 
         </>
     )
 }
 const TherapyPage = () => {
+    const [expertDoctors, setExpertDoctors] = useState([]);
+    const [loadingDoctor, setLoadingDoctor] = useState(true);
+
+    const getOurExperts = async () => {
+        try {
+            setLoadingDoctor(true);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}doctors/search/doctors?designation=Psychologist`, {
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Expires': '0',
+                },
+            });
+            setExpertDoctors(res.data);
+            setLoadingDoctor(false);
+        } catch (error) {
+            console.error("Error fetching experts:", error);
+            setLoadingDoctor(false);
+        }
+    };
+
+    useEffect(() => {
+        getOurExperts();
+    }, []);
+
     return (
         <>
             <div className=' md:hidden'>
-                <MobileView />
+                <MobileView expertDoctors={expertDoctors} loadingDoctor={loadingDoctor} />
             </div>
             <div className='hidden md:block'>
-                <DesktopView />
+                <DesktopView expertDoctors={expertDoctors} loadingDoctor={loadingDoctor} />
             </div>
         </>
     )
