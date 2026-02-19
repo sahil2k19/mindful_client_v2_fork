@@ -168,7 +168,7 @@ const TmsMainPage = () => {
                         </div>
 
                         {/* ✅ Testimonials Section - Mobile (just before FAQ) */}
-                        <div className='bg-primary-div py-4'>
+                        <div className='bg-gray-100 py-4'>
                             <Container maxWidth="lg">
                                 <h2 className="text-2xl font-bold text-center mb-6">Testimonials</h2>
                                 <TestimonialComponentSlideV2
