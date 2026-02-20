@@ -16,6 +16,10 @@ const EXPERT_BOOKING_URLS = {
   "Ms. Navya Shree": "https://book.mindfultms.in/#/237416000000654376",
   "Ms Swati Agarwal": "https://book.mindfultms.in/#/237416000000651116",
   "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182",
+};
+
+// Experts who should show "Request Callback" button and open callback form in modal
+const CALLBACK_ONLY_EXPERTS = {
   "Ms. Kavya K": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1",
   "Dr. Abhishek": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1"
 };
@@ -28,6 +32,11 @@ const OurDoctorSection = ({ designation }) => {
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedExpert, setSelectedExpert] = useState(null);
+
+  // State for the callback modal (for Dr. Abhishek & Ms. Kavya K)
+  const [showCallbackModal, setShowCallbackModal] = useState(false);
+  const [callbackExpert, setCallbackExpert] = useState(null);
+  const [callbackIframeSrc, setCallbackIframeSrc] = useState('');
 
   const slugify = (name) =>
     name
@@ -54,7 +63,6 @@ const OurDoctorSection = ({ designation }) => {
       });
 
       // Group doctors by location
-      // Group doctors by location
       const groupedExperts = res.data.reduce((acc, expert) => {
         if (expert.name && expert.name.includes("Yamini K.V")) {
           acc["Bengaluru - Mahadevapura"] = [...(acc["Bengaluru - Mahadevapura"] || []), expert];
@@ -80,14 +88,42 @@ const OurDoctorSection = ({ designation }) => {
 
   useEffect(() => {
     getOurExperts();
-  }, [apiUrl]); // Added apiUrl as dependency to refetch when designation changes
+  }, [apiUrl]);
 
-  // Handler for expert click
+  // Build callback iframe src with current URL params
+  const buildCallbackIframeSrc = (baseUrl) => {
+    if (typeof window === 'undefined') return baseUrl;
+    const currentUrl = window.location.href;
+    const queryString = window.location.search;
+    const separator = baseUrl.includes('?') ? '&' : '?';
+    return currentUrl
+      ? `${baseUrl}${separator}url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
+      : baseUrl;
+  };
+
+  // Open callback modal for callback-only experts
+  const handleCallbackClick = (e, expert) => {
+    e.stopPropagation(); // prevent card click
+    const baseUrl = CALLBACK_ONLY_EXPERTS[expert.name];
+    setCallbackExpert(expert);
+    setCallbackIframeSrc(buildCallbackIframeSrc(baseUrl));
+    setShowCallbackModal(true);
+  };
+
+  // Close callback modal
+  const closeCallbackModal = () => {
+    setShowCallbackModal(false);
+    setCallbackExpert(null);
+    setCallbackIframeSrc('');
+  };
+
+  // Handler for expert click (all experts open the modal)
   const handleExpertClick = (expert) => {
+    const isCallbackOnly = Boolean(CALLBACK_ONLY_EXPERTS[expert.name]);
     const bookingUrl = EXPERT_BOOKING_URLS[expert.name];
 
-    if (bookingUrl) {
-      // Expert has booking URL - show modal with options
+    if (isCallbackOnly || bookingUrl) {
+      // Show the expert modal (with either Request Callback or Book Appointment)
       setSelectedExpert(expert);
       setShowModal(true);
     } else {
@@ -104,13 +140,24 @@ const OurDoctorSection = ({ designation }) => {
     }
   };
 
-  // Handler for booking appointment
+  // Handler for booking appointment (regular experts)
   const handleBookAppointment = () => {
     if (selectedExpert) {
-      const bookingUrl = getBookingUrl();
-      window.open(bookingUrl, '_blank', 'noopener,noreferrer');
-      setShowModal(false);
-      setSelectedExpert(null);
+      const isCallbackOnly = Boolean(CALLBACK_ONLY_EXPERTS[selectedExpert.name]);
+      if (isCallbackOnly) {
+        // Open callback form modal instead of new tab
+        const baseUrl = CALLBACK_ONLY_EXPERTS[selectedExpert.name];
+        setCallbackExpert(selectedExpert);
+        setCallbackIframeSrc(buildCallbackIframeSrc(baseUrl));
+        setShowModal(false);
+        setSelectedExpert(null);
+        setShowCallbackModal(true);
+      } else {
+        const bookingUrl = getBookingUrl();
+        window.open(bookingUrl, '_blank', 'noopener,noreferrer');
+        setShowModal(false);
+        setSelectedExpert(null);
+      }
     }
   };
 
@@ -119,8 +166,6 @@ const OurDoctorSection = ({ designation }) => {
     setShowModal(false);
     setSelectedExpert(null);
   };
-
-
 
   // Get booking URL with query params
   const getBookingUrl = () => {
@@ -220,44 +265,47 @@ const OurDoctorSection = ({ designation }) => {
             {/* Location Header */}
             <h2 className="text-2xl md:text-2xl font-semibold text-center text-gray-600 mb-4 md:mb-6">{location}</h2>
 
-            {/* Experts Grid - Changed to grid layout for 4 items per row */}
+            {/* Experts Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 place-items-center">
-              {experts.map((expert, idx) => (
-                <div
-                  key={`${expert?._id}-${idx}`}
-                  onClick={() => handleExpertClick(expert)}
-                  className="flex flex-col items-center mb-2 cursor-pointer hover:opacity-80 transition-opacity duration-200 w-full group"
-                >
-                  <div className="mb-2 h-[75px] w-[75px] md:h-[120px] md:w-[120px] lg:h-[140px] lg:w-[140px] flex items-center justify-center">
-                    <Image
-                      height={500}
-                      width={500}
-                      className="h-[75px] w-[75px] md:h-[120px] md:w-[120px] lg:h-[140px] lg:w-[140px] object-cover border-[3px] border-orange-400 rounded-full pointer-events-none group-hover:border-orange-500 transition-colors duration-200"
-                      style={{ objectPosition: "top" }}
-                      src={expert?.image}
-                      alt={`${expert?.name}'s profile`}
-                      priority={false}
-                      onError={(e) => {
-                        e.target.src = `https://avatar.iran.liara.run/username?username=${expert?.name}`; // Add fallback image
-                      }}
-                    />
+              {experts.map((expert, idx) => {
+                const isCallbackOnly = Boolean(CALLBACK_ONLY_EXPERTS[expert.name]);
+                return (
+                  <div
+                    key={`${expert?._id}-${idx}`}
+                    onClick={() => handleExpertClick(expert)}
+                    className="flex flex-col items-center mb-2 cursor-pointer hover:opacity-80 transition-opacity duration-200 w-full group"
+                  >
+                    <div className="mb-2 h-[75px] w-[75px] md:h-[120px] md:w-[120px] lg:h-[140px] lg:w-[140px] flex items-center justify-center">
+                      <Image
+                        height={500}
+                        width={500}
+                        className="h-[75px] w-[75px] md:h-[120px] md:w-[120px] lg:h-[140px] lg:w-[140px] object-cover border-[3px] border-orange-400 rounded-full pointer-events-none group-hover:border-orange-500 transition-colors duration-200"
+                        style={{ objectPosition: "top" }}
+                        src={expert?.image}
+                        alt={`${expert?.name}'s profile`}
+                        priority={false}
+                        onError={(e) => {
+                          e.target.src = `https://avatar.iran.liara.run/username?username=${expert?.name}`;
+                        }}
+                      />
+                    </div>
+                    <div className="mb-1 text-center">
+                      <p className="font-semibold text-[14px] md:text-[16px] lg:text-[18px] text-gray-800 max-w-[150px] md:max-w-[180px] lg:max-w-[200px] text-nowrap overflow-hidden text-ellipsis group-hover:text-orange-600 transition-colors duration-200">
+                        {expert?.name}
+                      </p>
+                      <p className="text-[11px] md:text-[13px] lg:text-[15px] text-gray-900 max-w-[150px] md:max-w-[180px] lg:max-w-[200px] overflow-hidden text-ellipsis">
+                        {expert?.designation}
+                      </p>
+                    </div>
                   </div>
-                  <div className="mb-1 text-center">
-                    <p className="font-semibold text-[14px] md:text-[16px] lg:text-[18px] text-gray-800 max-w-[150px] md:max-w-[180px] lg:max-w-[200px] text-nowrap overflow-hidden text-ellipsis group-hover:text-orange-600 transition-colors duration-200">
-                      {expert?.name}
-                    </p>
-                    <p className="text-[11px] md:text-[13px] lg:text-[15px] text-gray-900 max-w-[150px] md:max-w-[180px] lg:max-w-[200px] overflow-hidden text-ellipsis">
-                      {expert?.designation}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
       </section>
 
-      {/* Expert Options Modal */}
+      {/* Expert Options Modal (for booking experts) */}
       {showModal && selectedExpert && (
         <div className="fixed inset-0 z-[99999] flex items-center justify-center">
           {/* Backdrop */}
@@ -302,10 +350,18 @@ const OurDoctorSection = ({ designation }) => {
                 onClick={handleBookAppointment}
                 className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-                Book Appointment
+                {selectedExpert && CALLBACK_ONLY_EXPERTS[selectedExpert.name] ? (
+                  // Request Callback icon (phone)
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                ) : (
+                  // Book Appointment icon (calendar)
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                )}
+                {selectedExpert && CALLBACK_ONLY_EXPERTS[selectedExpert.name] ? 'Request Callback' : 'Book Appointment'}
               </button>
               <button
                 onClick={handleViewProfile}
@@ -321,7 +377,51 @@ const OurDoctorSection = ({ designation }) => {
         </div>
       )}
 
+      {/* Request Callback Modal (for Dr. Abhishek & Ms. Kavya K) */}
+      {showCallbackModal && callbackExpert && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300"
+            onClick={closeCallbackModal}
+          ></div>
 
+          {/* Modal */}
+          <div
+            style={{ maxHeight: "90vh" }}
+            className="relative bg-white rounded-lg shadow-xl w-full max-w-[500px] mx-4 overflow-hidden z-50 flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 p-4">
+              <div className="flex flex-col">
+                <h2 className="text-base font-semibold text-gray-900">Request a Callback</h2>
+                {/* <span className="text-sm text-gray-600 italic">with {callbackExpert.name}</span> */}
+              </div>
+              <button
+                onClick={closeCallbackModal}
+                className="p-1 rounded hover:bg-gray-100 transition"
+                aria-label="Close modal"
+              >
+                <img
+                  className="w-6 h-6"
+                  src="https://ik.imagekit.io/mwpcmpi5v/iconsNew/closee.svg?updatedAt=1733748343028"
+                  alt="Close"
+                />
+              </button>
+            </div>
+
+            {/* Iframe Content */}
+            <div className="flex-1 overflow-y-auto">
+              <iframe
+                src={callbackIframeSrc}
+                style={{ height: "600px", width: "100%", border: "none" }}
+                title="Request Callback Form"
+                aria-label="Request Callback Form"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -59,18 +59,7 @@ const EXCLUDED_PATH_PREFIXES = [
     '/pages/neurofeedback',
     '/ads/psychiatrist/general/wf'
 ];
-
-
-
-
-
-
 const EXCLUDED_FULL_PATHS = [];
-
-
-
-
-
 
 const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon, header, nfb, externalTrigger, onClose }) => {
     const [queryString, setQueryString] = useState("");
@@ -82,11 +71,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     const [selectedLocation, setSelectedLocation] = useState(null);
     const pathname = usePathname();
 
-
-
-
-
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const url = window.location.href;
@@ -95,11 +79,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             setcurrentUrl(url);
         }
     }, []);
-
-
-
-
-
 
     // Check if current path should show booking interface
     const shouldShowBookingInterface = () => {
@@ -114,17 +93,7 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         return !matchesPrefix;
     };
 
-
-
-
-
-
     const showBooking = shouldShowBookingInterface();
-
-
-
-
-
 
     // ✅ UPDATED: Dynamic booking URL based on selected location
     const getBookingEmbedUrl = () => {
@@ -141,10 +110,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     const callbackIframeSrc = currentUrl
         ? `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&url=${encodeURIComponent(currentUrl)}&from=website${queryString ? `&${queryString.substring(1)}` : ''}`
         : `https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1&from=website`;
-
-
-
-
 
 
     const [requestModal, setRequestModal] = useState(false);
@@ -164,11 +129,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             return location
         }
     });
-
-
-
-
-
 
     useEffect(() => {
         console.log("externalTrigger", externalTrigger)
@@ -195,10 +155,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     }, [externalTrigger, city, currentLocation]);
 
 
-
-
-
-
     useEffect(() => {
         const handlePopState = () => {
             if (requestModal) {
@@ -210,30 +166,15 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             }
         };
 
-
-
-
-
-
         if (requestModal) {
             window.history.pushState(null, '');
             window.addEventListener('popstate', handlePopState);
         }
 
-
-
-
-
-
         return () => {
             window.removeEventListener('popstate', handlePopState);
         };
     }, [requestModal]);
-
-
-
-
-
 
     useEffect(() => {
         const checkBusinessHours = () => {
@@ -249,17 +190,8 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     }, []);
 
 
-
-
-
-
     const handleChange = (e) => {
         const { name, value } = e.target;
-
-
-
-
-
 
         if (name === "phone") {
             const phoneRegex = /^[0-9]{10}$/;
@@ -278,19 +210,10 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         }));
     };
 
-
-
-
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         toggleRequestModal();
     };
-
-
-
-
 
 
     const [phoneError, setPhoneError] = useState("");
@@ -344,19 +267,9 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         }
     };
 
-
-
-
-
-
     const isFormValid = () => {
         return formData.name && formData.phone && formData.location;
     };
-
-
-
-
-
 
     useEffect(() => {
         const isFormValidBool = isFormValid();
@@ -369,10 +282,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
     }, [formData]);
 
 
-
-
-
-
     useEffect(() => {
         const newWhatsappNumber = locations?.find((location) => {
             return location.location === formData?.location
@@ -382,10 +291,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             whatsapp: newWhatsappNumber,
         }))
     }, [formData?.location]);
-
-
-
-
 
 
     useEffect(() => {
@@ -405,9 +310,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         }
     }, [iframeSrc, currentUrl, queryString, callbackIframeSrc]);
 
-
-
-
     // ✅ Handle location selection
     const handleLocationSelect = (location) => {
         setSelectedLocation(location);
@@ -421,11 +323,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
             alert(`Booking for ${location.displayName} will be available soon. Please try another location or request a callback.`);
         }
     };
-
-
-
-
-
 
     return (
         <>
@@ -441,11 +338,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                         Book an Appointment
                     </button>
             }
-
-
-
-
-
 
             {requestModal && (
                 <div className="fixed inset-0 z-[99999] flex items-center justify-center">
@@ -513,11 +405,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                             </button>
                         </div>
 
-
-
-
-
-
                         {/* Scrollable Content Area */}
                         <div className="flex-1 overflow-y-auto">
                             {/* ✅ Show location selection screen */}
@@ -558,10 +445,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                 </div>
                             )}
 
-
-
-
-
                             {/* ✅ Show booking form in modal with Zoho Bookings embed URL */}
                             {showBookingForm && selectedLocation && (
                                 <ZohoForm
@@ -569,11 +452,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                     iframeSrc={getBookingEmbedUrl()}
                                 />
                             )}
-
-
-
-
-
 
                             {/* Show callback form when button clicked OR when page is excluded */}
                             {(!showBooking || showCallbackForm) && !showBookingForm && (
@@ -583,9 +461,6 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
                                 />
                             )}
                         </div>
-
-
-
 
                         {/* ✅ Footer with callback link - Only show when booking interface is available */}
                         {showBooking && !showCallbackForm && (
