@@ -15,8 +15,8 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'avatar.iran.liara.run',
       },
-      
-       {
+
+      {
         protocol: 'https',
         hostname: 'mindfultms2.s3.us-east-1.amazonaws.com',
       },
@@ -39,12 +39,12 @@ const nextConfig = {
     return [
       {
         source: '/pages/tmspage',
-        destination: '/pages/rtms',
+        destination: '/services/rtms',
         permanent: false,  // or true, depending on SEO needs
       },
       {
         source: '/pages/tms',
-        destination: '/pages/rtms',
+        destination: '/services/rtms',
         permanent: false,  // or true, depending on SEO needs
       },
     ];

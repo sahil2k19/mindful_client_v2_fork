@@ -158,12 +158,12 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pages/tms" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                  <Link href="/services/rtms" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
                     rTMS
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pages/neurofeedback" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                  <Link href="/services/neurofeedback" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
                     Neurofeedback
                   </Link>
                 </li>
