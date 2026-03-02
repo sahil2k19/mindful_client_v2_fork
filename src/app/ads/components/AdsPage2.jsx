@@ -88,6 +88,7 @@ const AdsPage2 = ({ params }) => {
   const city = params.location;
   const expertService = params.service;
   const location = city === 'gk' ? 'New Delhi - Greater Kailash 1' : city === 'wf' ? 'Bengaluru - Whitefield' : city === 'hb' ? 'Bengaluru - Hebbal' : '';
+  const cityParam = city === 'gk' ? 'New-Delhi' : city === 'wf' ? 'Bengaluru-Whitefield' : city === 'hb' ? 'Bengaluru-Hebbal' : '';
   const expertText = expertService === 'psychologist' ? 'Psychologist' : expertService === 'psychiatrist' ? 'Psychiatrist' : expertService === 'therapist' ? "therapist" : 'Psychologist';
   // console.log("expertService", expertService)
   const excludedDoctors = ["Ms Yamini K.V"];
@@ -191,6 +192,7 @@ const AdsPage2 = ({ params }) => {
               iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
               customStyle={`${RequestAppointmentButton[expertService].style}`}
               name={RequestAppointmentButton[expertService].text}
+              city={cityParam}
             />
           </div>
         </Container>
@@ -344,6 +346,7 @@ const AdsPage2 = ({ params }) => {
               iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
               customStyle={RequestAppointmentButton[expertService].style}
               name={RequestAppointmentButton[expertService].text}
+              city={cityParam}
             />
           </div>
         </div>
@@ -509,6 +512,7 @@ const AdsPage2 = ({ params }) => {
         name="hidden-trigger"
         externalTrigger={showStickyModal}
         onClose={() => setShowStickyModal(false)}
+        city={cityParam}
       />
       <div className="hidden">
         <RequestAppointment
@@ -517,6 +521,7 @@ const AdsPage2 = ({ params }) => {
           name="trigger"
           externalTrigger={showModal}
           onClose={() => setShowModal(false)}
+          city={cityParam}
         />
       </div>
       <Container maxWidth="lg">
@@ -552,6 +557,7 @@ const AdsPage2 = ({ params }) => {
                   iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
                   customStyle={`${RequestAppointmentButton[expertService].style}`}
                   name={RequestAppointmentButton[expertService].text}
+                  city={cityParam}
                 />
               </div>
 
@@ -579,6 +585,7 @@ const AdsPage2 = ({ params }) => {
             iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
             customStyle={`${RequestAppointmentButton[expertService].style}`}
             name={RequestAppointmentButton[expertService].text}
+            city={cityParam}
           />
 
 
@@ -706,6 +713,7 @@ const AdsPage2 = ({ params }) => {
                 iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
                 customStyle={`${RequestAppointmentButton[expertService].style}`}
                 name={RequestAppointmentButton[expertService].text}
+                city={cityParam}
               />
             </div>
           </div>
@@ -742,6 +750,7 @@ const AdsPage2 = ({ params }) => {
                       iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
                       customStyle={`${RequestAppointmentButton[expertService].style} w-[90%]`}
                       name={RequestAppointmentButton[expertService].text}
+                      city={cityParam}
                     />
                   </div>
                   <div className='flex justify-center'>
