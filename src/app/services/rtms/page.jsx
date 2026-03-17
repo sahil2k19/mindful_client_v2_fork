@@ -1,6 +1,24 @@
 import React from 'react'
 import TmsMainPage from '@/app/component/TmsMainPage'
 import Script from 'next/script';
+import { rtmsFaqs } from '@/data/rtmsFaqs';
+
+function stripHtml(html) {
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": rtmsFaqs.slice(0, 12).map(faq => ({
+    "@type": "Question",
+    "name": faq.name,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": stripHtml(faq.detail)
+    }
+  }))
+};
 
 export async function generateMetadata() {
 
@@ -293,7 +311,19 @@ if( document.readyState == "complete" ){
 
 `}
       </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <TmsMainPage />
+      <div className="hidden">
+        {rtmsFaqs.map(faq => (
+          <div key={faq._id}>
+            <h2>{faq.name}</h2>
+            <div dangerouslySetInnerHTML={{ __html: faq.detail }} />
+          </div>
+        ))}
+      </div>
     </>
   )
 }
