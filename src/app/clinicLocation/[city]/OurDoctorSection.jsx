@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 // Booking URL mapping for experts with direct booking
 // Names must match exactly with API data
 const EXPERT_BOOKING_URLS = {
-  "Dr. Sandeep Govil": "https://book.mindfultms.in/#/237416000000631008",
+  // "Dr. Sandeep Govil": "https://book.mindfultms.in/#/237416000000631008",
   "Dr. Shubham Narnoli": "https://book.mindfultms.in/#/237416000000621008",
   "Ms. Mamatha S": "https://book.mindfultms.in/#/237416000000616008",
   "Ms. Sadaf Rais": "https://book.mindfultms.in/#/237416000000602026",
@@ -16,12 +16,14 @@ const EXPERT_BOOKING_URLS = {
   "Ms. Navya Shree": "https://book.mindfultms.in/#/237416000000654376",
   "Ms Swati Agarwal": "https://book.mindfultms.in/#/237416000000651116",
   "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182",
+  "Ms. Kavya K": "https://book.mindfultms.in/#/237416000000738012",
 };
 
 // Experts who should show "Request Callback" button and open callback form in modal
 const CALLBACK_ONLY_EXPERTS = {
-  "Ms. Kavya K": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1",
-  "Dr. Abhishek": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1"
+  // "Ms. Kavya K": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1",
+  "Dr. Abhishek": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1",
+  "Dr. Sandeep Govil": "https://forms.zohopublic.in/nikhilmindf1/form/NewWebsiteForm2025/formperma/c_0ekKg-MlfFH_W45sMaGGhHWxwaUHYKun261OA_QS4?zf_rszfm=1"
 };
 
 const OurDoctorSection = ({ designation }) => {
