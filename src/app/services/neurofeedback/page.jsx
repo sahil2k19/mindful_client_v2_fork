@@ -1,7 +1,18 @@
 import React from 'react'
 import Script from 'next/script';
 import NeuroFeedbackPage from './NeurofeedbackPage'
-import { neurofeedbackMedicalTherapy, neurofeedbackFaqSchema, neurofeedbackBreadcrumb } from '@/data/schema/neurofeedbackSchema';
+import { neurofeedbackMedicalTherapy, neurofeedbackBreadcrumb } from '@/data/schema/neurofeedbackSchema';
+import { nfbFaqs } from '@/data/nfbFaqs';
+
+const nfbFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": nfbFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.name,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.detail }
+  }))
+};
 
 export async function generateMetadata() {
   return {
@@ -293,9 +304,17 @@ if( document.readyState == "complete" ){
 `}
         </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackMedicalTherapy) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackFaqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(nfbFaqSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackBreadcrumb) }} />
         <NeuroFeedbackPage/>
+        <div className="hidden">
+          {nfbFaqs.map(faq => (
+            <div key={faq._id}>
+              <h2>{faq.name}</h2>
+              <p>{faq.detail}</p>
+            </div>
+          ))}
+        </div>
     </>
   )
 }

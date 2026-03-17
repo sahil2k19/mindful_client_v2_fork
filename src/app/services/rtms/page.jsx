@@ -11,7 +11,7 @@ function stripHtml(html) {
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": rtmsFaqs.slice(0, 12).map(faq => ({
+  "mainEntity": rtmsFaqs.map(faq => ({
     "@type": "Question",
     "name": faq.name,
     "acceptedAnswer": {

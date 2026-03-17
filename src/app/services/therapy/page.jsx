@@ -2,6 +2,21 @@ import React from 'react'
 import TherapyPage from '@/app/component/TherapyPage'
 import { therapyMedicalTherapy, therapyBreadcrumb } from '@/data/schema/therapySchema';
 import Script from 'next/script';
+import { therapyFaqs } from '@/data/therapyFaqs';
+
+function stripHtml(html) {
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+const therapyFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": therapyFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.name,
+    "acceptedAnswer": { "@type": "Answer", "text": stripHtml(faq.detail) }
+  }))
+};
 
 export async function generateMetadata() {
 
@@ -296,8 +311,17 @@ if( document.readyState == "complete" ){
 `}
         </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(therapyMedicalTherapy) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(therapyFaqSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(therapyBreadcrumb) }} />
     <TherapyPage/>
+    <div className="hidden">
+      {therapyFaqs.map(faq => (
+        <div key={faq._id}>
+          <h2>{faq.name}</h2>
+          <div dangerouslySetInnerHTML={{ __html: faq.detail }} />
+        </div>
+      ))}
+    </div>
     </>
   )
 }
