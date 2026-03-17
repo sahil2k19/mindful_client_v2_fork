@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "echo sitemap handled by app/sitemap.ts",
     "start": "next start",
     "lint": "next lint"
   },

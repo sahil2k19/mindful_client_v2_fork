@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mindfultms.in/sitemap
+# Block admin, auth, ads, test pages from crawlers
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /ads/
+Disallow: /tests/
+Disallow: /testingpage/
+Disallow: /thankyou/
+
+Sitemap: https://mindfultms.in/sitemap.xml
