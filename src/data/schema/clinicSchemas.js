@@ -58,7 +58,7 @@ export const whitefieldBreadcrumb = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfultms.in" },
-    { "@type": "ListItem", "position": 2, "name": "Our Clinics" },
+    { "@type": "ListItem", "position": 2, "name": "Our Clinics", "item": "https://mindfultms.in/clinicLocation" },
     { "@type": "ListItem", "position": 3, "name": "Bengaluru Whitefield", "item": "https://mindfultms.in/clinicLocation/Bengaluru-Whitefield" }
   ]
 };
@@ -106,7 +106,7 @@ export const hebbalBreadcrumb = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfultms.in" },
-    { "@type": "ListItem", "position": 2, "name": "Our Clinics" },
+    { "@type": "ListItem", "position": 2, "name": "Our Clinics", "item": "https://mindfultms.in/clinicLocation" },
     { "@type": "ListItem", "position": 3, "name": "Bengaluru Hebbal", "item": "https://mindfultms.in/clinicLocation/Bengaluru-Hebbal" }
   ]
 };
@@ -154,7 +154,7 @@ export const delhiBreadcrumb = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfultms.in" },
-    { "@type": "ListItem", "position": 2, "name": "Our Clinics" },
+    { "@type": "ListItem", "position": 2, "name": "Our Clinics", "item": "https://mindfultms.in/clinicLocation" },
     { "@type": "ListItem", "position": 3, "name": "New Delhi", "item": "https://mindfultms.in/clinicLocation/New-Delhi" }
   ]
 };

@@ -353,16 +353,15 @@ const OurDoctorSection = ({ designation }) => {
                 <div className="flex flex-col flex-1 gap-1">
                   <button
                     onClick={() => {
-                      let phone = "919606969296"; // default to Hebbal
+                      let url = "https://wa.me/919606969296?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Aster%20Bangalore)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=aster_clinic"; // default to Hebbal
                       if (selectedExpert?.location === "Bengaluru - Whitefield" || selectedExpert?.name?.includes("Yamini K.V")) {
-                        phone = "918197341114";
+                        url = "https://wa.me/918197341114?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Whitefield%20Bangalore)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=whitefield_clinic";
                       } else if (selectedExpert?.location === "Bengaluru - Hebbal") {
-                        phone = "919606969296";
+                        url = "https://wa.me/919606969296?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Aster%20Bangalore)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=aster_clinic";
                       } else if (selectedExpert?.location === "New Delhi - Greater Kailash 1") {
-                        phone = "919606067372";
+                        url = "https://wa.me/919606067372?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Delhi)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=delhi_clinic";
                       }
-                      const message = encodeURIComponent(`Hi, I would like to enquire about ${selectedExpert?.name}`);
-                      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+                      window.open(url, '_blank');
                     }}
                     className="w-full h-[52px] bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold py-2 px-1 rounded-lg transition-colors duration-200 flex items-center justify-center gap-1.5 md:gap-2 text-[13px] md:text-sm text-center leading-tight"
                   >
@@ -393,7 +392,11 @@ const OurDoctorSection = ({ designation }) => {
                     )}
                     <span>{selectedExpert && CALLBACK_ONLY_EXPERTS[selectedExpert.name] ? 'Request Callback' : 'Book Immediately'}</span>
                   </button>
-                  <p className="text-[10px] md:text-sm text-gray-500 text-center leading-tight"> Book Instantly on our Portal</p>
+                  <p className="text-[10px] md:text-sm text-gray-500 text-center leading-tight">
+                    {selectedExpert && CALLBACK_ONLY_EXPERTS[selectedExpert.name] 
+                      ? 'Request a call back from MindfulTMS Team for Booking' 
+                      : 'Book Instantly on our Portal'}
+                  </p>
                 </div>
               </div>
 
