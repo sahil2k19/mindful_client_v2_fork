@@ -2,6 +2,7 @@ import React from 'react'
 import TmsMainPage from '@/app/component/TmsMainPage'
 import Script from 'next/script';
 import { rtmsFaqs } from '@/data/rtmsFaqs';
+import { rtmsMedicalTherapy, rtmsBreadcrumb } from '@/data/schema/rtmsSchema';
 
 function stripHtml(html) {
   return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -311,10 +312,9 @@ if( document.readyState == "complete" ){
 
 `}
       </Script>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(rtmsMedicalTherapy) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(rtmsBreadcrumb) }} />
       <TmsMainPage />
       <div className="hidden">
         {rtmsFaqs.map(faq => (

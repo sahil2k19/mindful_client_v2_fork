@@ -1,5 +1,6 @@
 import React from 'react'
 import TherapyPage from '@/app/component/TherapyPage'
+import { therapyMedicalTherapy, therapyBreadcrumb } from '@/data/schema/therapySchema';
 import Script from 'next/script';
 
 export async function generateMetadata() {
@@ -294,6 +295,8 @@ if( document.readyState == "complete" ){
 
 `}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(therapyMedicalTherapy) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(therapyBreadcrumb) }} />
     <TherapyPage/>
     </>
   )

@@ -5,6 +5,7 @@ import AssesmentPage from './AssesmentPage'
 import TakeAssessment from './TakeAssessment'
 import {assesmentPageSection} from '@/example'
 import axios from 'axios'
+import { assessmentWebApp, assessmentBreadcrumb } from '@/data/schema/assessmentSchema';
 
 
 export async function generateMetadata() {
@@ -105,6 +106,8 @@ const Assesment = async() => {
     allSection = res.data
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(assessmentWebApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(assessmentBreadcrumb) }} />
       {/* {allSection &&  <AssesmentPage allSection={allSection} />} */}
       {allSection &&  <TakeAssessment allSection={allSection} />}
         {/* <AssesmentPage allSection={assesmentPageSection} /> */}

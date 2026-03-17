@@ -1,6 +1,7 @@
 import React from 'react'
 import Script from 'next/script';
 import NeuroFeedbackPage from './NeurofeedbackPage'
+import { neurofeedbackMedicalTherapy, neurofeedbackFaqSchema, neurofeedbackBreadcrumb } from '@/data/schema/neurofeedbackSchema';
 
 export async function generateMetadata() {
   return {
@@ -291,6 +292,9 @@ if( document.readyState == "complete" ){
 
 `}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackMedicalTherapy) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackFaqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(neurofeedbackBreadcrumb) }} />
         <NeuroFeedbackPage/>
     </>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import PsychiatryPage from '@/app/component/PsychiatryPage'
 import Script from 'next/script';
+import { psychiatryMedicalBusiness, psychiatryPhysicians, psychiatryBreadcrumb } from '@/data/schema/psychiatrySchema';
 
 export async function generateMetadata() {
 
@@ -293,6 +294,11 @@ if( document.readyState == "complete" ){
 
 `}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(psychiatryMedicalBusiness) }} />
+        {psychiatryPhysicians.map((physician, i) => (
+          <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physician) }} />
+        ))}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(psychiatryBreadcrumb) }} />
         <PsychiatryPage />
         </>
     )

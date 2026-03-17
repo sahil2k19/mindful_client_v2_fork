@@ -3,6 +3,7 @@ import React from 'react'
 import City2Component from './City2Component'
 import axios from 'axios';
 import Script from 'next/script';
+import { clinicSchemaByCity } from '@/data/schema/clinicSchemas';
 export async function generateMetadata({params}) {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}clinicLocation/getData/${params.city}/${params.city}/clinic`);
 
@@ -17,6 +18,7 @@ export async function generateMetadata({params}) {
 const page = ({params}) => {
     const {city} = params
     console.log('city', city)
+    const citySchema = clinicSchemaByCity[city];
 
   return (
     <div>
@@ -298,6 +300,12 @@ if( document.readyState == "complete" ){
 
 `}
         </Script>
+        {citySchema && (
+          <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(citySchema.clinic) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(citySchema.breadcrumb) }} />
+          </>
+        )}
     <City2Component city={city}/>
     
     </div>

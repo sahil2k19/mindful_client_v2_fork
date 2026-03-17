@@ -7,6 +7,7 @@ const HomePage = dynamic(() => import('@/app/component/HomePage'))
 import axios from 'axios';
 import {HomePageSections} from "@/example"
 import Script from 'next/script';
+import { homepageBreadcrumb } from '@/data/schema/homepageSchema';
 const currentSection = HomePageSections;
 
 export async function generateMetadata() {
@@ -312,6 +313,7 @@ if( document.readyState == "complete" ){
 
 `}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageBreadcrumb) }} />
     <HomePage allSection={allSection} />
     {/* <HomePage allSection={currentSection} /> */}
    </>

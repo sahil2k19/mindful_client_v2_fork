@@ -13,6 +13,7 @@ import DynamicFooter from "@/components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from 'next/script';
+import { organizationSchema, websiteSchema } from '@/data/schema/sitewideSchema';
 // import { metadata } from "./layoutWithMetadata";
 
 // Dynamically load components that are not required on every page
@@ -76,6 +77,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         {/* PageSense (Zoho) */}
         <script defer src="https://cdn-in.pagesense.io/js/rangsonshealthcaresolutionspvtltd/67af7e7b39754527a4a1201d246c8524.js"></script>
+
+        {/* Sitewide Organization + WebSite Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       </head>
       <body>
