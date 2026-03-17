@@ -21,7 +21,7 @@ export const psychiatryPhysicians = [
     "name": "Dr. Shubham REPLACE_SURNAME",
     "image": "https://mindfultms2.s3.us-east-1.amazonaws.com/1756967000604-Dr%20Subham%20%281%29.webp",
     "description": "REPLACE_BIO",
-    "medicalSpecialty": "Psychiatry",
+    "medicalSpecialty": "http://schema.org/Psychiatric",
     "worksFor": { "@type": "MedicalOrganization", "name": "MindfulTMS", "url": "https://mindfultms.in" },
     "workLocation": {
       "@type": "MedicalClinic",
@@ -42,7 +42,7 @@ export const psychiatryPhysicians = [
     "name": "Dr. Sandeep Govil",
     "image": "https://mindfultms2.s3.us-east-1.amazonaws.com/1756967022829-Dr%20Sandeep%20Govil%20Pictures%20%281%29%20%281%29.webp",
     "description": "REPLACE_BIO",
-    "medicalSpecialty": "Psychiatry",
+    "medicalSpecialty": "http://schema.org/Psychiatric",
     "worksFor": { "@type": "MedicalOrganization", "name": "MindfulTMS", "url": "https://mindfultms.in" },
     "workLocation": {
       "@type": "MedicalClinic",
@@ -63,7 +63,7 @@ export const psychiatryPhysicians = [
     "name": "Dr. Abhishek REPLACE_SURNAME",
     "image": "https://mindfultms2.s3.us-east-1.amazonaws.com/1756967041780-Dr%20Abhishek%20%20%281%29%20%281%29.webp",
     "description": "REPLACE_BIO",
-    "medicalSpecialty": "Psychiatry",
+    "medicalSpecialty": "http://schema.org/Psychiatric",
     "worksFor": { "@type": "MedicalOrganization", "name": "MindfulTMS", "url": "https://mindfultms.in" },
     "workLocation": {
       "@type": "MedicalClinic",

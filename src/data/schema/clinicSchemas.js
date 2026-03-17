@@ -41,7 +41,7 @@ export const whitefieldClinicSchema = {
     }
   ],
   "hasMap": "https://mindfultms.in/clinicLocation/Bengaluru-Whitefield",
-  "medicalSpecialty": ["Psychiatry", "MentalHealth"],
+  "medicalSpecialty": ["http://schema.org/Psychiatric", "http://schema.org/MentalHealth"],
   "availableService": [
     ...availableServices,
     { "@type": "MedicalTherapy", "name": "Clinical Assessment", "url": "https://mindfultms.in/clinicalAssessment" }
@@ -92,7 +92,7 @@ export const hebbalClinicSchema = {
     }
   ],
   "hasMap": "https://mindfultms.in/clinicLocation/Bengaluru-Hebbal",
-  "medicalSpecialty": ["Psychiatry", "MentalHealth"],
+  "medicalSpecialty": ["http://schema.org/Psychiatric", "http://schema.org/MentalHealth"],
   "availableService": availableServices,
   "parentOrganization": {
     "@type": "MedicalOrganization",
@@ -140,7 +140,7 @@ export const delhiClinicSchema = {
     }
   ],
   "hasMap": "https://mindfultms.in/clinicLocation/New-Delhi",
-  "medicalSpecialty": ["Psychiatry", "MentalHealth"],
+  "medicalSpecialty": ["http://schema.org/Psychiatric", "http://schema.org/MentalHealth"],
   "availableService": availableServices,
   "parentOrganization": {
     "@type": "MedicalOrganization",

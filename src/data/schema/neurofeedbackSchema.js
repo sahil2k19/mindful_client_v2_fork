@@ -6,19 +6,12 @@ export const neurofeedbackMedicalTherapy = {
   "description": "Non-invasive, drug-free brain training using real-time EEG feedback to help the brain self-regulate. Effective for ADHD, anxiety, depression, PTSD, sleep disorders, and peak cognitive performance.",
   "url": "https://mindfultms.in/services/neurofeedback",
   "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Psychiatry" },
-  "procedureType": "Noninvasive",
+  "procedureType": "http://schema.org/NoninvasiveProcedure",
   "bodyLocation": "Brain",
   "howPerformed": "EEG sensors placed on the scalp measure brainwave activity. Patients engage with feedback-based games or videos for approximately 20 minutes per session, 3–4 sessions per week.",
   "preparation": "No special preparation required. Suitable for children as young as 6.",
   "contraindication": "Unmanaged seizures, neurological implants, or severe psychiatric instability.",
-  "indication": [
-    { "@type": "MedicalIndication", "name": "ADHD" },
-    { "@type": "MedicalIndication", "name": "Anxiety" },
-    { "@type": "MedicalIndication", "name": "Depression" },
-    { "@type": "MedicalIndication", "name": "PTSD" },
-    { "@type": "MedicalIndication", "name": "Sleep Disorders" },
-    { "@type": "MedicalIndication", "name": "Cognitive Enhancement / Peak Performance" }
-  ],
+  "applicableLocation": "ADHD, Anxiety, Depression, PTSD, Sleep Disorders, Cognitive Enhancement",
   "provider": {
     "@type": "MedicalOrganization",
     "name": "MindfulTMS",

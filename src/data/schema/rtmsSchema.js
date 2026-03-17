@@ -8,7 +8,7 @@ export const rtmsMedicalTherapy = {
   "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Psychiatry" },
   "recognizingAuthority": { "@type": "Organization", "name": "U.S. Food and Drug Administration (FDA)" },
   "legalStatus": "FDA cleared for Major Depressive Disorder (2008) and OCD (2018)",
-  "procedureType": "Noninvasive",
+  "procedureType": "http://schema.org/NoninvasiveProcedure",
   "bodyLocation": "Brain — Left Dorsolateral Prefrontal Cortex (DLPFC)",
   "howPerformed": "A magnetic coil is placed on the scalp and delivers focused magnetic pulses to targeted brain regions. Sessions are 20–40 minutes, 5 days/week, for 4–6 weeks.",
   "preparation": "No special preparation required. Patients remain awake and alert throughout the session.",
@@ -18,19 +18,7 @@ export const rtmsMedicalTherapy = {
     "@type": "MedicalEntity",
     "name": "Mild scalp discomfort during sessions; seizure risk estimated at 1 in 10,000 treatments"
   },
-  "indication": [
-    { "@type": "MedicalIndication", "name": "Major Depressive Disorder (MDD)" },
-    { "@type": "MedicalIndication", "name": "Treatment-Resistant Depression" },
-    { "@type": "MedicalIndication", "name": "Obsessive-Compulsive Disorder (OCD)" },
-    { "@type": "MedicalIndication", "name": "Generalized Anxiety Disorder (GAD)" },
-    { "@type": "MedicalIndication", "name": "Post-Traumatic Stress Disorder (PTSD)" },
-    { "@type": "MedicalIndication", "name": "Bipolar Disorder (Depressive Episodes)" },
-    { "@type": "MedicalIndication", "name": "Chronic Pain" },
-    { "@type": "MedicalIndication", "name": "Migraine with Aura" },
-    { "@type": "MedicalIndication", "name": "ADHD" },
-    { "@type": "MedicalIndication", "name": "Tinnitus" },
-    { "@type": "MedicalIndication", "name": "Smoking Addiction" }
-  ],
+  "applicableLocation": "Major Depressive Disorder, Treatment-Resistant Depression, OCD, Anxiety, PTSD, Bipolar Disorder, Chronic Pain, Migraine, ADHD, Tinnitus, Smoking Addiction",
   "provider": {
     "@type": "MedicalOrganization",
     "name": "MindfulTMS",

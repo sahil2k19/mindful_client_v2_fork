@@ -11,7 +11,7 @@ export const organizationSchema = {
   "description": "India's leading rTMS neurocare clinic chain offering medication-free treatment for depression, OCD, anxiety, chronic pain and more. 5+ years experience, clinics in Bengaluru and Delhi.",
   "email": "connect@mindfultms.in",
   "foundingDate": "REPLACE_FOUNDING_YEAR",
-  "medicalSpecialty": ["Psychiatry", "Neurology", "MentalHealth"],
+  "medicalSpecialty": ["http://schema.org/Psychiatric", "http://schema.org/Neurologic", "http://schema.org/MentalHealth"],
   "sameAs": [
     "https://www.facebook.com/mindfultmsneurocare/",
     "REPLACE_INSTAGRAM_URL",
