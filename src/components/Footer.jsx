@@ -115,7 +115,7 @@ function Footer() {
       {/* Multi-column Links Section */}
       {!shouldHideFooter && (
         <div className="max-w-7xl mx-auto px-6 mb-10">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-12">
             {/* Locations Column */}
             <div>
               <h3 className="text-primary-orange font-bold text-lg mb-4">Locations</h3>
@@ -201,6 +201,28 @@ function Footer() {
                 <li>
                   <Link href="/assesment" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
                     Take Assessment
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal Column */}
+            <div>
+              <h3 className="text-primary-orange font-bold text-lg mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/terms-and-conditions" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cookies-policy" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Cookies Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/payment-terms" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Payment Terms
                   </Link>
                 </li>
               </ul>
