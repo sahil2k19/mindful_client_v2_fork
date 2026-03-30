@@ -57,7 +57,7 @@ export default function PaymentTerms() {
                 <B>Missed or Late Cancellations:</B> If a session is missed or cancelled without prior notice as per clinic policy, paid fees cannot be refunded or adjusted.
               </li>
               <li>
-                <B>Exceptional Refunds:</B> Refunds, if approved, are solely at management's discretion and will be processed within 7–10 working days. Any approved refund amount will be recalculated at the standard (non-discounted) per-session rate for sessions already completed. All refunds are subject to deduction of applicable payment gateway and convenience charges incurred at the time of the original transaction.
+                <B>Exceptional Refunds:</B> {`Refunds, if approved, are solely at management's discretion and will be processed within 7–10 working days. Any approved refund amount will be recalculated at the standard (non-discounted) per-session rate for sessions already completed. All refunds are subject to deduction of applicable payment gateway and convenience charges incurred at the time of the original transaction.`}
               </li>
               <li>
                 <B>Non-Transferable:</B> All bookings and sessions are for the individual patient only and cannot be transferred to another person or service.

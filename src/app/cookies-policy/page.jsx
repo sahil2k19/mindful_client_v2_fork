@@ -44,7 +44,7 @@ export default function CookiesPolicy() {
                 <p className="mb-5">
                   This website{' '}
                   <a href="https://mindfultms.in/" className="text-blue-600 hover:underline">https://mindfultms.in/</a>{' '}
-                  ("<B><U>Website</U></B>") is operated by <U>Rangsons</U> Healthcare Solutions Private Limited ("<B>Organization</B>").
+                  {`(`}<B><U>Website</U></B>{`) is operated by `}<U>Rangsons</U>{` Healthcare Solutions Private Limited (`}<B>Organization</B>{`).`}
                 </p>
 
                 <ul className="space-y-5 pl-2">
@@ -136,7 +136,7 @@ export default function CookiesPolicy() {
           <section>
             <h2 className="text-xl font-bold text-orange-900 mb-3">Your Cookie Options</h2>
             <p className="mb-3">
-              You can manage your cookie preferences by adjusting your browser settings. You may delete existing cookies or configure your browser to block new cookies. For further instructions, consult your browser's help section.
+              {`You can manage your cookie preferences by adjusting your browser settings. You may delete existing cookies or configure your browser to block new cookies. For further instructions, consult your browser's help section.`}
             </p>
             <p>
               Please note that if you delete or block cookies, certain features of the Website may not function properly, some content may not display correctly, and your preferences may not be saved.
