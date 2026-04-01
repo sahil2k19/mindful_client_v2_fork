@@ -114,7 +114,7 @@ const TmsMainPage = () => {
                                 </div>
                             </div>
                             <div className='flex justify-center mt-5'>
-                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="conditions_section" screen="mobile" />
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@ const TmsMainPage = () => {
                                 <li className='mb-5'><strong>{`Complement Current Treatment`}</strong> {` You are looking to supplement rTMS to your current therapy and/or medication treatment plan  `}</li>
                             </ul>
                             <div className='flex justify-center mt-5'>
-                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] hover:bg-orange-500 uppercase active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold "} />
+                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] hover:bg-orange-500 uppercase active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold "} section="is_rtms_for_me_section" screen="mobile" />
                             </div>
                         </div>
 
@@ -163,7 +163,7 @@ const TmsMainPage = () => {
                                 </ul>
                             </div>
                             <div className='flex justify-center mt-5'>
-                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                                <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="how_it_works_section" screen="mobile" />
                             </div>
                         </div>
 
@@ -190,7 +190,7 @@ const TmsMainPage = () => {
                         </div>
 
                         <div className='flex pt-10 justify-center '>
-                            <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-xl font-semibold"} />
+                            <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-xl font-semibold"} section="bottom_cta" screen="mobile" />
                         </div>
                     </div>
                 </div>
@@ -254,7 +254,7 @@ const TmsMainPage = () => {
                                     </div>
                                 </div>
                                 <div className='flex justify-center mt-5'>
-                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="conditions_section" screen="desktop" />
                                 </div>
                             </Container>
                         </div>
@@ -273,7 +273,7 @@ const TmsMainPage = () => {
                                     <li className='mb-5'><strong>{`Complement Current Treatment`}</strong> {` You are looking to supplement rTMS to your current therapy and/or medication treatment plan  `}</li>
                                 </ul>
                                 <div className='flex justify-center mt-5'>
-                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] hover:bg-orange-500 uppercase active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold "} />
+                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] hover:bg-orange-500 uppercase active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold "} section="is_rtms_for_me_section" screen="desktop" />
                                 </div>
                             </Container>
                         </div>
@@ -305,7 +305,7 @@ const TmsMainPage = () => {
                                     </ul>
                                 </div>
                                 <div className='flex justify-center mt-5'>
-                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                                    <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="how_it_works_section" screen="desktop" />
                                 </div>
                             </Container>
                         </div>
@@ -329,7 +329,7 @@ const TmsMainPage = () => {
                         </div>
 
                         <div className='flex pt-10 justify-center '>
-                            <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 hover:shadow-lg active:shadow-sm active:bg-orange-600 rounded-lg px-10 py-4 text-white text-xl font-bold"} />
+                            <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 hover:shadow-lg active:shadow-sm active:bg-orange-600 rounded-lg px-10 py-4 text-white text-xl font-bold"} section="bottom_cta" screen="desktop" />
                         </div>
                     </div>
                 </div>

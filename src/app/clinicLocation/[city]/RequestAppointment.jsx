@@ -4,6 +4,7 @@ import { TextField, MenuItem, Select, FormControl, InputLabel, Button, RadioGrou
 import { usePathname } from 'next/navigation';
 import ZohoForm from '@/app/component/ZohoForm'
 import CustomRequestForm from '@/components/CustomRequestForm'
+import { trackEvent } from '@/lib/gtag'
 
 
 
@@ -61,7 +62,7 @@ const EXCLUDED_PATH_PREFIXES = [
 ];
 const EXCLUDED_FULL_PATHS = [];
 
-const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon, header, nfb, externalTrigger, onClose }) => {
+const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon, header, nfb, externalTrigger, onClose, section, screen, location_name }) => {
     const [queryString, setQueryString] = useState("");
     const [currentUrl, setcurrentUrl] = useState("");
     const [finalIframeSrc, setFinalIframeSrc] = useState("");
@@ -224,6 +225,13 @@ const RequestAppointment = ({ city, name, customStyle, iframeSrc, iconSize, icon
         setRequestModal(prev => !prev);
 
         if (newState) {
+            trackEvent('button_click', {
+                button_name: 'book_an_appointment',
+                button_location: section || 'appointment_modal',
+                page_path: pathname,
+                ...(screen && { screen }),
+                ...(location_name && { location_name }),
+            });
             // ✅ UPDATED: Auto-select location based on city param if available
             if (city && currentLocation) {
                 // If city is provided and location is found, auto-select it

@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import AllTestWithSearch from './AllTestWithSearch';
 import RequestAppointment from '../clinicLocation/[city]/RequestAppointment';
@@ -15,7 +16,7 @@ const ClinicalAssessment = () => {
                     </div>
 
                     <div className="flex justify-center md:justify-start mb-5">
-                        <RequestAppointment name="Get a Professional Assessment" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
+                        <RequestAppointment name="Get a Professional Assessment" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" section="hero_section" screen="mobile" />
                     </div>
 
                     {/* Image Section */}
@@ -54,7 +55,7 @@ const ClinicalAssessment = () => {
                     <AllTestWithSearch />
 
                     <div className='flex justify-center '>
-                        <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                        <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="bottom_cta" screen="mobile" />
                     </div>
 
                 </div>
@@ -74,7 +75,7 @@ const ClinicalAssessment = () => {
                     </div>
 
                     <div className="flex justify-center  mb-6">
-                        <RequestAppointment name="Get a Professional Assessment" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" />
+                        <RequestAppointment name="Get a Professional Assessment" customStyle="px-6 py-3 rounded-full text-lg transition bg-primary-orange text-white font-semibold hover:bg-orange-500 active:bg-orange-600" section="hero_section" screen="desktop" />
                     </div>
 
                     {/* Image Section */}
@@ -91,7 +92,7 @@ const ClinicalAssessment = () => {
                     </div>
 
                     <div className='flex justify-center '>
-                        <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} />
+                        <RequestAppointment name={"Book Consultation"} customStyle={"bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-700 rounded-lg px-10 py-3 text-white text-sm font-semibold"} section="bottom_cta" screen="desktop" />
                     </div>
 
                 </div>

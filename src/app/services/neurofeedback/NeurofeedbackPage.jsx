@@ -3,6 +3,7 @@ import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import RequestAppointment from '@/app/clinicLocation/[city]/RequestAppointment';
 import NfbPageFaqs from './NfbPageFaqs';
+import { trackEvent } from '@/lib/gtag';
 
 import {
     Brain,
@@ -285,6 +286,7 @@ const NeurofeedbackPage = () => {
                                 nfb={true}
                                 name=" Learn the Science Behind It"
                                 customStyle="bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 md:px-10 md:py-3.5 text-white text-sm md:text-base font-bold uppercase shadow-lg hover:shadow-xl transition-all w-full md:w-auto max-w-md"
+                                section="what_is_nfb_section"
                             />
                         </div>
                     </div>
@@ -405,6 +407,7 @@ const NeurofeedbackPage = () => {
                                 key={item.id}
                                 href={item.link}
                                 className="block bg-white hover:bg-green-50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all"
+                                onClick={() => trackEvent('who_is_it_for_click', { category: item.text, page_path: '/services/neurofeedback' })}
                             >
                                 <div className="flex flex-col items-center text-center gap-3">
                                     <div className="w-full  flex items-center justify-center ">
@@ -438,7 +441,7 @@ const NeurofeedbackPage = () => {
                     {/* Tabs */}
                     <div className="flex gap-2 mb-0">
                         <button
-                            onClick={() => setActiveTab('clinic')}
+                            onClick={() => { setActiveTab('clinic'); trackEvent('tab_click', { tab_name: 'in_clinic_nfb', page_path: '/services/neurofeedback' }); }}
                             className={`flex-1 py-2.5 md:py-3 px-3 md:px-4 rounded-t-lg font-semibold text-sm md:text-base transition-all ${activeTab === 'clinic'
                                 ? 'bg-green-500 text-white shadow-md relative z-10'
                                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -450,7 +453,7 @@ const NeurofeedbackPage = () => {
                             )}
                         </button>
                         <button
-                            onClick={() => setActiveTab('home')}
+                            onClick={() => { setActiveTab('home'); trackEvent('tab_click', { tab_name: 'at_home_nfb', page_path: '/services/neurofeedback' }); }}
                             className={`flex-1 py-2.5 md:py-3 px-3 md:px-4 rounded-t-lg font-semibold text-sm md:text-base transition-all ${activeTab === 'home'
                                 ? 'bg-blue-500 text-white shadow-md relative z-10'
                                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -564,6 +567,7 @@ const NeurofeedbackPage = () => {
                         nfb={true}
                         name="Book Consultation"
                         customStyle="bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-600 rounded-lg px-6 py-2.5 md:px-8 md:py-3 text-white text-sm md:text-base font-semibold w-full md:w-auto"
+                        section="ready_to_train_section"
                     />
                 </Container>
             </div>
@@ -580,6 +584,7 @@ const NeurofeedbackPage = () => {
                     nfb={true}
                     name="Book Consultation"
                     customStyle="bg-[#EF6623] uppercase hover:bg-orange-500 active:bg-orange-600 rounded-lg px-8 py-3 md:px-10 md:py-4 text-white text-base md:text-lg font-bold w-full md:w-auto"
+                    section="bottom_cta"
                 />
             </div>
         </div>

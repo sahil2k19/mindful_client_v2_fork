@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
+import { trackEvent } from '@/lib/gtag';
 
 import SeoHomepage from './SeoHomepage'
 
@@ -40,6 +42,7 @@ const servicesIcon = [
     },
 ]
 const HomePage = ({ allSection }) => {
+    const pathname = usePathname();
 
 
 
@@ -72,10 +75,10 @@ const HomePage = ({ allSection }) => {
                                         <p className='mb-2   text-[16px]  text-center text-[#545454]'>Get the best care from our experts. </p>
                                         <div className='mb-6'>
                                             <div className='flex gap-5 mb-2 items-center justify-center'>
-                                                    <Link href='/services/therapy' className='flex' >
+                                                    <Link href='/services/therapy' className='flex' onClick={() => trackEvent('service_click', { service_name: 'therapy', page_path: pathname, screen: 'mobile' })}>
                                                         <Image  height={100} width={100} alt='MindfulTMS - Advanced rTMS Therapy img' className='w-6' src='https://ik.imagekit.io/mwpcmpi5v/home/mindfulIcon.png?updatedAt=1733818445163' /><span className='text-[16px] text-[#3084ae] whitespace-nowrap font-bold' > Psychologists</span>
                                                     </Link>
-                                                <Link className='flex' href={`/services/psychiatry`}>
+                                                <Link className='flex' href={`/services/psychiatry`} onClick={() => trackEvent('service_click', { service_name: 'psychiatry', page_path: pathname, screen: 'mobile' })}>
                                                     <Image  height={100} width={100} alt='MindfulTMS - Advanced rTMS Therapy img' className='w-6' src='https://ik.imagekit.io/mwpcmpi5v/home/mindfulIcon.png?updatedAt=1733818445163' /> <span className='text-[16px]  text-[#3084ae] whitespace-nowrap font-bold'>Psychiatrists</span>
                                                 </Link>
 
@@ -163,7 +166,7 @@ const HomePage = ({ allSection }) => {
                                         if it is the right option for you.</p>
                                 </div>
                                 <div className='flex justify-center '>
-                                    <Link href={"/pages/tms"} className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 font-semibold text-sm text-white'>
+                                    <Link href={"/pages/tms"} className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 font-semibold text-sm text-white' onClick={() => trackEvent('button_click', { button_name: 'more_about_tms', button_location: 'tms_section', page_path: pathname, screen: 'mobile' })}>
                                         {/* {allSection?.section3?.button?.text} */}
                                         MORE ABOUT TMS
                                     </Link>
@@ -180,7 +183,7 @@ const HomePage = ({ allSection }) => {
                             </div>
                             <div>
                                 <div className="grid grid-cols-2 items-center gap-6 justify-center">
-                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/services/therapy">
+                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/services/therapy" onClick={() => trackEvent('service_click', { service_name: 'therapy', button_location: 'services_section', page_path: pathname, screen: 'mobile' })}>
                                         <img
                                             alt="MindfulTMS - Advanced rTMS Therapy Therapy"
                                             loading="lazy"
@@ -194,7 +197,7 @@ const HomePage = ({ allSection }) => {
                                         />
                                         <p className="text- font-semibold text-center">Therapy</p>
                                     </a>
-                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/services/psychiatry">
+                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/services/psychiatry" onClick={() => trackEvent('service_click', { service_name: 'psychiatry', button_location: 'services_section', page_path: pathname, screen: 'mobile' })}>
                                         <img
                                             alt="MindfulTMS - Advanced rTMS Therapy Psychiatry"
                                             loading="lazy"
@@ -208,7 +211,7 @@ const HomePage = ({ allSection }) => {
                                         />
                                         <p className="text- font-semibold text-center">Psychiatry</p>
                                     </a>
-                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/clinicalAssessment">
+                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/clinicalAssessment" onClick={() => trackEvent('service_click', { service_name: 'clinical_assessment', button_location: 'services_section', page_path: pathname, screen: 'mobile' })}>
                                         <img
                                             alt="MindfulTMS - Advanced rTMS Therapy Professional Assessment"
                                             loading="lazy"
@@ -222,7 +225,7 @@ const HomePage = ({ allSection }) => {
                                         />
                                         <p className="text- font-semibold text-center">Clinical Assessment</p>
                                     </a>
-                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/pages/tms">
+                                    <a className="flex flex-col shadow-lg rounded-lg py-2 hover:shadow-xl cursor-pointer justify-center items-center mb-2" href="/pages/tms" onClick={() => trackEvent('service_click', { service_name: 'rtms', button_location: 'services_section', page_path: pathname, screen: 'mobile' })}>
                                         <img
                                             alt="MindfulTMS - Advanced rTMS Therapy rTMS"
                                             loading="lazy"
@@ -256,7 +259,7 @@ const HomePage = ({ allSection }) => {
                         </div>
                         <div className='flex justify-center'>
                             <Link href={"/assesment"}>
-                                <button className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 font-semibold text-sm text-white'>
+                                <button className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-8 py-3 font-semibold text-sm text-white' onClick={() => trackEvent('button_click', { button_name: 'take_free_test', button_location: 'free_test_section', page_path: pathname, screen: 'mobile' })}>
                                     {"TAKE OUR FREE TEST"}
                                 </button>
                             </Link>
@@ -418,7 +421,7 @@ const HomePage = ({ allSection }) => {
                                     </div>
                                     <div className='flex justify-center mt-5'>
                                         <Link href={"/assesment"}>
-                                            <button className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-12 py-3 font-semibold text-lg text-white'>
+                                            <button className='bg-[#EF6623] hover:bg-orange-500 active:bg-orange-700 rounded-lg px-12 py-3 font-semibold text-lg text-white' onClick={() => trackEvent('button_click', { button_name: 'start_test', button_location: 'free_test_section', page_path: pathname, screen: 'desktop' })}>
                                                 Start Test
                                             </button>
                                         </Link>
@@ -438,7 +441,7 @@ const HomePage = ({ allSection }) => {
                             </div>
                             <div className="mb-6">
                                 <div className="grid grid-cols-2 md:grid-cols-4 items-center mb-5 gap-8 justify-center">
-                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/services/therapy">
+                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/services/therapy" onClick={() => trackEvent('service_click', { service_name: 'therapy', button_location: 'services_section', page_path: pathname, screen: 'desktop' })}>
                                         <div className="w-[150px] h-[150px] flex justify-center">
                                             <img
                                                 alt="MindfulTMS - Advanced rTMS Therapy Psychologists"
@@ -454,7 +457,7 @@ const HomePage = ({ allSection }) => {
                                         </div>
                                         <p className="text-xl text-center font-semibold">Psychologists</p>
                                     </a>
-                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/services/psychiatry">
+                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/services/psychiatry" onClick={() => trackEvent('service_click', { service_name: 'psychiatry', button_location: 'services_section', page_path: pathname, screen: 'desktop' })}>
                                         <div className="w-[150px] h-[150px] flex justify-center">
                                             <img
                                                 alt="MindfulTMS - Advanced rTMS Therapy Psychiatrists"
@@ -470,7 +473,7 @@ const HomePage = ({ allSection }) => {
                                         </div>
                                         <p className="text-xl text-center font-semibold">Psychiatrists</p>
                                     </a>
-                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/clinicalAssessment">
+                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/clinicalAssessment" onClick={() => trackEvent('service_click', { service_name: 'clinical_assessment', button_location: 'services_section', page_path: pathname, screen: 'desktop' })}>
                                         <div className="w-[150px] h-[150px] flex justify-center">
                                             <img
                                                 alt="MindfulTMS - Advanced rTMS Therapy Assessments"
@@ -486,7 +489,7 @@ const HomePage = ({ allSection }) => {
                                         </div>
                                         <p className="text-xl text-center font-semibold">Clinical Assessments</p>
                                     </a>
-                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/pages/tms">
+                                    <a className="flex cursor-pointer flex-col justify-center items-center text-center" href="/pages/tms" onClick={() => trackEvent('service_click', { service_name: 'rtms', button_location: 'services_section', page_path: pathname, screen: 'desktop' })}>
                                         <div className="w-[150px] h-[150px] flex justify-center">
                                             <img
                                                 alt="MindfulTMS - Advanced rTMS Therapy rTMS"
@@ -565,7 +568,7 @@ const HomePage = ({ allSection }) => {
                                         <strong>Is rTMS for me?</strong> Learn how it works and if it is the right option for you.
                                     </p>
                                     <br />
-                                    <Link href={"/pages/tms"} className="mt-4 px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg">
+                                    <Link href={"/pages/tms"} className="mt-4 px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg" onClick={() => trackEvent('button_click', { button_name: 'more_about_rtms', button_location: 'tms_section', page_path: pathname, screen: 'desktop' })}>
                                         MORE ABOUT rTMS
                                     </Link>
                                 </div>

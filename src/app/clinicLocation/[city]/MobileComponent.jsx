@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import React from 'react'
 import ImageGallary from './ImageGallary';
 import { Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem, Select, FormControl, InputLabel, Button } from '@mui/material';
@@ -8,6 +8,7 @@ import ClinicAddress from './ClinicAddress';
 import ClinicLocationDoctors from '@/app/component/ClinicLocationDoctors';
 import { HomePageSections } from '@/example';
 import Link from 'next/link';
+import { trackEvent } from '@/lib/gtag';
 const MobileComponent = ({ data, images, city }) => {
   
     const currentUrl = typeof window !== 'undefined' ? window.location.href : "";
@@ -78,7 +79,7 @@ const MobileComponent = ({ data, images, city }) => {
                                     <div className='grid grid-cols-2 items-center gap-6 justify-center'>
                                         {
                                             service?.array?.map((i, index) => (
-                                                <Link href={servicesIcon[index]?.link} key={index} className='flex flex-col cursor-pointer justify-center items-center mb-2'>
+                                                <Link href={servicesIcon[index]?.link} key={index} className='flex flex-col cursor-pointer justify-center items-center mb-2' onClick={() => trackEvent('service_click', { service_name: servicesIcon[index]?.name?.toLowerCase().replace(' ', '_'), button_location: 'services_section', page_path: `/clinicLocation/${city}`, location_name: city, screen: 'mobile' })}>
                                                     <img src={servicesIcon[index]?.icon} className='w-[80px] h-[80px] mb-4' />
                                                     <p className='text- font-semibold text-center'>{servicesIcon[index]?.name}</p>
                                                 </Link>
@@ -97,7 +98,7 @@ const MobileComponent = ({ data, images, city }) => {
 
             <div className='px-4 mb-11'>
             {/* <RequestAppointment iframeSrc={content[city]?.iframeSrc} city={city} /> */}
-            <RequestAppointment  city={city} />
+            <RequestAppointment city={city} section="bottom_cta" screen="mobile" location_name={city} />
 
             </div>
             <div className='px-4 mb-11'>

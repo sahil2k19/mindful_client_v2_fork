@@ -53,7 +53,7 @@ const DesktopComponent = ({ images, data, city }) => {
                         {/* clinic location here */}
                         <div className='mb-8'>
                             {/* <RequestAppointment iframeSrc={content[city]?.iframeSrc} city={city} /> */}
-                            <RequestAppointment city={city} />
+                            <RequestAppointment city={city} section="hero_section" screen="desktop" location_name={city} />
                         </div>
                         <div>
                             <ClinicAddress images={images} data={data} />
@@ -67,7 +67,7 @@ const DesktopComponent = ({ images, data, city }) => {
 
                 <div className='mb-8 w-[50%] mx-auto'>
                     {/* <RequestAppointment iframeSrc={content[city]?.iframeSrc} city={city} /> */}
-                    <RequestAppointment city={city} />
+                    <RequestAppointment city={city} section="bottom_cta" screen="desktop" location_name={city} />
                 </div>
 
 

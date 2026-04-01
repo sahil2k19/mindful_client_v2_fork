@@ -1,7 +1,9 @@
 
+"use client";
 import { Container } from '@mui/material';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+import { trackEvent } from '@/lib/gtag';
 // import { useParams } from 'next/navigation'
 const services = [
     {
@@ -137,7 +139,10 @@ const Services = ({ params, searchParams }) => {
                 </div>
                 <div className='flex justify-center'>
                     <Link href='/contactUs' className=' w-[75%] md:w-1/2 '>
-                        <button className='bg-primary-orange w-full py-3 text-white font-semibold rounded-lg'>
+                        <button
+                            className='bg-primary-orange w-full py-3 text-white font-semibold rounded-lg'
+                            onClick={() => trackEvent('button_click', { button_name: 'contact_us', page_path: `/services/${slugs}` })}
+                        >
                             CONTACT US
                         </button>
                     </Link>

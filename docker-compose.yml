@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  client:
+    build:
+      context: .
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        - NEXT_PUBLIC_CLIENT_URL=${NEXT_PUBLIC_CLIENT_URL}
+        - NEXT_PUBLIC_CLIENT_URL2=${NEXT_PUBLIC_CLIENT_URL2}
+    container_name: techmindful-client
+    restart: unless-stopped
+    ports:
+      - "3000:3000"

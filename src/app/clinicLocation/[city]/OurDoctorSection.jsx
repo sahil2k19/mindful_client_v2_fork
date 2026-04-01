@@ -3,7 +3,8 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import { trackEvent } from '@/lib/gtag';
 
 // Booking URL mapping for experts with direct booking
 // Names must match exactly with API data
@@ -28,6 +29,7 @@ const CALLBACK_ONLY_EXPERTS = {
 
 const OurDoctorSection = ({ designation }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const [ourExperts, setOurExperts] = useState([]);
   const [filteredExperts, setFilteredExperts] = useState({});
   const [loading, setLoading] = useState(true);
@@ -137,6 +139,12 @@ const OurDoctorSection = ({ designation }) => {
   // Handler for viewing expert profile
   const handleViewProfile = () => {
     if (selectedExpert) {
+      trackEvent('doctor_booking_click', {
+        button_name: 'view_profile',
+        doctor_name: selectedExpert.name,
+        doctor_specialization: selectedExpert.designation,
+        page_path: pathname,
+      });
       setShowModal(false);
       router.push(`/doctor/${selectedExpert._id}/${slugify(selectedExpert.name)}`);
     }
@@ -147,6 +155,12 @@ const OurDoctorSection = ({ designation }) => {
     if (selectedExpert) {
       const isCallbackOnly = Boolean(CALLBACK_ONLY_EXPERTS[selectedExpert.name]);
       if (isCallbackOnly) {
+        trackEvent('doctor_booking_click', {
+          button_name: 'request_callback',
+          doctor_name: selectedExpert.name,
+          doctor_specialization: selectedExpert.designation,
+          page_path: pathname,
+        });
         // Open callback form modal instead of new tab
         const baseUrl = CALLBACK_ONLY_EXPERTS[selectedExpert.name];
         setCallbackExpert(selectedExpert);
@@ -155,6 +169,12 @@ const OurDoctorSection = ({ designation }) => {
         setSelectedExpert(null);
         setShowCallbackModal(true);
       } else {
+        trackEvent('doctor_booking_click', {
+          button_name: 'book_immediately',
+          doctor_name: selectedExpert.name,
+          doctor_specialization: selectedExpert.designation,
+          page_path: pathname,
+        });
         const bookingUrl = getBookingUrl();
         window.open(bookingUrl, '_blank', 'noopener,noreferrer');
         setShowModal(false);
@@ -353,6 +373,12 @@ const OurDoctorSection = ({ designation }) => {
                 <div className="flex flex-col flex-1 gap-1">
                   <button
                     onClick={() => {
+                      trackEvent('doctor_booking_click', {
+                        button_name: 'book_on_whatsapp',
+                        doctor_name: selectedExpert.name,
+                        doctor_specialization: selectedExpert.designation,
+                        page_path: pathname,
+                      });
                       let url = "https://wa.me/919606969296?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Aster%20Bangalore)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=aster_clinic"; // default to Hebbal
                       if (selectedExpert?.location === "Bengaluru - Whitefield" || selectedExpert?.name?.includes("Yamini K.V")) {
                         url = "https://wa.me/918197341114?text=Hello,%20I%20am%20contacting%20you%20through%20your%20website%20(Whitefield%20Bangalore)%20regarding%20MindfulTMS%20services.%20I%20would%20like%20to%20book%20a%20consultation.%20Kindly%20assist.&utm_source=website&utm_medium=whatsapp_cta&utm_campaign=whitefield_clinic";

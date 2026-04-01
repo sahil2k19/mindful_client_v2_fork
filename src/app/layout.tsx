@@ -66,8 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               // Initialize Google Ads 
               gtag('config', 'AW-11458426933'); 
               
-              // Initialize Google Analytics 4 
-              gtag('config', 'G-0QBSV5K5FL'); 
+              // Initialize Google Analytics 4
+              gtag('config', 'G-0QBSV5K5FL');
             `, 
           }} 
         />
