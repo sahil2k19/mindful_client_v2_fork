@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  staticPageGenerationTimeout: 180,
   swcMinify: true,
   webpack: (config) => {
     config.optimization.minimize = true;

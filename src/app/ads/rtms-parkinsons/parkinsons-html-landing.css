@@ -1,0 +1,627 @@
+/* Scoped Parkinson's landing — matches provided HTML design */
+html:has(.phl-root) {
+  scroll-behavior: smooth;
+}
+
+/* ── Base: all viewports, safe areas, no horizontal scroll ── */
+.phl-root {
+  --teal: #1a7a6d;
+  --teal-deep: #0f5c52;
+  --teal-light: #e8f5f2;
+  --teal-glow: #2ba08f;
+  --warm: #faf8f5;
+  --warm-mid: #f0ece6;
+  --text: #1e2a27;
+  --text-soft: #4a5c56;
+  --text-muted: #7a8e87;
+  --white: #ffffff;
+  --accent: #d4a853;
+  --border: #d8e5e0;
+  --shadow-sm: 0 1px 3px rgba(26, 122, 109, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 122, 109, 0.08);
+  --shadow-lg: 0 8px 40px rgba(26, 122, 109, 0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+
+  font-family: var(--font-parkinsons-dm), system-ui, sans-serif;
+  color: var(--text);
+  background: var(--warm);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(26, 122, 109, 0.12);
+}
+
+.phl-root * {
+  box-sizing: border-box;
+}
+
+.phl-root .phl-container {
+  width: 100%;
+  max-width: min(100%, 520px);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.phl-root section {
+  padding: clamp(32px, 6vw, 48px) 0;
+}
+
+.phl-root .phl-awareness-bar {
+  background: var(--teal-deep);
+  color: var(--teal-light);
+  text-align: center;
+  padding: 10px max(16px, env(safe-area-inset-left)) 10px max(16px, env(safe-area-inset-right));
+  padding-top: max(10px, env(safe-area-inset-top, 0px));
+  font-size: clamp(11px, 3.2vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.phl-root .phl-awareness-bar span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: clamp(10px, 2.9vw, 12px);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.phl-root .phl-hero {
+  padding: clamp(28px, 5vw, 40px) 0 clamp(36px, 6vw, 48px);
+  position: relative;
+}
+
+.phl-root .phl-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26, 122, 109, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.phl-root .phl-hero h1 {
+  font-family: var(--font-parkinsons-playfair), Georgia, serif;
+  font-size: clamp(1.375rem, 1.05rem + 1.35vw, 2.375rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+  text-wrap: balance;
+  hyphens: auto;
+}
+
+.phl-root .phl-hero p {
+  font-size: clamp(0.9375rem, 0.88rem + 0.35vw, 1rem);
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 100%;
+}
+
+.phl-root .phl-btn-primary-wrap {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  justify-content: stretch;
+}
+
+.phl-root .phl-btn-primary-wrap > * {
+  flex: 1 1 auto;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+.phl-root .phl-empathy {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 0;
+}
+
+.phl-root .phl-empathy-inner {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.phl-root .phl-empathy-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--teal-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.phl-root .phl-empathy p {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.phl-root .phl-what-section {
+  padding: 48px 0;
+}
+
+.phl-root .phl-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+
+.phl-root .phl-section-heading {
+  font-family: var(--font-parkinsons-playfair), Georgia, serif;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.phl-root .phl-what-section p {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.phl-root .phl-what-visual {
+  margin: 28px 0 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+  line-height: 0;
+}
+
+.phl-root .phl-what-rtms-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.phl-root .phl-benefits {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.phl-root .phl-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 2.5vw, 14px);
+  margin-top: 24px;
+}
+
+.phl-root .phl-benefit-card {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: clamp(16px, 3.5vw, 22px) clamp(12px, 3vw, 18px);
+  text-align: center;
+  transition: box-shadow 0.2s;
+  min-width: 0;
+}
+
+.phl-root .phl-benefit-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.phl-root .phl-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--teal-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+/* Uniform square frame for all four benefit illustrations */
+.phl-root .phl-benefit-icon--img {
+  position: relative;
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 14px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.phl-root .phl-benefit-icon--img .phl-benefit-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 16px);
+  max-height: calc(100% - 16px);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.phl-root .phl-benefit-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.phl-root .phl-benefit-card p {
+  font-size: clamp(12px, 2.8vw, 13px);
+  color: var(--text-muted);
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.phl-root .phl-benefits-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.phl-root .phl-trust {
+  padding: 44px 0;
+}
+
+.phl-root .phl-trust-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 12px);
+  margin-bottom: 24px;
+}
+
+.phl-root .phl-trust-item {
+  text-align: center;
+  padding: clamp(14px, 3vw, 20px) clamp(6px, 1.5vw, 8px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.phl-root .phl-trust-item .phl-number {
+  font-family: var(--font-parkinsons-playfair), Georgia, serif;
+  font-size: clamp(1.25rem, 4vw, 1.625rem);
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.2;
+}
+
+.phl-root .phl-trust-item .phl-label {
+  font-size: clamp(10px, 2.6vw, 12px);
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.phl-root .phl-trust-text {
+  font-size: clamp(0.875rem, 0.82rem + 0.2vw, 0.9375rem);
+  color: var(--text-soft);
+  line-height: 1.7;
+  text-align: center;
+  max-width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+.phl-root .phl-steps {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.phl-root .phl-steps-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.phl-root .phl-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 0;
+  position: relative;
+}
+
+.phl-root .phl-step:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.phl-root .phl-step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phl-root .phl-step-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.phl-root .phl-step-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.phl-root .phl-form-section {
+  padding: 48px 0 40px;
+  position: relative;
+}
+
+.phl-root .phl-form-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--warm) 0%, var(--teal-light) 100%);
+  z-index: -1;
+}
+
+.phl-root .phl-form-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.phl-root .phl-form-box h2 {
+  font-family: var(--font-parkinsons-playfair), Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.phl-root .phl-form-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.phl-root .phl-zoho-frame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--warm);
+}
+
+.phl-root .phl-zoho-frame iframe {
+  display: block;
+  width: 100%;
+}
+
+.phl-root .phl-form-trust {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.phl-root .phl-locations {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 0;
+  /* Space above fixed mobile CTA (replaces removed footer block) */
+  padding-bottom: max(90px, calc(72px + env(safe-area-inset-bottom, 0px)));
+}
+
+.phl-root .phl-location-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.phl-root .phl-location-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.phl-root .phl-location-pin {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--teal-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phl-root .phl-location-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+  word-break: break-word;
+}
+
+.phl-root .phl-location-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.phl-root .phl-floating-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  padding-top: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.phl-root .phl-floating-cta.phl-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.phl-root .phl-floating-cta .phl-floating-inner {
+  width: 100%;
+  max-width: min(400px, 100%);
+  text-align: center;
+}
+
+.phl-root .phl-floating-inner a,
+.phl-root .phl-floating-inner button,
+.phl-root .phl-floating-inner [role='button'] {
+  min-height: 48px;
+  width: 100%;
+  touch-action: manipulation;
+}
+
+.phl-root .phl-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.phl-root .phl-fade-up.phl-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .phl-root .phl-container {
+    max-width: min(560px, 100%);
+  }
+  .phl-root .phl-section-heading {
+    font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.75rem);
+  }
+  .phl-root .phl-benefits-grid {
+    gap: 18px;
+  }
+  .phl-root .phl-benefit-card {
+    padding: 28px 22px;
+  }
+  .phl-root .phl-form-box {
+    padding: 40px 32px;
+  }
+  .phl-root .phl-floating-cta {
+    display: none;
+  }
+  .phl-root .phl-locations {
+    padding-bottom: max(44px, env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (min-width: 900px) {
+  .phl-root .phl-container {
+    max-width: min(680px, 100%);
+  }
+  .phl-root .phl-benefits-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Very narrow phones: single column benefits */
+@media (max-width: 380px) {
+  .phl-root .phl-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra-narrow devices only: stack trust stats for readability */
+@media (max-width: 359px) {
+  .phl-root .phl-trust-numbers {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Short landscape (mobile browser chrome): tighten vertical rhythm */
+@media (max-height: 500px) and (orientation: landscape) {
+  .phl-root section {
+    padding: clamp(24px, 4vh, 36px) 0;
+  }
+  .phl-root .phl-hero {
+    padding-top: 16px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phl-root .phl-pulse-ring {
+    animation: none;
+    opacity: 0;
+  }
+  .phl-root .phl-fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .phl-root .phl-floating-cta {
+    transition: none;
+  }
+}

@@ -3,13 +3,24 @@ import axios from 'axios';
 
 const BASE_URL = 'https://mindfultms.in';
 
+/** Do not pre-render sitemap at build time (Docker/CI often cannot reach the API in time). */
+export const dynamic = 'force-dynamic';
+
+const DOCTOR_FETCH_TIMEOUT_MS = 10_000;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ─── Dynamic: doctor profile pages ──────────────────────────────────────
   let doctorRoutes: MetadataRoute.Sitemap = [];
+  const apiBase = process.env.NEXT_PUBLIC_API_URL;
   try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}doctors/search/doctors`);
-    const doctors = res.data;
+    if (!apiBase) {
+      throw new Error('NEXT_PUBLIC_API_URL is not set');
+    }
+    const res = await axios.get(`${apiBase}doctors/search/doctors`, {
+      timeout: DOCTOR_FETCH_TIMEOUT_MS,
+    });
+    const doctors = Array.isArray(res.data) ? res.data : [];
     doctorRoutes = doctors.map((doc: { _id: string; slug?: string; updatedAt?: string }) => ({
       url: `${BASE_URL}/doctor/${doc._id}${doc.slug ? `/${doc.slug}` : ''}`,
       lastModified: doc.updatedAt ? new Date(doc.updatedAt) : new Date('2026-01-01'),

@@ -1,9 +1,11 @@
-import { useParams } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import React from 'react'
 import {adsPageContent} from '../adsPageContent'
 const AdsNavbar = () => {
   // const city = params.location;
   const params = useParams()
+  const pathname = usePathname()
+  const isParkinsonsRtmsLanding = pathname?.startsWith('/ads/rtms-parkinsons')
   // console.log("nav params", params)
   const city = params.location;
   const expertCondition = params.general;
@@ -33,10 +35,16 @@ const AdsNavbar = () => {
 
   //  console.log("adsPageContent[city]?.[expertService]?.[current_condition]", adsPageContent[city]?.[expertService]?.[current_condition].headline_2_pinned)
   return (
-    <header className="flex items-center justify-between px-6 md:px-16 py-0">
-{/* Logo on the left */}
+    <header
+      className={
+        isParkinsonsRtmsLanding
+          ? 'flex items-center justify-center px-6 md:px-16 py-0'
+          : 'flex items-center justify-between px-6 md:px-16 py-0'
+      }
+    >
+{/* Logo: left on most ads; centered on Parkinson's rTMS landing only */}
   <div className="cursor-pointer w-[100px] h-[70px] md:w-[120px] md:h-[100px]">
-    <img className="cursor-pointer w-full h-full" src="/home/logoMainCropped.svg" />
+    <img className="cursor-pointer w-full h-full" src="/home/logoMainCropped.svg" alt="MindfulTMS" />
   </div>
       {/* {
         locationContent[city]?.price &&

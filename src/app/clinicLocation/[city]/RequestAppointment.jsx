@@ -57,6 +57,7 @@ const locations = [
 const EXCLUDED_PATH_PREFIXES = [
     '/services/rtms',
     '/ads/rtms',
+    '/ads/rtms-parkinsons',
     '/services/neurofeedback',
     '/ads/psychiatrist/general/wf'
 ];
