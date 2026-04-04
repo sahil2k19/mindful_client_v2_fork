@@ -18,7 +18,7 @@ const PhoneGlyph = () => (
 const BENEFIT_IMAGES = {
   Walking: {
     src: '/ads/rtms-parkinsons/walking.png',
-    alt: 'Illustration of legs and feet with movement lines, representing walking and stiffness',
+    alt: 'Illustration relating to walking and leg movement for Parkinson\'s',
   },
   Tremor: {
     src: '/ads/rtms-parkinsons/tremor.png',
@@ -26,11 +26,11 @@ const BENEFIT_IMAGES = {
   },
   'Low Mood': {
     src: '/ads/rtms-parkinsons/low-mood.png',
-    alt: 'Illustration of a person seated, representing low mood and Parkinson-related burden',
+    alt: 'Illustration representing low mood and Parkinson-related burden',
   },
   'Daily Tasks': {
     src: '/ads/rtms-parkinsons/daily-tasks.png',
-    alt: 'Illustration of daily kitchen tasks while experiencing tremors',
+    alt: 'Illustration of daily tasks while experiencing tremors',
   },
 };
 

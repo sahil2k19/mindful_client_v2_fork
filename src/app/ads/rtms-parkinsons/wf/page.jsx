@@ -87,7 +87,7 @@ const page = () => {
   });
 })();`}
       </Script>
-      <ParkinsonsLandingPage data={data} />
+      <ParkinsonsLandingPage city={"wf"} data={data} />
     </>
   )
 }

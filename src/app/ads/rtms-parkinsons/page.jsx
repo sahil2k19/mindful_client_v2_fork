@@ -15,7 +15,7 @@ const page = () => {
   const headersList = headers();
   const currentUrl = headersList.get('x-full-url') || '';
   const baseZohoForm =
-    'https://forms.zohopublic.in/nikhilmindf1/form/Form2025Delhi/formperma/gRVhhLpekwvSGqqK7AR5CbUIQRmCj0NeSZX862VPGwo';
+    'https://forms.zohopublic.in/nikhilmindf1/form/rTMSGeneral1/formperma/zpe6LZN_3RCvZkv7vOqNF8CeZaZkqAse_qkFKc3HoxI';
   const zohoFormWithUrl = `${baseZohoForm}?from=lprtmsparkinsons&url=${encodeURIComponent(currentUrl)}&solution=rtms-parkinsons`;
 
   const data = {
