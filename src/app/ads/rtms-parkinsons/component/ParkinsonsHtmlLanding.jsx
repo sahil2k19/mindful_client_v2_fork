@@ -184,15 +184,15 @@ export default function ParkinsonsHtmlLanding({ data }) {
         <div className="phl-container">
           <div className="phl-trust-numbers phl-fade-up">
             <div className="phl-trust-item">
-              <div className="phl-number">9</div>
-              <div className="phl-label">Years</div>
+              <div className="phl-number">9+</div>
+              <div className="phl-label">Years of rTMS experience</div>
             </div>
             <div className="phl-trust-item">
               <div className="phl-number">10+</div>
               <div className="phl-label">Clinics in India & USA</div>
             </div>
             <div className="phl-trust-item">
-              <div className="phl-number">20,000</div>
+              <div className="phl-number">20,000+</div>
               <div className="phl-label">Treatments given</div>
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function ParkinsonsHtmlLanding({ data }) {
             <h2 className="phl-section-heading">Our Clinics</h2>
           </div>
           <div className="phl-location-cards">
-            <div className="phl-location-card phl-fade-up">
+            {/* <div className="phl-location-card phl-fade-up">
               <div className="phl-location-pin">
                 <svg width="18" height="18" fill="none" stroke="#1a7a6d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden>
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
@@ -277,6 +277,18 @@ export default function ParkinsonsHtmlLanding({ data }) {
                 <h3>New Delhi</h3>
                 <p>Greater Kailash 1</p>
               </div>
+            </div> */}
+            <div className="phl-location-card phl-fade-up">
+              <div className="phl-location-pin">
+                <svg width="18" height="18" fill="none" stroke="#1a7a6d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <h3>Whitefield</h3>
+                <p>Bangalore</p>
+              </div>
             </div>
             <div className="phl-location-card phl-fade-up">
               <div className="phl-location-pin">
@@ -286,8 +298,8 @@ export default function ParkinsonsHtmlLanding({ data }) {
                 </svg>
               </div>
               <div>
-                <h3>Bangalore</h3>
-                <p>Whitefield & Aster CMI, Hebbal</p>
+                <h3>Aster CMI, Hebbal</h3>
+                <p>Bangalore</p>
               </div>
             </div>
           </div>
