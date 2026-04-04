@@ -76,8 +76,6 @@ export default function ParkinsonsHtmlLanding({ data }) {
     };
   }, []);
 
-  const phoneDisplay = data?.phone ? `+91 ${data.phone}` : '';
-
   return (
     <div className="phl-root">
       <div className="phl-awareness-bar">
@@ -247,14 +245,20 @@ export default function ParkinsonsHtmlLanding({ data }) {
               </svg>
               Your details stay private. We call within 24 hours.
             </div>
-            {phoneDisplay ? (
-              <p className="mt-4 text-center text-sm text-[#4a5c56]">
-                Or call us:{' '}
-                <Link href={`tel:+91${data.phone}`} className="font-semibold text-[#1a7a6d] hover:underline">
-                  {phoneDisplay}
+            <div className="mt-4 space-y-2 text-center text-sm text-[#4a5c56]">
+              <p>
+                Aster Hebbal —{' '}
+                <Link href="tel:+919606969296" className="font-semibold text-[#1a7a6d] hover:underline">
+                  096069 69296
                 </Link>
               </p>
-            ) : null}
+              <p>
+                Whitefield —{' '}
+                <Link href="tel:+918197341114" className="font-semibold text-[#1a7a6d] hover:underline">
+                  081973 41114
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </section>
