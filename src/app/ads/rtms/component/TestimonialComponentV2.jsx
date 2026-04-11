@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { CircularProgress, Dialog, DialogContent, IconButton } from "@mui/material";
@@ -170,7 +170,8 @@ export default function TestimonialComponentV2({
     smallDevice,
     doctor,
     doctorArray,
-    initialTestimonials = []
+    initialTestimonials = [],
+    showConditionFilter = false
     // experts
 }) {
     const pathname = usePathname();
@@ -179,7 +180,30 @@ export default function TestimonialComponentV2({
     const [isQuoteModal, setisQuoteModal] = useState(false);
     const [loading, setLoading] = useState(true);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [activeFilter, setActiveFilter] = useState('All');
     const sliderRef = useRef(null);
+
+    // Extract unique conditions from all testimonials
+    const conditionFilters = useMemo(() => {
+        const condSet = new Set();
+        testimonials.forEach(t => {
+            if (t.condition) {
+                t.condition.split(',').forEach(c => {
+                    const trimmed = c.trim();
+                    if (trimmed) condSet.add(trimmed);
+                });
+            }
+        });
+        return ['All', ...Array.from(condSet).sort()];
+    }, [testimonials]);
+
+    // Testimonials filtered by active tab
+    const displayedTestimonials = useMemo(() => {
+        if (activeFilter === 'All') return testimonials;
+        return testimonials.filter(t =>
+            t.condition?.split(',').map(c => c.trim()).includes(activeFilter)
+        );
+    }, [testimonials, activeFilter]);
 
     
     // Generate Review Schema for SEO
@@ -318,6 +342,7 @@ export default function TestimonialComponentV2({
             fetchTestimonials();
         }
         setCurrentSlide(0);
+        setActiveFilter('All');
     }, [pathname, condition, location, doctor, doctorArray]);
 
     useEffect(() => {
@@ -341,28 +366,38 @@ export default function TestimonialComponentV2({
     // }
 
     // Updated slider settings without autoplay and dots
+    const count = displayedTestimonials.length || 1;
+    // Card width stays ~400px by pairing slidesToShow with container maxWidth:
+    // container = count * 400px, slidesToShow = count → card = 400px always
+    const desktopSlides = Math.min(3, count);
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: count > 3,
         speed: 1000,
-        slidesToShow: mobileView ? 1 : 3,
-        slidesToScroll: smallDevice ? 1 : 3,
+        slidesToShow: mobileView ? 1 : desktopSlides,
+        slidesToScroll: smallDevice ? 1 : desktopSlides,
         afterChange: (current) => setCurrentSlide(current),
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: Math.min(2, count),
+                    infinite: count > 2,
                 },
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
+                    infinite: count > 1,
                 },
             },
         ],
     };
+    // Constrain container so each card stays ~400px wide
+    const sliderWrapStyle = count < 3
+        ? { maxWidth: `${count * 400}px`, margin: '0 auto' }
+        : {};
 
     // Custom Next Button
     const NextArrow = (props) => {
@@ -621,15 +656,41 @@ export default function TestimonialComponentV2({
                 />
             )}
        <div className={`${mobileView ? "flex justify-center " : ""}`}>
-            {/* {smallDevice && <div className="mb-5 text-center text-3xl md:text-4xl font-bold">Testimonials</div>} */}
+            {/* Condition filter tabs */}
+            {showConditionFilter && !loading && conditionFilters.length > 1 && (
+                <div className="flex flex-wrap gap-2 justify-center mb-6">
+                    {conditionFilters.map(filter => (
+                        <button
+                            key={filter}
+                            onClick={() => {
+                                setActiveFilter(filter);
+                                setCurrentSlide(0);
+                                sliderRef.current?.slickGoTo(0);
+                            }}
+                            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border
+                                ${activeFilter === filter
+                                    ? 'bg-orange-500 text-white border-orange-500 shadow-sm'
+                                    : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500'
+                                }`}
+                        >
+                            {filter}
+                        </button>
+                    ))}
+                </div>
+            )}
+
             {/* Added "overflow-hidden" here to prevent slider overflow */}
-            <div className={`rounded-lg ${mobileView ? "w-[80%]" : "w-full"}  overflow-hidden`}>
+            <div className={`rounded-lg ${mobileView ? "w-[80%]" : "w-full"} overflow-hidden`} style={sliderWrapStyle}>
                 {
                     loading ? <>
                         <MobileSkeleton />
                         <DesktopSkeleton />
-                    </> :   <Slider ref={sliderRef} {...settings}>
-                    { testimonials.map((testimonial, index) => (
+                    </> : displayedTestimonials.length === 0 ? (
+                        <div className="flex justify-center items-center h-[321px] text-gray-400 text-base">
+                            No testimonials found for this condition.
+                        </div>
+                    ) : <Slider ref={sliderRef} {...settings}>
+                    { displayedTestimonials.map((testimonial, index) => (
                             <div key={index} className="px-2">
                                 <div className="rounded-lg md:min-h-[340px] px-4">
                                     <QuoteComponent
@@ -642,7 +703,7 @@ export default function TestimonialComponentV2({
                         ))}
                 </Slider>
                 }
-              
+
                 {/* Custom Navigation Controls */}
                 <div className="flex justify-center items-center mt-4">
                     <button
@@ -658,7 +719,7 @@ export default function TestimonialComponentV2({
                         />
                     </button>
                     <span className="mx-4 text-sm font-semibold text-gray-700">
-                        {currentSlide + 1}/{testimonials.length}
+                        {currentSlide + 1}/{displayedTestimonials.length}
                     </span>
                     <button
                         onClick={() => sliderRef.current.slickNext()}

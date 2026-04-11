@@ -897,13 +897,13 @@ Support for anxiety, depression, stress, relationships, trauma and life transiti
         "description_1__(pinned)": "Book your 30‑min session now.    | In‑Clinic Only |    Safe and confidential space   |    ",
         "description_2__(pinned)": "Whatever your needs, our team is there for you at our Whitefield Clinic on Old Airport Rd.",
         "new_landing_page_url": "https://mindfultms.in/ads/psychiatrist/general/wf",
-        "lp_hero_title": `Psychiatrists
- in Whitefield, Bangalore`,
-        "lp_hero_subtitle": `Struggling with depression, anxiety, or other concerns? Get professional psychiatric assistance close to your location.
-Our experienced psychiatrists are located in Whitefield, easily accessible from Marathahalli, Brookefield, and Varthur.
+        "lp_hero_title": `Best Psychiatrists in Whitefield, Bangalore`,
+        "lp_hero_subtitle": `Looking for a psychiatrist near you in Whitefield? Our experienced psychiatrists provide professional, evidence-based psychiatric care at our Whitefield clinic, conveniently located for residents of Marathahalli, Brookefield, Varthur, ITPL, Sarjapur Road, and Old Airport Road.
+
+Whether you are dealing with depression, anxiety, OCD, ADHD, bipolar disorder, or other mental health concerns, we provide thorough evaluation, accurate diagnosis, and personalised treatment plans.
 
 <b>Get started by booking a consultation today</b>`,
-        "hero_description_2": "Our Clinic is located on Old Airport Road in Whitefield, conveniently accessible from nearby areas of Marthahalli, Brookefield and Varthur.",
+        "hero_description_2": "Our clinic is located at ASN Signature on Varthur Road in Whitefield, Bangalore. We are easily accessible from Marathahalli, Brookefield, Varthur, ITPL, Sarjapur Road, and Old Airport Road. If you are looking for a psychiatrist near you in East Bangalore, our Whitefield clinic offers a private, comfortable consultation environment with ample parking",
         // "hero_description_what_we_offer": "Our psychiatrists provide:\nPersonalized condition diagnosis\nCustomized treatment plans, including medication if needed\nSafe and confidential consultations",
         "block_to_show": "What We Treat",
         "hero_image": ""
@@ -1011,15 +1011,13 @@ Our experienced psychiatrists are located in Whitefield, easily accessible from 
         "description_1__(pinned)": "Book your 1 hour session now.    | In‑Clinic Only |    Safe and confidential space  |     ",
         "description_2__(pinned)": "Whatever your needs, our team is there for you at our Whitefield Clinic on Old Airport Rd.",
         "new_landing_page_url": "https://mindfultms.in/ads/psychologist/general/wf",
-        "lp_hero_title": `	
-Psychologists
- in Whitefield, Bangalore`,
-        "lp_hero_subtitle": `Need someone to talk to about life's challenges?
-Our experienced therapists are located in Whitefield, conveniently located for residents of Marathahalli, Old Airport Road, Brookefield, and Varthur.
-With MindfulTMS you recieve professional therapy in a safe, non-judgmental space right in Whitefield.
-Support for anxiety, depression, stress, relationships, trauma and life transitions.
+        "lp_hero_title": `Best Psychologists in Whitefield, Bangalore`,
+        "lp_hero_subtitle": `Looking for a psychologist near you in Whitefield? Our experienced clinical psychologists provide professional, evidence-based psychological assessment and therapy at our Whitefield clinic, conveniently located for residents of Marathahalli, Old Airport Road, Brookefield, Varthur, ITPL, and Sarjapur Road.
 
-<b>Get started by booking a consultation today</b>`, "hero_description_2": "Our Clinic is located on Old Airport Road in Whitefield, conveniently accessible from nearby areas of Marthahalli, Brookefield and Varthur.",
+With MindfulTMS you receive professional psychological care in a safe, non-judgmental space right in Whitefield. Support for anxiety, depression, OCD, ADHD, stress, relationships, trauma and behavioural concerns.
+
+<b>Get started by booking a consultation today</b>`,
+        "hero_description_2": "Our clinic is located at ASN Signature on Varthur Road in Whitefield, Bangalore. We are easily accessible from Marathahalli, Brookefield, Varthur, ITPL, Sarjapur Road, and Old Airport Road. If you are looking for a psychologist near you in East Bangalore, our Whitefield clinic provides a private, professional setting for consultations and assessments",
         // "hero_description_what_we_offer": "Our clinical psychologists provide:\nPersonalized condition diagnosis\nClinical Assessments\nCBT, DBT, ACT and a range of therapies\nSafe and compassionate care\nConfidentiality",
         "block_to_show": "What We Treat",
         "hero_image": ""
@@ -1128,13 +1126,10 @@ Support for anxiety, depression, stress, relationships, trauma and life transiti
         "description_1__(pinned)": "Book your 1 hour session now.    | In‑Clinic Only |    Safe and confidential space  |     ",
         "description_2__(pinned)": "Whatever your needs, our team is there for you at our Whitefield Clinic on Old Airport Rd.",
         "new_landing_page_url": "https://mindfultms.in/ads/therapist/general/wf",
-        "lp_hero_title": `Therapists 
-        in Whitefield, Bangalore`,
-        "lp_hero_subtitle": `Need someone to talk to about life's challenges?
-Our experienced therapists are located in Whitefield, conveniently located for residents of Marathahalli, Old Airport Road, Brookefield, and Varthur.
+        "lp_hero_title": `Best Therapists in Whitefield, Bangalore`,
+        "lp_hero_subtitle": `Looking for a therapist near you in Whitefield? Our experienced therapists provide professional, evidence-based therapy at our Whitefield clinic, conveniently located for residents of Marathahalli, Old Airport Road, Brookefield, Varthur, ITPL, and Sarjapur Road.
 
-With MindfulTMS you recieve professional therapy in a safe, non-judgmental space right in Whitefield. 
-Support for anxiety, depression, stress, relationships, trauma and life transitions.
+With MindfulTMS you receive therapy in a safe, non-judgmental space right in Whitefield. Support for anxiety, depression, stress, relationships, trauma and life transitions.
 
 <b>Get started by booking a consultation today</b>`,
         "hero_description_2": "Our Clinic is located on Old Airport Road in Whitefield, conveniently accessible from nearby areas of Marthahalli, Brookefield and Varthur.",

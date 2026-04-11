@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 /* Basic global styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply leading-[normal] m-0;
 }

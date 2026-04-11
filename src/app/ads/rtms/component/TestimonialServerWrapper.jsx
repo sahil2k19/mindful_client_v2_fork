@@ -37,13 +37,14 @@ async function fetchTestimonials({ location, doctor, doctorArray }) {
     }
 }
 
-export default async function TestimonialServerWrapper({ 
-    location, 
+export default async function TestimonialServerWrapper({
+    location,
     condition,
     mobileView,
     smallDevice,
     doctor,
-    doctorArray 
+    doctorArray,
+    showConditionFilter = false
 }) {
     // Fetch testimonials on the SERVER
     const serverTestimonials = await fetchTestimonials({ location, doctor, doctorArray });
@@ -69,7 +70,7 @@ export default async function TestimonialServerWrapper({
             </div>
 
             {/* Interactive client component */}
-            <TestimonialComponentV2 
+            <TestimonialComponentV2
                 location={location}
                 condition={condition}
                 mobileView={mobileView}
@@ -77,6 +78,7 @@ export default async function TestimonialServerWrapper({
                 doctor={doctor}
                 doctorArray={doctorArray}
                 initialTestimonials={serverTestimonials}
+                showConditionFilter={showConditionFilter}
             />
         </>
     );

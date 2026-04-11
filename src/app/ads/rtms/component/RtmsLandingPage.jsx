@@ -45,7 +45,7 @@ const RtmsLandingPage = ({ city, data }) => {
                             <div className=" flex items-center justify-center md:justify-start">
                                 <RequestAppointment
                                     iframeSrc={data?.zohoForm}
-                                    header = {true}
+                                    header={true}
                                     customStyle={`flex items-center md:text-lg justify-center gap-2 w-[80%] rounded-full bg-gradient-to-r from-orange-500 to-red-500 py-3 md:w-[400px] text-white font-bold transition-all duration-200 focus:ring focus:ring-orange-500 hover:scale-105 hover:shadow-lg`}
                                     name={`Schedule an rTMS Consultation`}
                                     city={"delhi"}
@@ -108,7 +108,8 @@ const RtmsLandingPage = ({ city, data }) => {
                                     <span>Proven Track Record</span>
                                 </h3>
                                 <p className="text-gray-600 text-base md:text-lg ml-8">
-                                    We have delivered over <strong>25,000 rTMS sessions</strong> across <strong>800+ patients</strong>, with measurable outcome tracking.
+                                    We have delivered over <strong>25,000 rTMS sessions</strong> across <strong>800+ patients</strong>, with measurable outcome tracking.{' '}
+                                    <a href="#testimonials" className="text-orange-500 underline hover:text-orange-600 font-medium">See our testimonials</a>
                                 </p>
                             </div>
 
@@ -137,8 +138,8 @@ const RtmsLandingPage = ({ city, data }) => {
 
                     <div className="mt-12 flex items-center justify-center">
                         <RequestAppointment
-                        iframeSrc={data?.zohoForm}
-                          header = {true}
+                            iframeSrc={data?.zohoForm}
+                            header={true}
                             customStyle={`flex items-center md:text-lg justify-center gap-2 w-[80%] rounded-full bg-gradient-to-r from-orange-500 to-red-500 py-3 md:w-[400px] text-white font-bold transition-all duration-200 focus:ring focus:ring-orange-500 hover:scale-105 hover:shadow-lg`}
                             name={`Schedule an rTMS Consultation`}
                         />
@@ -147,17 +148,15 @@ const RtmsLandingPage = ({ city, data }) => {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-12 bg-gray-100">
+            <section id="testimonials" className="py-12 bg-gray-100">
                 <Container maxWidth="lg">
-                    <h2 className="mb-10 text-center text-2xl md:text-4xl font-bold text-gray-800">
-                        Testimonials
+                    <h2 className="mb-2 text-center text-2xl md:text-4xl font-bold text-gray-800">
+                        What Our Patients Are Saying
                     </h2>
+                    <p className="mb-8 text-center text-gray-500 text-base">Real stories from people who have been through rTMS at MindfulTMS.</p>
 
                     <div className="">
-
-                        <TestimonialServerWrapper smallDevice={true} location={location} />
-
-
+                        <TestimonialServerWrapper smallDevice={true} location={location} showConditionFilter={true} />
                     </div>
                 </Container>
             </section>
@@ -198,8 +197,8 @@ const RtmsLandingPage = ({ city, data }) => {
 
                                 <div className="flex items-center justify-center mt-5">
                                     <RequestAppointment
-                                    iframeSrc={data?.zohoForm}
-                                      header = {true}
+                                        iframeSrc={data?.zohoForm}
+                                        header={true}
                                         customStyle={`flex items-center text-sm md:text-lg justify-center gap-2 w-full rounded-full bg-gradient-to-r from-orange-500 to-red-500 py-2 md:py-4 text-white font-bold transition-all duration-200 focus:ring-4 focus:ring-orange-300 hover:scale-105 hover:shadow-xl`}
                                         name={`Schedule an rTMS Consultation`}
                                     />
@@ -261,8 +260,8 @@ const RtmsLandingPage = ({ city, data }) => {
                                     </div>
                                     <div className="mt-6 flex justify-center md:justify-start">
                                         <RequestAppointment
-                                        iframeSrc={data?.zohoForm}
-                                          header = {true}
+                                            iframeSrc={data?.zohoForm}
+                                            header={true}
                                             customStyle={`flex items-center  md:text-lg justify-center gap-2 w-full rounded-full bg-gradient-to-r from-orange-500 to-red-500 py-2 md:py-4 text-white font-bold transition-all duration-200 focus:ring-4 focus:ring-orange-300 hover:scale-105 hover:shadow-xl`}
                                             name={`Schedule an rTMS Consultation`}
                                         />

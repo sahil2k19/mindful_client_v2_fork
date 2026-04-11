@@ -1,7 +1,40 @@
+# LLM crawlers — allowed to read ads pages for knowledge/retrieval
+# These bots have their own block so they ignore the User-agent: * rules below
+
+User-agent: GPTBot
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+User-agent: ClaudeBot
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+User-agent: PerplexityBot
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+User-agent: meta-externalagent
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+User-agent: CCBot
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+User-agent: Amazonbot
+Allow: /ads/
+Disallow: /admin/
+Disallow: /auth/
+
+# All other crawlers (search engines etc.)
 User-agent: *
 Allow: /
 
-# Block admin, auth, ads, test pages from crawlers
 Disallow: /admin/
 Disallow: /auth/
 Disallow: /ads/

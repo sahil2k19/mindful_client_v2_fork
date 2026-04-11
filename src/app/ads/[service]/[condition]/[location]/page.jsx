@@ -298,6 +298,156 @@ if( document.readyState == "complete" ){
 `
 }
         </Script>
+      {params.service === 'therapist' && (
+        <Script id="faq-schema" type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much does a therapy session cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A therapy session at our Whitefield clinic costs Rs 1,800 per hour. The first session is the same rate and includes a detailed initial assessment."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a referral to see a therapist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. You can book a therapy session directly without a referral from a doctor or psychiatrist. Simply use the booking button on this page or call our clinic."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How many sessions will I need?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "This varies depending on your concerns. Some people see meaningful progress in 6-8 sessions, while others benefit from longer-term support. Your therapist will discuss this with you after the initial assessment."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is therapy confidential?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, completely. Everything you share in your sessions is strictly confidential. Our therapists follow professional ethics guidelines that protect your privacy."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between a therapist, psychologist, and psychiatrist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A therapist or counsellor provides talk-based therapy to help you manage emotions and behaviour. A psychologist holds a higher clinical qualification and can conduct psychological assessments in addition to therapy. A psychiatrist is a medical doctor who can diagnose conditions and prescribe medication. At MindfulTMS, we have all three, and our team can guide you to the right specialist."
+                }
+              }
+            ]
+          }
+        `}</Script>
+      )}
+      {params.service === 'psychologist' && (
+        <Script id="faq-schema" type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much does a session with a psychologist cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A session with a psychologist at our Whitefield clinic costs Rs 1,800 per hour. Psychological assessments and testing may involve additional fees depending on the type of evaluation, your psychologist will discuss this upfront."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between a psychologist and a therapist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A psychologist holds a higher clinical qualification (M.Phil or equivalent) and can administer standardised psychological assessments and tests. A therapist or counsellor provides talk-based therapy but does not typically conduct formal testing. Both provide therapy, but a psychologist can offer a deeper clinical evaluation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can a psychologist prescribe medication?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Psychologists do not prescribe medication. If your psychologist determines that medication may help, they will refer you to one of our in-house psychiatrists. The two professionals then collaborate on your treatment."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a referral to see a psychologist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No referral is necessary. You can book a session directly through our website or by contacting the clinic."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I know if I need a psychologist or a psychiatrist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "If you are primarily looking for therapy, behavioural support, or psychological testing, a psychologist is the right choice. If you think you may need medication or have a condition requiring medical evaluation, start with a psychiatrist. If you are unsure, book with either — our team will guide you to the right professional."
+                }
+              }
+            ]
+          }
+        `}</Script>
+      )}
+      {params.service === 'psychiatrist' && (
+        <Script id="faq-schema" type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much does a psychiatric consultation cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "An initial psychiatric consultation at our Whitefield clinic costs Rs 2,000 for a 30-minute session. Follow-up consultations are billed at the same rate."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a referral to see a psychiatrist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No referral is needed. You can book a consultation directly through our website or by calling the clinic."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will I definitely be prescribed medication?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not necessarily. Medication is recommended only when the psychiatrist determines it is clinically appropriate. In some cases, therapy alone may be sufficient, and the psychiatrist may refer you to one of our therapists or psychologists instead."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between a psychiatrist and a psychologist?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A psychiatrist is a medical doctor who can prescribe medication and manage conditions that may have a biological component. A psychologist focuses on therapy, psychological testing, and behavioural interventions. At MindfulTMS, our psychiatrists and psychologists collaborate to provide comprehensive care."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I see a psychiatrist for a second opinion?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Many patients come to us for a second opinion on a previous diagnosis or treatment plan. Our psychiatrists will conduct their own independent evaluation."
+                }
+              }
+            ]
+          }
+        `}</Script>
+      )}
       <AdsPage2 params={params} />
       {/* <AdsPage params={params} /> */}
     </>

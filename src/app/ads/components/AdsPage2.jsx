@@ -35,6 +35,7 @@ const AdsPage2 = ({ params }) => {
 
   const [queryString, setQueryString] = useState("");
   const [currentUrl, setcurrentUrl] = useState("");
+  const [openFaq, setOpenFaq] = useState(null);
 
   const condition = params.condition == "general" ? "" : params.condition || ""
   const multiCondition = params.condition && params.condition.includes('-');
@@ -681,10 +682,16 @@ const AdsPage2 = ({ params }) => {
               <div className="space-y-8">
                 <div>
                   <h3 className="mb-2 text-xl md:text-2xl text-orange-500 font-semibold">
-                    A  safe and supportive space
+                    A safe and supportive space
                   </h3>
                   <p className="text-gray-600 text-base md:text-lg">
-                    We offer a safe, welcoming space to discuss your concerns and work towards recovery.
+                    {params.service === 'therapist'
+                      ? "We offer a safe, welcoming space in Whitefield where you can discuss your concerns openly and work towards recovery with an experienced therapist."
+                      : params.service === 'psychiatrist'
+                      ? "We offer a safe, welcoming space in Whitefield where you can discuss your mental health concerns and work towards recovery with our psychiatric team."
+                      : params.service === 'psychologist'
+                      ? "We offer a safe, welcoming space in Whitefield where you can discuss your concerns and work towards recovery with a qualified psychologist."
+                      : "We offer a safe, welcoming space to discuss your concerns and work towards recovery."}
                   </p>
                 </div>
                 <div>
@@ -692,7 +699,13 @@ const AdsPage2 = ({ params }) => {
                     Confidential
                   </h3>
                   <p className="text-gray-600 text-base md:text-lg">
-                    Our clinicians are committed to maintaining strict confidentiality, ensuring every interaction is private and secure.
+                    {params.service === 'therapist'
+                      ? "Every therapy session is strictly confidential. Our therapists are committed to maintaining your privacy, ensuring every interaction is private and secure."
+                      : params.service === 'psychiatrist'
+                      ? "Every psychiatric consultation is strictly confidential. Our psychiatrists are committed to maintaining your privacy, ensuring every interaction is private and secure."
+                      : params.service === 'psychologist'
+                      ? "Every psychology session is strictly confidential. Our psychologists are committed to maintaining your privacy, ensuring every interaction is private and secure."
+                      : "Our clinicians are committed to maintaining strict confidentiality, ensuring every interaction is private and secure."}
                   </p>
                 </div>
                 <div>
@@ -700,10 +713,15 @@ const AdsPage2 = ({ params }) => {
                     Experienced Clinical Team
                   </h3>
                   <p className="text-gray-600 text-base md:text-lg">
-                    Our clinicians are trained to assess, diagnose, and provide the right therapy for you.
+                    {params.service === 'therapist'
+                      ? "Our therapists are trained in evidence-based approaches like CBT and DBT to assess your concerns and provide the right therapy for you."
+                      : params.service === 'psychiatrist'
+                      ? "Our psychiatrists are qualified medical professionals trained to assess, diagnose, and treat mental health conditions through personalised treatment plans and comprehensive care."
+                      : params.service === 'psychologist'
+                      ? "Our psychologists hold advanced clinical qualifications and are trained in evidence-based approaches like CBT and DBT to assess your concerns and provide the right psychological support for you."
+                      : "Our clinicians are trained to assess, diagnose, and provide the right therapy for you."}
                   </p>
                 </div>
-
               </div>
             </div>
 
@@ -721,6 +739,180 @@ const AdsPage2 = ({ params }) => {
 
 
       </section>
+
+      {/* FAQ Section — therapist pages only */}
+      {params.service === 'therapist' && <section className="py-12 bg-[#FFF7ED]">
+        <Container maxWidth="lg">
+          <h2 className="mb-2 text-center text-3xl md:text-4xl font-bold text-orange-500">
+            Frequently Asked Questions
+          </h2>
+          <p className="mb-8 text-center text-gray-500 text-base">Everything you need to know before booking your first session.</p>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How much does a therapy session cost?",
+                a: "A therapy session at our Whitefield clinic costs Rs 1,800 per hour. The first session is the same rate and includes a detailed initial assessment."
+              },
+              {
+                q: "Do I need a referral to see a therapist?",
+                a: "No. You can book a therapy session directly without a referral from a doctor or psychiatrist. Simply use the booking button on this page or call our clinic."
+              },
+              {
+                q: "How many sessions will I need?",
+                a: "This varies depending on your concerns. Some people see meaningful progress in 6-8 sessions, while others benefit from longer-term support. Your therapist will discuss this with you after the initial assessment."
+              },
+              {
+                q: "Is therapy confidential?",
+                a: "Yes, completely. Everything you share in your sessions is strictly confidential. Our therapists follow professional ethics guidelines that protect your privacy."
+              },
+              {
+                q: "What is the difference between a therapist, psychologist, and psychiatrist?",
+                a: "A therapist or counsellor provides talk-based therapy to help you manage emotions and behaviour. A psychologist holds a higher clinical qualification and can conduct psychological assessments in addition to therapy. A psychiatrist is a medical doctor who can diagnose conditions and prescribe medication. At MindfulTMS, we have all three, and our team can guide you to the right specialist."
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${openFaq === idx ? "border-orange-300 bg-white shadow-md" : "border-orange-100 bg-white hover:border-orange-200 hover:shadow-sm"}`}
+              >
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-left gap-4 group"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                >
+                  <span className={`text-base md:text-lg font-semibold transition-colors duration-200 ${openFaq === idx ? "text-orange-500" : "text-gray-800 group-hover:text-orange-400"}`}>
+                    {item.q}
+                  </span>
+                  <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${openFaq === idx ? "bg-orange-500 text-white rotate-45" : "bg-orange-100 text-orange-500"}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${openFaq === idx ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
+                  <p className="px-5 pb-5 text-gray-600 text-base leading-relaxed border-t border-orange-50 pt-3">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>}
+
+      {/* FAQ Section — psychiatrist pages only */}
+      {params.service === 'psychiatrist' && <section className="py-12 bg-[#FFF7ED]">
+        <Container maxWidth="lg">
+          <h2 className="mb-2 text-center text-3xl md:text-4xl font-bold text-orange-500">
+            Frequently Asked Questions
+          </h2>
+          <p className="mb-8 text-center text-gray-500 text-base">Everything you need to know before your first psychiatric consultation.</p>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How much does a psychiatric consultation cost?",
+                a: "An initial psychiatric consultation at our Whitefield clinic costs Rs 2,000 for a 30-minute session. Follow-up consultations are billed at the same rate."
+              },
+              {
+                q: "Do I need a referral to see a psychiatrist?",
+                a: "No referral is needed. You can book a consultation directly through our website or by calling the clinic."
+              },
+              {
+                q: "Will I definitely be prescribed medication?",
+                a: "Not necessarily. Medication is recommended only when the psychiatrist determines it is clinically appropriate. In some cases, therapy alone may be sufficient, and the psychiatrist may refer you to one of our therapists or psychologists instead."
+              },
+              {
+                q: "What is the difference between a psychiatrist and a psychologist?",
+                a: "A psychiatrist is a medical doctor who can prescribe medication and manage conditions that may have a biological component. A psychologist focuses on therapy, psychological testing, and behavioural interventions. At MindfulTMS, our psychiatrists and psychologists collaborate to provide comprehensive care."
+              },
+              {
+                q: "Can I see a psychiatrist for a second opinion?",
+                a: "Yes. Many patients come to us for a second opinion on a previous diagnosis or treatment plan. Our psychiatrists will conduct their own independent evaluation."
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${openFaq === idx ? "border-orange-300 bg-white shadow-md" : "border-orange-100 bg-white hover:border-orange-200 hover:shadow-sm"}`}
+              >
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-left gap-4 group"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                >
+                  <span className={`text-base md:text-lg font-semibold transition-colors duration-200 ${openFaq === idx ? "text-orange-500" : "text-gray-800 group-hover:text-orange-400"}`}>
+                    {item.q}
+                  </span>
+                  <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${openFaq === idx ? "bg-orange-500 text-white rotate-45" : "bg-orange-100 text-orange-500"}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${openFaq === idx ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
+                  <p className="px-5 pb-5 text-gray-600 text-base leading-relaxed border-t border-orange-50 pt-3">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>}
+
+      {/* FAQ Section — psychologist pages only */}
+      {params.service === 'psychologist' && <section className="py-12 bg-[#FFF7ED]">
+        <Container maxWidth="lg">
+          <h2 className="mb-2 text-center text-3xl md:text-4xl font-bold text-orange-500">
+            Frequently Asked Questions
+          </h2>
+          <p className="mb-8 text-center text-gray-500 text-base">Everything you need to know before your first session with a psychologist.</p>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How much does a session with a psychologist cost?",
+                a: "A session with a psychologist at our Whitefield clinic costs Rs 1,800 per hour. Psychological assessments and testing may involve additional fees depending on the type of evaluation, your psychologist will discuss this upfront."
+              },
+              {
+                q: "What is the difference between a psychologist and a therapist?",
+                a: "A psychologist holds a higher clinical qualification (M.Phil or equivalent) and can administer standardised psychological assessments and tests. A therapist or counsellor provides talk-based therapy but does not typically conduct formal testing. Both provide therapy, but a psychologist can offer a deeper clinical evaluation."
+              },
+              {
+                q: "Can a psychologist prescribe medication?",
+                a: "No. Psychologists do not prescribe medication. If your psychologist determines that medication may help, they will refer you to one of our in-house psychiatrists. The two professionals then collaborate on your treatment."
+              },
+              {
+                q: "Do I need a referral to see a psychologist?",
+                a: "No referral is necessary. You can book a session directly through our website or by contacting the clinic."
+              },
+              {
+                q: "How do I know if I need a psychologist or a psychiatrist?",
+                a: "If you are primarily looking for therapy, behavioural support, or psychological testing, a psychologist is the right choice. If you think you may need medication or have a condition requiring medical evaluation, start with a psychiatrist. If you are unsure, book with either — our team will guide you to the right professional."
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${openFaq === idx ? "border-orange-300 bg-white shadow-md" : "border-orange-100 bg-white hover:border-orange-200 hover:shadow-sm"}`}
+              >
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-left gap-4 group"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                >
+                  <span className={`text-base md:text-lg font-semibold transition-colors duration-200 ${openFaq === idx ? "text-orange-500" : "text-gray-800 group-hover:text-orange-400"}`}>
+                    {item.q}
+                  </span>
+                  <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${openFaq === idx ? "bg-orange-500 text-white rotate-45" : "bg-orange-100 text-orange-500"}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${openFaq === idx ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
+                  <p className="px-5 pb-5 text-gray-600 text-base leading-relaxed border-t border-orange-50 pt-3">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>}
 
       {/* Our Location */}
       <section className="py-8 bg-[#FDE4BB]">
@@ -762,18 +954,24 @@ const AdsPage2 = ({ params }) => {
                 <div>
 
                   <div className="flex items-center justify-center relative">
-                    <div className="w-full h-[400px] max-w-[500px] relative">
+                    <div className="w-full h-[400px] max-w-[500px] relative overflow-hidden rounded-xl">
                       <iframe
                         title="Google Map"
                         src={locationDataArray[city]?.googleMapLink}
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0, pointerEvents: "none" }}
+                        style={{
+                          border: 0,
+                          pointerEvents: "none",
+                          position: "absolute",
+                          top: "-220px",
+                          left: 0,
+                          width: "100%",
+                          height: "calc(100% + 250px)",
+                        }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                       />
-                      {/* Transparent overlay to block interactions */}
+                      {/* Block all interactions */}
                       <div className="absolute inset-0 bg-transparent" />
                     </div>
                   </div>
