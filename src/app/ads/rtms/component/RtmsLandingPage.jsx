@@ -275,16 +275,22 @@ const RtmsLandingPage = ({ city, data }) => {
                                 <div>
 
                                     <div className="flex items-center justify-center relative">
-                                        <div className="w-full h-[400px] max-w-[500px] relative">
+                                        <div className="w-full h-[400px] max-w-[500px] relative overflow-hidden rounded-xl">
                                             <iframe
                                                 title="Google Map"
                                                 src={locationDataArray[city]?.googleMapLink}
-                                                width="100%"
-                                                height="100%"
-                                                style={{ border: 0, pointerEvents: "none" }}
                                                 allowFullScreen
                                                 loading="lazy"
                                                 referrerPolicy="no-referrer-when-downgrade"
+                                                style={{
+                                                    border: 0,
+                                                    pointerEvents: "none",
+                                                    position: "absolute",
+                                                    top: "-220px",
+                                                    left: 0,
+                                                    width: "100%",
+                                                    height: "calc(100% + 250px)"
+                                                }}
                                             />
                                             {/* Transparent overlay to block interactions */}
                                             <div className="absolute inset-0 bg-transparent" />
