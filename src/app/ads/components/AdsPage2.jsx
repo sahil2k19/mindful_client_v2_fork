@@ -553,7 +553,7 @@ const AdsPage2 = ({ params }) => {
                   {currentPageContent.headline_2_pinned}
                 </div>
               )}
-              <div className="mt-3 flex items-center md:pb-0 pb-8 justify-center md:justify-start">
+              <div className="mt-3 flex items-center md:pb-6 pb-8 justify-center md:justify-start">
                 <RequestAppointment
                   iframeSrc={locationContent[city]?.iframeSrc || iframeSrc}
                   customStyle={`${RequestAppointmentButton[expertService].style}`}
@@ -688,10 +688,10 @@ const AdsPage2 = ({ params }) => {
                     {params.service === 'therapist'
                       ? "We offer a safe, welcoming space in Whitefield where you can discuss your concerns openly and work towards recovery with an experienced therapist."
                       : params.service === 'psychiatrist'
-                      ? "We offer a safe, welcoming space in Whitefield where you can discuss your mental health concerns and work towards recovery with our psychiatric team."
-                      : params.service === 'psychologist'
-                      ? "We offer a safe, welcoming space in Whitefield where you can discuss your concerns and work towards recovery with a qualified psychologist."
-                      : "We offer a safe, welcoming space to discuss your concerns and work towards recovery."}
+                        ? "We offer a safe, welcoming space in Whitefield where you can discuss your mental health concerns and work towards recovery with our psychiatric team."
+                        : params.service === 'psychologist'
+                          ? "We offer a safe, welcoming space in Whitefield where you can discuss your concerns and work towards recovery with a qualified psychologist."
+                          : "We offer a safe, welcoming space to discuss your concerns and work towards recovery."}
                   </p>
                 </div>
                 <div>
@@ -702,10 +702,10 @@ const AdsPage2 = ({ params }) => {
                     {params.service === 'therapist'
                       ? "Every therapy session is strictly confidential. Our therapists are committed to maintaining your privacy, ensuring every interaction is private and secure."
                       : params.service === 'psychiatrist'
-                      ? "Every psychiatric consultation is strictly confidential. Our psychiatrists are committed to maintaining your privacy, ensuring every interaction is private and secure."
-                      : params.service === 'psychologist'
-                      ? "Every psychology session is strictly confidential. Our psychologists are committed to maintaining your privacy, ensuring every interaction is private and secure."
-                      : "Our clinicians are committed to maintaining strict confidentiality, ensuring every interaction is private and secure."}
+                        ? "Every psychiatric consultation is strictly confidential. Our psychiatrists are committed to maintaining your privacy, ensuring every interaction is private and secure."
+                        : params.service === 'psychologist'
+                          ? "Every psychology session is strictly confidential. Our psychologists are committed to maintaining your privacy, ensuring every interaction is private and secure."
+                          : "Our clinicians are committed to maintaining strict confidentiality, ensuring every interaction is private and secure."}
                   </p>
                 </div>
                 <div>
@@ -716,10 +716,10 @@ const AdsPage2 = ({ params }) => {
                     {params.service === 'therapist'
                       ? "Our therapists are trained in evidence-based approaches like CBT and DBT to assess your concerns and provide the right therapy for you."
                       : params.service === 'psychiatrist'
-                      ? "Our psychiatrists are qualified medical professionals trained to assess, diagnose, and treat mental health conditions through personalised treatment plans and comprehensive care."
-                      : params.service === 'psychologist'
-                      ? "Our psychologists hold advanced clinical qualifications and are trained in evidence-based approaches like CBT and DBT to assess your concerns and provide the right psychological support for you."
-                      : "Our clinicians are trained to assess, diagnose, and provide the right therapy for you."}
+                        ? "Our psychiatrists are qualified medical professionals trained to assess, diagnose, and treat mental health conditions through personalised treatment plans and comprehensive care."
+                        : params.service === 'psychologist'
+                          ? "Our psychologists hold advanced clinical qualifications and are trained in evidence-based approaches like CBT and DBT to assess your concerns and provide the right psychological support for you."
+                          : "Our clinicians are trained to assess, diagnose, and provide the right therapy for you."}
                   </p>
                 </div>
               </div>
