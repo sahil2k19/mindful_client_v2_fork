@@ -898,7 +898,8 @@ Support for anxiety, depression, stress, relationships, trauma and life transiti
         "description_2__(pinned)": "Whatever your needs, our team is there for you at our Whitefield Clinic on Old Airport Rd.",
         "new_landing_page_url": "https://mindfultms.in/ads/psychiatrist/general/wf",
         "lp_hero_title": `Best Psychiatrists in Whitefield, Bangalore`,
-        "lp_hero_subtitle": `Looking for a psychiatrist near you in Whitefield? Our experienced psychiatrists provide professional, evidence-based psychiatric care at our Whitefield clinic, conveniently located for residents of Marathahalli, Brookefield, Varthur, ITPL, Sarjapur Road, and Old Airport Road.
+        "lp_hero_subtitle": `Looking for a psychiatrist near you in Whitefield?
+         Our experienced psychiatrists provide professional, evidence-based psychiatric care at our Whitefield clinic, conveniently located for residents of Marathahalli, Brookefield, Varthur, ITPL, Sarjapur Road, and Old Airport Road.
 
 Whether you are dealing with depression, anxiety, OCD, ADHD, bipolar disorder, or other mental health concerns, we provide thorough evaluation, accurate diagnosis, and personalised treatment plans.
 

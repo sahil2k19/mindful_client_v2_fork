@@ -1,6 +1,6 @@
 import React from 'react'
 import Script from 'next/script';
-import RtmsLandingPage from  '../component/RtmsLandingPage'
+import RtmsLandingPage from '../component/RtmsLandingPage'
 import { headers } from 'next/headers';
 export async function generateMetadata({ params }) {
 
@@ -22,15 +22,15 @@ const page = ({ params }) => {
   const baseZohoForm = 'https://forms.zohopublic.in/nikhilmindf1/form/Form2025WhitefieldBangalore/formperma/MCQDm70m0i_L44OTsxM5WJ4mDJ4CEFPE4yAsjdtGinQ';
   const zohoFormWithUrl = `${baseZohoForm}?from=landingpage&url=${encodeURIComponent(currentUrl)}&solution=rtms`;
 
-    const data = {
-    phone:`8197341114`, 
-    section2Img:'/ads/rtms/chairImg2.png',
+  const data = {
+    phone: `8197341114`,
+    section2Img: '/ads/rtms/chairImg.jpg',
     zohoForm: zohoFormWithUrl
   }
   return (
     <>
-         <Script id="zfadvlead" strategy="afterInteractive">
-{`(function(){
+      <Script id="zfadvlead" strategy="afterInteractive">
+        {`(function(){
   function ZFAdvLead(){}
   ZFAdvLead.utmPValObj = ZFAdvLead.utmPValObj || {};
   ZFAdvLead.utmPNameArr = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
@@ -97,8 +97,8 @@ const page = ({ params }) => {
   });
 })();
 `}
-        </Script>
-        <RtmsLandingPage city={"wf"} params={params}  data={data}/>
+      </Script>
+      <RtmsLandingPage city={"wf"} params={params} data={data} />
     </>
   )
 }
