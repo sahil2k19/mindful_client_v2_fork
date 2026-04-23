@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Container } from '@mui/material'
 import RequestAppointment from '@/app/clinicLocation/[city]/RequestAppointment'
 import TestimonialServerWrapper from './TestimonialServerWrapper'
+import ImageCarousel from '@/app/clinicLocation/[city]/ImageCarousel'
 
 const RtmsLandingPage = ({ city, data }) => {
     //   const city = params.location || "gk";
@@ -77,21 +78,25 @@ const RtmsLandingPage = ({ city, data }) => {
                         Why Patients Choose Us for rTMS
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
 
                         {/* Image Section */}
-                        <div className="flex justify-center">
-                            <Image
-                                src={data?.section2Img}
-                                alt="Clinic rTMS Chair"
-                                width={600}
-                                height={400}
-                                className="w-full md:max-h-[500px] object-cover rounded-xl"
-                            />
+                        <div className="flex justify-center md:col-span-3">
+                            {city === 'gk' ? (
+                                <ImageCarousel images={locationDataArray['gk'].images} />
+                            ) : (
+                                <Image
+                                    src={data?.section2Img}
+                                    alt="Clinic rTMS Chair"
+                                    width={600}
+                                    height={400}
+                                    className="w-full md:max-h-[500px] object-cover rounded-xl"
+                                />
+                            )}
                         </div>
 
                         {/* Content Section */}
-                        <div className="space-y-8">
+                        <div className="space-y-8 md:col-span-2">
                             <div>
                                 <h3 className="mb-2 text-xl md:text-2xl text-orange-500 font-semibold flex items-start gap-2">
                                     <span>✅</span>
