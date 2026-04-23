@@ -78,7 +78,7 @@ export default function PrivacyPolicy() {
                   <li>sending You information about the Organization, its services and products or other information which We perceive may be useful to You;</li>
                   <li>providing any services that You avail from the Organization, including facilitating interactions with You;</li>
                   <li>protecting You and conducting security investigations and fraud and abuse analysis (including to help Us flag spam mail);</li>
-                  <li>Creation of customer profiles and personas, analysis of user behaviour to enhance Our website's experience etc;</li>
+                  <li>{`Creation of customer profiles and personas, analysis of user behaviour to enhance Our website's experience etc;`}</li>
                   <li>Sharing of Your data across our office locations in Bengaluru, India and Delhi, India for operational purposes.</li>
                 </ul>
               </li>
