@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { usePathname } from "next/navigation";
 import AdsNavbar from "@/components/AdsNavbar";
 import CenterNav from "@/components/CenterNav";
+import CookieConsent from "@/components/CookieConsent";
 import DynamicNavbar from "@/components/Navbar";
 import DynamicFooter from "@/components/Footer";
 import "slick-carousel/slick/slick.css";
@@ -117,6 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
         <Toaster position="top-right" />
+        <CookieConsent />
         {children}
 
         {/* Conditionally render Footer based on the pathname */}
