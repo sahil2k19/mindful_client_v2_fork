@@ -27,16 +27,16 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-bold text-orange-900 mb-4">1. Background</h2>
             <ul className="space-y-4 list-disc pl-6">
               <li>
-                {`This document (`}<B>"Privacy Policy"</B>{`) is an electronic record in terms of the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and the rules framed there under as applicable.`}
+                {`This document (`}<B>{`"Privacy Policy"`}</B>{`) is an electronic record in terms of the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and the rules framed there under as applicable.`}
               </li>
               <li>
-                {`This Privacy Policy is issued by `}<U>Rangsons</U>{` Healthcare Solutions Private Limited, which operates the mental health and `}<U>neurocare</U>{` service provider `}<U>MindfulTMS Neurocare India</U>{` (`}<B>"Organization"</B>{`), having its places of business at Bengaluru and Delhi and registered office at No 1553 `}<U>Vani Vilasa</U>{` Road, Mysore, `}<U>Mysuru</U>{`, Karnataka, India, 570004.`}
+                {`This Privacy Policy is issued by `}<U>Rangsons</U>{` Healthcare Solutions Private Limited, which operates the mental health and `}<U>neurocare</U>{` service provider `}<U>MindfulTMS Neurocare India</U>{` (`}<B>{`"Organization"`}</B>{`), having its places of business at Bengaluru and Delhi and registered office at No 1553 `}<U>Vani Vilasa</U>{` Road, Mysore, `}<U>Mysuru</U>{`, Karnataka, India, 570004.`}
               </li>
               <li>
                 {`This Privacy Policy covers: (i) the type of information collected by the Organization, including personal data or information; (ii) the purpose, means and modes of usage of such information; and (iii) how and to whom such information which has been collected will be disclosed.`}
               </li>
               <li>
-                {`For the purpose of this Privacy Policy, wherever the context so requires `}<B>"You"</B>{` or `}<B>"Your"</B>{` shall mean any natural or legal person that engages with the Organization. The term `}<B>"We"</B>{`, `}<B>"Us"</B>{`, or `}<B>"Our"</B>{` shall mean the Organization, its employees, and authorised agents that perform any services on the Organization's behalf.`}
+                {`For the purpose of this Privacy Policy, wherever the context so requires `}<B>{`"You"`}</B>{` or `}<B>{`"Your"`}</B>{` shall mean any natural or legal person that engages with the Organization. The term `}<B>{`"We"`}</B>{`, `}<B>{`"Us"`}</B>{`, or `}<B>{`"Our"`}</B>{` shall mean the Organization, its employees, and authorised agents that perform any services on the Organization's behalf.`}
               </li>
               <li>
                 {`All the other defined terms shall have the same meaning as provided for under the terms of use, which may be found `}<a href="/terms-and-conditions" className="text-blue-600 hover:underline">here</a>{`.`}
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
                   <li>Your contact number;</li>
                   <li>Your e-mail address;</li>
                   <li>Payment information;</li>
-                  <li>{`Any other information shared by you, including while availing the Services. (collectively referred to as, `}<B>"Personal Information"</B>{`).`}</li>
+                  <li>{`Any other information shared by you, including while availing the Services. (collectively referred to as, `}<B>{`"Personal Information"`}</B>{`).`}</li>
                 </ul>
               </li>
             </ul>
@@ -94,13 +94,13 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-bold text-orange-900 mb-4">4. Processing, Use and Disclosure of Personal Information</h2>
             <ul className="space-y-4 list-disc pl-6">
               <li>
-                <p><U><B>Provision of Services:</B></U>{` The Personal Information that You have shared with Us may be shared by Us with other third parties to enable us to provide you with Services, including (a) contractors and service providers, including but not limited to providers of hosting services, analytics providers, etc., that we engage with (`}<B>"Partners"</B>{`); (b) Organization and its affiliates; and (c) our payment gateway provider, for payment billing and invoicing related purposes.`}</p>
+                <p><U><B>Provision of Services:</B></U>{` The Personal Information that You have shared with Us may be shared by Us with other third parties to enable us to provide you with Services, including (a) contractors and service providers, including but not limited to providers of hosting services, analytics providers, etc., that we engage with (`}<B>{`"Partners"`}</B>{`); (b) Organization and its affiliates; and (c) our payment gateway provider, for payment billing and invoicing related purposes.`}</p>
               </li>
               <li>
                 <p><U><B>Necessary disclosures:</B></U>{` We reserve the right to disclose Your Personal Information / Consultation Information (i) to comply with any court order, law, or legal process, including to respond to any government or regulatory request; (ii) to enforce or apply Our Terms and `}<U>other</U>{` agreements, including for billing and collection purposes, (iii) if We believe it is necessary or appropriate to protect the rights, property, or safety of the Organization, our clients, vendors, or others, and (iv) for the purposes of fraud protection and credit risk reduction, and for other regulatory compliances or reasons.`}</p>
               </li>
               <li>
-                <p><U><B>Communication:</B></U>{` We use Your Personal Information to send you reminders and notifications with respect to your bookings / sessions on our website / at any of our clinic locations (`}<B>"Clinics"</B>{`) and promotional updates via emails, SMS/WhatsApp. Additionally, Your Personal Information is used to contact you regarding products and service offerings on the website, or at Our Clinics, which may include third-party service providers or any products and service offerings by the Organization or its affiliates. It is clarified that Your Consultation Information will not be shared for such purposes.`}</p>
+                <p><U><B>Communication:</B></U>{` We use Your Personal Information to send you reminders and notifications with respect to your bookings / sessions on our website / at any of our clinic locations (`}<B>{`"Clinics"`}</B>{`) and promotional updates via emails, SMS/WhatsApp. Additionally, Your Personal Information is used to contact you regarding products and service offerings on the website, or at Our Clinics, which may include third-party service providers or any products and service offerings by the Organization or its affiliates. It is clarified that Your Consultation Information will not be shared for such purposes.`}</p>
               </li>
               <li>
                 <p><U><B>Personalization:</B></U>{` We may use the above information along with a stream of algorithms for tailoring and customizing content or design of our website. We also use information such as interests, characteristics, etc., for our research and development in order to enhance product features, improve the functionality of the website, improve the services offered at Our Clinics, perform internal analysis, recommendations, saleability, etc.`}</p>
@@ -156,7 +156,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-bold text-orange-900 mb-4">5. Processing, Use and Disclosure of Consultation Information</h2>
             <ul className="space-y-4 list-disc pl-6">
               <li>
-                {`To deliver its Services through the website or Our Clinics, You consent to the Organization processing (including disclosing and transferring, as outlined in this Privacy Policy) any information You share during personal consultations with Experts (`}<B>"Consultation Information"</B>{`). This Consultation Information will not be collected, used, or processed for the purposes of (a) providing any personalised browsing experience; (b) tracking the IP address of Your device and saving Your data as cookies; (c) sharing of your geographical location to third-party advertisers; (d) sharing with third-party analytics tools.`}
+                {`To deliver its Services through the website or Our Clinics, You consent to the Organization processing (including disclosing and transferring, as outlined in this Privacy Policy) any information You share during personal consultations with Experts (`}<B>{`"Consultation Information"`}</B>{`). This Consultation Information will not be collected, used, or processed for the purposes of (a) providing any personalised browsing experience; (b) tracking the IP address of Your device and saving Your data as cookies; (c) sharing of your geographical location to third-party advertisers; (d) sharing with third-party analytics tools.`}
               </li>
               <li>
                 {`All Consultation Information processed by the Organization is accessible only to Experts, authorized personnel, select employees, relevant agents, service providers, and third parties (including contractors) strictly on a need-to-know basis and only if access to such information is necessary for providing Services. All such parties are obligated to maintain the confidentiality of any Consultation Information they access.`}
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
               </li>
             </ul>
             <p className="mt-4">
-              {`For the purposes of this Privacy Policy, the `}<B>"Experts"</B>{` shall mean the persons who provide counselling / therapy, psychiatric, `}<U>rTMS</U>{`, and clinical assessments.`}
+              {`For the purposes of this Privacy Policy, the `}<B>{`"Experts"`}</B>{` shall mean the persons who provide counselling / therapy, psychiatric, `}<U>rTMS</U>{`, and clinical assessments.`}
             </p>
           </section>
 
@@ -197,7 +197,7 @@ export default function PrivacyPolicy() {
                 {`We may use third party cookies to track visitor behaviour and to improve the quality of Our Services. However, such cookies shall not store any Personal Information, nor shall such information be disclosed to any third party. You have the option to either accept or refuse these cookies, and will be informed when a cookie is being sent to Your computer. If You choose to refuse Our cookies, You may not be able to use some portions of Our website services.`}
               </li>
               <li>
-                {`These cookies are intended to be automatically cleared or deleted when You quit the browser application. You are encouraged to use the `}<B>"clear cookies"</B>{` functionality of Your browser to ensure such clearing/deletion, since it is impossible for Us to guarantee, predict or provide for the behaviour of Your system.`}
+                {`These cookies are intended to be automatically cleared or deleted when You quit the browser application. You are encouraged to use the `}<B>{`"clear cookies"`}</B>{` functionality of Your browser to ensure such clearing/deletion, since it is impossible for Us to guarantee, predict or provide for the behaviour of Your system.`}
               </li>
               <li>
                 {`The information We collect with cookies is not sold, rented, or shared with any third parties.`}
@@ -213,7 +213,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-bold text-orange-900 mb-4">7. Third Party Links</h2>
             <ul className="space-y-4 list-disc pl-6">
               <li>
-                {`The website may contain links to other websites (`}<B>"Linked Sites"</B>{`). The Linked Sites are not under the control of the Organization. We are not responsible for the content of any Linked Site, including, without limitation to, any link contained in a Linked Site, or any changes or updates to a Linked Site.`}
+                {`The website may contain links to other websites (`}<B>{`"Linked Sites"`}</B>{`). The Linked Sites are not under the control of the Organization. We are not responsible for the content of any Linked Site, including, without limitation to, any link contained in a Linked Site, or any changes or updates to a Linked Site.`}
               </li>
               <li>
                 {`The Organization does not intend the Linked Sites to be referrals to, endorsements of, or affiliations with the linked entities.`}
