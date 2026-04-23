@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 
-const ImageCarousel = ({images, small}) => {
+const ImageCarousel = ({ images, small }) => {
     // const images = [
     //     { src: '/home/clinicImg2.jpg', alt: 'Company Image 1' },
     //     { src: '/home/clinicImg3.jpg', alt: 'Company Image 2' },
@@ -46,19 +46,18 @@ const ImageCarousel = ({images, small}) => {
     }, [currentIndex]);
 
     return (
-        <div className={`relative w-full  ${small ? 'h-[300px] md:h-[500px] w-[50%]': 'h-[350px] md:h-[580px]'}`}>
+        <div className={`relative w-full  ${small ? 'h-[300px] md:h-[500px] w-[50%]' : 'h-[350px] md:h-[580px]'}`}>
             <div className="overflow-hidden rounded-lg h-full relative">
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                            index === currentIndex ? 'opacity-100' : 'opacity-0'
-                        } ${isAnimating && index === currentIndex ? 'opacity-0' : ''}`}
+                        className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'
+                            } ${isAnimating && index === currentIndex ? 'opacity-0' : ''}`}
                     >
                         <img
                             src={image.src}
                             alt={image.alt}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                         />
                     </div>
                 ))}
