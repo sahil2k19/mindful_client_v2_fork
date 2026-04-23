@@ -124,22 +124,11 @@ export default function CookiesPolicy() {
 
           </section>
 
-          {/* Third Parties */}
-          <section>
-            <h2 className="text-xl font-bold text-orange-900 mb-3">How Do Third Parties Use Cookies on This Website?</h2>
-            <p>
-              Third-party companies, such as analytics providers and ad networks, may use cookies to collect information about users on an anonymous basis. This data may be used to build profiles of your activities on this Website and on other websites you visit.
-            </p>
-          </section>
-
           {/* Your Cookie Options */}
           <section>
             <h2 className="text-xl font-bold text-orange-900 mb-3">Your Cookie Options</h2>
-            <p className="mb-3">
-              {`You can manage your cookie preferences by adjusting your browser settings. You may delete existing cookies or configure your browser to block new cookies. For further instructions, consult your browser's help section.`}
-            </p>
             <p>
-              Please note that if you delete or block cookies, certain features of the Website may not function properly, some content may not display correctly, and your preferences may not be saved.
+              {`You can manage your cookie preferences by adjusting your browser settings. You may delete existing cookies or configure your browser to block new cookies. For further instructions, consult your browser's help section.`}
             </p>
           </section>
 

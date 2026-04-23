@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
               <p className="mb-3">
                 {`These Terms and Conditions (`}<B>{`"Terms"`}</B>{`), read together with our Privacy Policy, govern your access to and use of the website `}
                 <a href="https://mindfultms.in/" className="text-blue-600 hover:underline">https://mindfultms.in/</a>
-                {` (`}<B>{`"Website"`}</B>{`) owned and operated by `}<U>Rangsons</U>{` Healthcare Solutions Private Limited which operates the mental health and `}<U>neurocare</U>{` service provider `}<U>MindfulTMS</U>{` `}<U>Neurocare</U>{` India (`}<B>{`"Company,"`}</B>{` `}<B>{`"we,"`}</B>{` `}<B>{`"us,"`}</B>{` or `}<B>{`"our"`}</B>{`). The Website provides Services relating to mental wellness, including repetitive `}<U>transcranial</U>{` magnetic stimulation, therapy and `}<U>counselling</U>{` services, psychiatry services, self-help resources, clinical assessments, `}<U>neuro</U>{` feedback training, `}<U>qEEG</U>{`, and wellness programs (the `}<B>{`"Services"`}</B>{`).`}
+                {` (`}<B>{`"Website"`}</B>{`) owned and operated by `}<B>{`MindfulTMS`}</B>{` (`}<B>{`"Company,"`}</B>{` `}<B>{`"we,"`}</B>{` `}<B>{`"us,"`}</B>{` or `}<B>{`"our"`}</B>{`). The Website provides Services including mental wellness, therapy, counselling, rTMS, qEEG, and wellness programs (the `}<B>{`"Services"`}</B>{`).`}
               </p>
               <p>
                 {`By accessing or using the Website, you confirm your agreement to these Terms, which shall be binding upon you. Please read them carefully before proceeding. If you do not accept these Terms, you are not permitted to access or use the Website or the Services.`}
@@ -132,6 +132,29 @@ export default function TermsAndConditions() {
                   <a href="mailto:cx@mindfultms.in" className="text-blue-600 hover:underline">cx@mindfultms.in</a>
                   {`. We will review your request individually and may, at our discretion and subject to applicable legal requirements, process a refund. The Company's decision in such matters shall be final and binding.`}
                 </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3">Specific Rescheduling and Refund Terms</h3>
+                <p className="mb-3 font-medium text-gray-800">Appointments (Audio / Video / Face-to-Face / Chat):</p>
+                <ul className="list-disc pl-6 space-y-2 mb-4">
+                  <li>Cancellation must be communicated at least 48 hours before the scheduled date/time.</li>
+                  <li>One rescheduling is allowed within 7 days.</li>
+                  <li>If technical difficulties occur during a session that are validated by our internal checks, we will reschedule the session.</li>
+                  <li>Refunds will not be processed for technical interruptions unless mandated by applicable law.</li>
+                  <li>If you fail to attend a scheduled audio or video session, it will be considered consumed and non-refundable.</li>
+                  <li>For in-person sessions, any missed appointment will be treated as completed, and no rescheduling or refund will be provided.</li>
+                  <li>For any other rescheduling request, at least 24 hours' advance notice is required.</li>
+                </ul>
+                <p className="mb-2">We accept payments through:</p>
+                <ul className="list-disc pl-6 space-y-1 mb-4">
+                  <li>Banking</li>
+                  <li>Cards</li>
+                  <li>UPI</li>
+                  <li>Authorized payment wallets</li>
+                </ul>
+                <p className="mb-2">{`Digital payment transactions are governed by the terms and conditions of your respective financial service provider. We do not assume any liability for issues arising from third-party platforms.`}</p>
+                <p>{`The Company may revise its pricing for Services at any time. Such revisions will be published on the Website and will be effective immediately upon publication.`}</p>
               </div>
             </div>
           </section>
