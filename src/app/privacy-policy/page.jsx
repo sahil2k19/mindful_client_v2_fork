@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold text-orange-900 mb-4">Background</h2>
             <p className="mb-4">
-              {`This document (`}<B>"Privacy Policy"</B>{`) is an electronic record in terms of the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and the rules framed thereunder as applicable.`}
+              {`This document (`}<B>{`"Privacy Policy"`}</B>{`) is an electronic record in terms of the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and the rules framed thereunder as applicable.`}
             </p>
             <p className="mb-4">
               <B>MindfulTMS</B>{` ("Organization"), having its places in Bengaluru and Delhi.`}
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
               {`This Privacy Policy covers: (i) the type of information collected by the Organization, including personal data or information; (ii) the purpose, means and modes of usage of such information; and (iii) how and to whom such information which has been collected will be disclosed.`}
             </p>
             <p>
-              {`For the purpose of this Privacy Policy, `}<B>"You"</B>{`, `}<B>"Your"</B>{` shall mean any natural or legal person that engages with the Organization. The term `}<B>"We"</B>{`, `}<B>"Us"</B>{`, `}<B>"Our"</B>{` shall mean the Organization, its employees, and authorised agents that perform any services on the Organization's behalf.`}
+              {`For the purpose of this Privacy Policy, `}<B>{`"You"`}</B>{`, `}<B>{`"Your"`}</B>{` shall mean any natural or legal person that engages with the Organization. The term `}<B>{`"We"`}</B>{`, `}<B>{`"Us"`}</B>{`, `}<B>{`"Our"`}</B>{` shall mean the Organization, its employees, and authorised agents that perform any services on the Organization's behalf.`}
             </p>
           </section>
 
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
               <li>Email address;</li>
               <li>Any other information</li>
             </ul>
-            <p>{`(collectively referred to as `}<B>"Personal Information"</B>{`).`}</p>
+            <p>{`(collectively referred to as `}<B>{`"Personal Information"`}</B>{`).`}</p>
           </section>
 
           {/* Use of Collected Information */}
@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold text-orange-900 mb-4">Consultation Information</h2>
             <p className="mb-4">
-              {`You may share information during personal consultations with Experts (`}<B>"Consultation Information"</B>{`). The Organization may use this information for:`}
+              {`You may share information during personal consultations with Experts (`}<B>{`"Consultation Information"`}</B>{`). The Organization may use this information for:`}
             </p>
             <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>Providing any personalised benefits;</li>
@@ -146,7 +146,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold text-orange-900 mb-4">Third Party Links</h2>
             <p className="mb-4">
-              {`The website may contain links to other websites (`}<B>"Linked Sites"</B>{`). The Linked Sites are not under the control of the Organization. We are not responsible for the content of any Linked Site.`}
+              {`The website may contain links to other websites (`}<B>{`"Linked Sites"`}</B>{`). The Linked Sites are not under the control of the Organization. We are not responsible for the content of any Linked Site.`}
             </p>
             <p className="mb-4">
               {`The Organization does not intend the Linked Sites to be referrals to, endorsements of, or affiliations with the linked entities.`}

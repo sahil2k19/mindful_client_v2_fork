@@ -144,7 +144,7 @@ export default function TermsAndConditions() {
                   <li>Refunds will not be processed for technical interruptions unless mandated by applicable law.</li>
                   <li>If you fail to attend a scheduled audio or video session, it will be considered consumed and non-refundable.</li>
                   <li>For in-person sessions, any missed appointment will be treated as completed, and no rescheduling or refund will be provided.</li>
-                  <li>For any other rescheduling request, at least 24 hours' advance notice is required.</li>
+                  <li>{`For any other rescheduling request, at least 24 hours' advance notice is required.`}</li>
                 </ul>
                 <p className="mb-2">We accept payments through:</p>
                 <ul className="list-disc pl-6 space-y-1 mb-4">
