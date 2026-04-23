@@ -83,7 +83,7 @@ const RtmsLandingPage = ({ city, data }) => {
                         {/* Image Section */}
                         <div className="flex justify-center md:col-span-3">
                             {city === 'gk' ? (
-                                <ImageCarousel images={locationDataArray['gk'].images} />
+                                <ImageCarousel images={data?.images?.length ? data.images : locationDataArray['gk'].images} />
                             ) : (
                                 <Image
                                     src={data?.section2Img}

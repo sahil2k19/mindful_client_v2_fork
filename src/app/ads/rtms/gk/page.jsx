@@ -2,6 +2,7 @@ import React from 'react'
 import Script from 'next/script';
 import RtmsLandingPage from  '../component/RtmsLandingPage'
 import { headers } from 'next/headers';
+import axios from 'axios';
 export async function generateMetadata({ params }) {
 
 
@@ -15,18 +16,25 @@ Whether you're facing stress, seeking personal growth, or need someone to talk t
 
 }
 
-const page = ({ params }) => {
+const page = async ({ params }) => {
     const headersList = headers();
   const currentUrl = headersList.get('x-full-url') || '';
   // console.log("currentUrl", currentUrl);
   const baseZohoForm = 'https://forms.zohopublic.in/nikhilmindf1/form/Form2025Delhi/formperma/gRVhhLpekwvSGqqK7AR5CbUIQRmCj0NeSZX862VPGwo';
   const zohoFormWithUrl = `${baseZohoForm}?from=landingpage&url=${encodeURIComponent(currentUrl)}&solution=rtms`;
 
+  let clinicImages = [];
+  try {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}clinicLocation/getData/New-Delhi/New-Delhi/clinic`);
+    clinicImages = res.data?.images || [];
+  } catch (e) {}
+
   // console.log("zohoFormWithUrl", zohoFormWithUrl);
   const data = {
     phone: `9606067372`,
     section2Img: '/ads/rtms/chairImg.jpg',
-    zohoForm: zohoFormWithUrl
+    zohoForm: zohoFormWithUrl,
+    images: clinicImages,
   };
   return (
     <>
