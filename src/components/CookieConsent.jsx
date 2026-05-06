@@ -132,18 +132,18 @@ export default function CookieConsent() {
         </div>
 
         {/* Footer / Buttons */}
-        <div className="border-t border-gray-200 px-5 py-3 flex flex-col sm:flex-row gap-2 sm:justify-end shrink-0 bg-white rounded-b-xl">
-          <button
-            onClick={handleDecline}
-            className="w-full sm:w-auto px-5 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:bg-gray-100 transition-colors"
-          >
-            Decline Non-Essential
-          </button>
+        <div className="border-t border-gray-200 px-5 py-4 flex flex-col items-center gap-2 shrink-0 bg-white rounded-b-xl">
           <button
             onClick={handleAccept}
-            className="w-full sm:w-auto px-6 py-2 rounded-lg bg-orange-900 text-white font-semibold text-sm hover:bg-orange-800 transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-orange-900 text-white font-semibold text-xs sm:text-sm whitespace-nowrap hover:bg-orange-800 transition-colors"
           >
-            Accept All Cookies
+            {`Allow & Continue — Get the Full Experience`}
+          </button>
+          <button
+            onClick={handleDecline}
+            className="text-gray-400 text-[11px] underline decoration-gray-200 underline-offset-2 hover:text-gray-500 transition-colors bg-transparent border-none cursor-pointer"
+          >
+            Use basic version only
           </button>
         </div>
 
