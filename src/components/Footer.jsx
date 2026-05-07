@@ -207,7 +207,7 @@ function Footer() {
             </div>
 
             {/* Legal Column */}
-            <div>
+            <div className="hidden">
               <h3 className="text-primary-orange font-bold text-lg mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
