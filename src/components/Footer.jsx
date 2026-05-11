@@ -115,7 +115,7 @@ function Footer() {
       {/* Multi-column Links Section */}
       {!shouldHideFooter && (
         <div className="max-w-7xl mx-auto px-6 mb-10">
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6 md:gap-8 lg:gap-6">
             {/* Locations Column */}
             <div>
               <h3 className="text-primary-orange font-bold text-lg mb-4">Locations</h3>
@@ -207,12 +207,17 @@ function Footer() {
             </div>
 
             {/* Legal Column */}
-            <div className="hidden">
+            <div className="lg:col-span-2">
               <h3 className="text-primary-orange font-bold text-lg mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
+                  <Link href="/privacy-policy" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
                   <Link href="/terms-and-conditions" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
-                    Terms & Conditions
+                    Terms and Conditions
                   </Link>
                 </li>
                 <li>
@@ -222,7 +227,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link href="/payment-terms" className="text-gray-600 hover:text-primary-orange hover:underline transition-colors text-sm">
-                    Payment Terms
+                    Payment & Appointment Terms
                   </Link>
                 </li>
               </ul>

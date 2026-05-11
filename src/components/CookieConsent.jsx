@@ -27,7 +27,7 @@ export default function CookieConsent() {
     setVisible(false);
   }
 
-  if (true || !visible || LEGAL_PATHS.includes(pathname)) return null;
+  if (!visible || LEGAL_PATHS.includes(pathname)) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4 py-4">
