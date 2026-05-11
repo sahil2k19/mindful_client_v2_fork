@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
               <p className="mb-3">
                 {`These Terms and Conditions (`}<B>{`"Terms"`}</B>{`), read together with our Privacy Policy, govern your access to and use of the website `}
                 <a href="https://mindfultms.in/" className="text-blue-600 hover:underline">https://mindfultms.in/</a>
-                {` (`}<B>{`"Website"`}</B>{`) owned and operated by `}<B>{`MindfulTMS`}</B>{` (`}<B>{`"Company,"`}</B>{` `}<B>{`"we,"`}</B>{` `}<B>{`"us,"`}</B>{` or `}<B>{`"our"`}</B>{`). The Website provides Services including mental wellness, therapy, counselling, rTMS, qEEG, and wellness programs (the `}<B>{`"Services"`}</B>{`).`}
+                {` (`}<B>{`"Website"`}</B>{`) owned and operated by Rangsons Healthcare Solutions Private Limited which operates the mental health and neurocare service provider MindfulTMS Neurocare India (`}<B>{`"Company,"`}</B>{` `}<B>{`"we,"`}</B>{` `}<B>{`"us,"`}</B>{` or `}<B>{`"our"`}</B>{`). The Website provides Services relating to mental wellness, including repetitive transcranial magnetic stimulation, therapy and counselling services, psychiatry services, self-help resources, clinical assessments, neuro feedback training, qEEG, and wellness programs (the `}<B>{`"Services"`}</B>{`).`}
               </p>
               <p>
                 {`By accessing or using the Website, you confirm your agreement to these Terms, which shall be binding upon you. Please read them carefully before proceeding. If you do not accept these Terms, you are not permitted to access or use the Website or the Services.`}
@@ -138,23 +138,21 @@ export default function TermsAndConditions() {
                 <h3 className="font-semibold text-gray-900 mb-3">Specific Rescheduling and Refund Terms</h3>
                 <p className="mb-3 font-medium text-gray-800">Appointments (Audio / Video / Face-to-Face / Chat):</p>
                 <ul className="list-disc pl-6 space-y-2 mb-4">
-                  <li>Cancellation must be communicated at least 48 hours before the scheduled date/time.</li>
-                  <li>One rescheduling is allowed within 7 days.</li>
-                  <li>If technical difficulties occur during a session that are validated by our internal checks, we will reschedule the session.</li>
-                  <li>Refunds will not be processed for technical interruptions unless mandated by applicable law.</li>
+                  <li>We will attempt to confirm your appointment twice before the scheduled date/time. If there is no response within 1 (One) days from our last outreach, the session will be marked as consumed and will not be eligible for a refund.</li>
+                  <li>If technical difficulties occur during a session, and such issues are validated by our internal checks, we will reschedule the session. Refunds will not be processed for technical interruptions unless mandated by applicable law.</li>
                   <li>If you fail to attend a scheduled audio or video session, it will be considered consumed and non-refundable.</li>
                   <li>For in-person sessions, any missed appointment will be treated as completed, and no rescheduling or refund will be provided.</li>
-                  <li>{`For any other rescheduling request, at least 24 hours' advance notice is required.`}</li>
+                  <li>{`For any other rescheduling request, at least 24 hours' advance notice is required. Requests made within a shorter timeframe may be accommodated at our discretion. Refunds will not be issued for short-notice cancellations unless required by law or otherwise agreed upon.`}</li>
                 </ul>
-                <p className="mb-2">We accept payments through:</p>
+                <p className="mb-2">We accept payments through the following modes:</p>
                 <ul className="list-disc pl-6 space-y-1 mb-4">
-                  <li>Banking</li>
-                  <li>Cards</li>
-                  <li>UPI</li>
-                  <li>Authorized payment wallets</li>
+                  <li>Internet Banking;</li>
+                  <li>Debit or Credit Cards;</li>
+                  <li>Unified Payments Interface (UPI);</li>
+                  <li>Authorized payment wallets.</li>
                 </ul>
-                <p className="mb-2">{`Digital payment transactions are governed by the terms and conditions of your respective financial service provider. We do not assume any liability for issues arising from third-party platforms.`}</p>
-                <p>{`The Company may revise its pricing for Services at any time. Such revisions will be published on the Website and will be effective immediately upon publication.`}</p>
+                <p className="mb-2">{`Digital payment transactions are governed by the terms and conditions of your respective financial service provider. We do not assume any liability for issues including, but not limited to, transaction failures, lack of authorization, or fraudulent activity arising from third-party platforms.`}</p>
+                <p>{`The Company may revise its pricing for Services at any time. Such revisions will be published on the Website and will be effective immediately upon publication. You agree to be bound by the updated pricing terms for any Services you choose to access thereafter.`}</p>
               </div>
             </div>
           </section>
@@ -330,7 +328,6 @@ export default function TermsAndConditions() {
             <p className="mb-4">{`Please report any violations or grievances in relation to these Terms to the following personnel:`}</p>
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 space-y-1">
               <p><span className="font-semibold">Name:</span> <U>Arokiaraj Charles Williams</U></p>
-              <p><span className="font-semibold">Designation:</span> General Manager – India Operations</p>
               <p>
                 <span className="font-semibold">Email:</span>{' '}
                 <a href="mailto:charles.williams@mindfultms.in" className="text-blue-600 hover:underline">
