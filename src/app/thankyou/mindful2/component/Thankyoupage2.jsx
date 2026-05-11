@@ -6,7 +6,7 @@ import { Circle } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-const Thankyoupage2 = () => {
+const Thankyoupage2 = ({ whatsapp = '9606030958' }) => {
      const router = useRouter()
     const searchParams = useSearchParams();
     // console.log("searchParams", searchParams.get('practourl'));
@@ -71,7 +71,7 @@ const Thankyoupage2 = () => {
 
                                 <div className='flex justify-center'>
                                     <Link
-                                        href={`https://wa.me/9606030958?text=${encodeURIComponent('Mindful TMS')}`}
+                                        href={`https://wa.me/${whatsapp}?text=${encodeURIComponent('Mindful TMS')}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
