@@ -13,6 +13,7 @@ const EXPERT_BOOKING_URLS = {
   "Ms. Navya Shree": "https://book.mindfultms.in/#/237416000000654376",
   "Ms Swati Agarwal": "https://book.mindfultms.in/#/237416000000651116",
   "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182",
+  "Ms Yamini K.V": "https://book.mindfultms.in/#/237416000000850012",
 };
 
 const CALLBACK_ONLY_EXPERTS = {

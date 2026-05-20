@@ -11,6 +11,7 @@ import { trackEvent } from '@/lib/gtag';
 const EXPERT_BOOKING_URLS = {
   // "Dr. Sandeep Govil": "https://book.mindfultms.in/#/237416000000631008",
   "Dr. Shubham Narnoli": "https://book.mindfultms.in/#/237416000000621008",
+  "Ms Yamini K.V": "https://book.mindfultms.in/#/237416000000850012",
   "Ms. Mamatha S": "https://book.mindfultms.in/#/237416000000616008",
   "Ms. Sadaf Rais": "https://book.mindfultms.in/#/237416000000602026",
   "Ms. Shilpi Sharma": "https://book.mindfultms.in/#/237416000000602018",

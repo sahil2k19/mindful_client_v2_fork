@@ -14,6 +14,7 @@ const EXPERT_BOOKING_URLS = {
   "Ms. Navya Shree": "https://book.mindfultms.in/#/237416000000654376",
   "Ms Swati Agarwal": "https://book.mindfultms.in/#/237416000000651116",
   "Ms. Aanshi Taneja Yadahalli": "https://book.mindfultms.in/#/237416000000634182",
+  "Ms Yamini K.V": "https://book.mindfultms.in/#/237416000000850012",
 };
 
 const CALLBACK_ONLY_EXPERTS = {
@@ -52,7 +53,9 @@ const OurDoctorSection = ({ designation }) => {
       });
 
       const groupedExperts = res.data.reduce((acc, expert) => {
-        if (expert.location === "Bengaluru - Whitefield") {
+        if (expert.name && expert.name.includes("Yamini K.V")) {
+          acc["Bengaluru - Mahadevapura"] = [...(acc["Bengaluru - Mahadevapura"] || []), expert];
+        } else if (expert.location === "Bengaluru - Whitefield") {
           acc["Bengaluru - Whitefield"] = [...(acc["Bengaluru - Whitefield"] || []), expert];
         } else if (expert.location === "Bengaluru - Hebbal") {
           acc["Bengaluru - Hebbal"] = [...(acc["Bengaluru - Hebbal"] || []), expert];
